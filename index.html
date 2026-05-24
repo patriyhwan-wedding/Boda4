@@ -21,59 +21,15 @@ body{
   url('foto2.jpg') center/cover fixed no-repeat;
 }
 
-/* ⬆️ TIMER MÁS ARRIBA */
-#timer{
-  font-size:1.3rem;
-  margin-bottom:85px;
-  letter-spacing:3px;
-  background:rgba(0,0,0,0.25);
-  padding:12px 24px;
-  border-radius:999px;
-  backdrop-filter:blur(10px);
-}
-
-/* ⬇️ BAJAR TEXTO HERO (subtítulo más abajo visualmente) */
-.hero p{
-  margin-top:18px;
-  letter-spacing:5px;
-  text-transform:uppercase;
-}
-
-#language-selector{
-  position:fixed;inset:0;
-  background:#111;
-  z-index:9999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-}
-
-#language-selector h2{
-  font-family:'Cormorant Garamond',serif;
-  font-size:3rem;
-  margin-bottom:40px;
-}
-
-.lang-buttons{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;}
-
-.lang-btn{
-  padding:14px 28px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,0.2);
-  background:rgba(255,255,255,0.08);
-  color:white;
-  cursor:pointer;
-}
-
+/* 🔥 HERO MÁS BAJO (NO CARAS) */
 .hero{
   height:100vh;
   display:flex;
-  justify-content:center;
+  justify-content:flex-start;
   align-items:center;
   text-align:center;
   position:relative;
-  padding:20px;
+  padding:160px 20px 80px 20px;
   background:
   linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.45)),
   url('foto1.jpg') center/cover no-repeat;
@@ -84,7 +40,28 @@ body{
   font-size:clamp(4rem,10vw,7rem);
 }
 
-section{max-width:1100px;margin:auto;padding:100px 25px;}
+/* ⬆️ TIMER MÁS ARRIBA */
+#timer{
+  font-size:1.3rem;
+  margin-bottom:120px;
+  padding:12px 24px;
+  border-radius:999px;
+  background:rgba(0,0,0,0.25);
+  backdrop-filter:blur(10px);
+}
+
+/* TEXTO HERO MÁS BAJO */
+.hero p{
+  margin-top:20px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+}
+
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:100px 25px;
+}
 
 .section-title{
   font-family:'Cormorant Garamond',serif;
@@ -93,7 +70,12 @@ section{max-width:1100px;margin:auto;padding:100px 25px;}
   margin-bottom:25px;
 }
 
-.intro{text-align:center;max-width:750px;margin:auto;line-height:1.8;}
+.intro{
+  text-align:center;
+  max-width:750px;
+  margin:auto;
+  line-height:1.8;
+}
 
 .details-grid{
   display:grid;
@@ -126,22 +108,51 @@ footer{
   color:#ccc;
 }
 
+/* LANGUAGE */
+#language-selector{
+  position:fixed;
+  inset:0;
+  background:#111;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.lang-buttons{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.lang-btn{
+  padding:14px 28px;
+  border-radius:999px;
+  border:1px solid white;
+  background:transparent;
+  color:white;
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- 🌍 LANGUAGE -->
 <div id="language-selector">
 <h2>Choose Language</h2>
 <div class="lang-buttons">
-<button onclick="setLanguage('es')">Español</button>
-<button onclick="setLanguage('en')">English</button>
-<button onclick="setLanguage('fr')">Français</button>
-<button onclick="setLanguage('it')">Italiano</button>
-<button onclick="setLanguage('kr')">한국어</button>
+<button class="lang-btn" onclick="setLanguage('es')">Español</button>
+<button class="lang-btn" onclick="setLanguage('en')">English</button>
+<button class="lang-btn" onclick="setLanguage('fr')">Français</button>
+<button class="lang-btn" onclick="setLanguage('it')">Italiano</button>
+<button class="lang-btn" onclick="setLanguage('kr')">한국어</button>
 </div>
 </div>
 
+<!-- HERO -->
 <section class="hero">
 <div>
 
@@ -154,20 +165,21 @@ footer{
 </div>
 </section>
 
+<!-- STORY -->
 <section>
 <h2 class="section-title" id="storyTitle"></h2>
 <p class="intro" id="storyText"></p>
 </section>
 
+<!-- DETAILS -->
 <section>
-
 <h2 class="section-title" id="detailsTitle"></h2>
 
 <div class="details-grid">
 
 <div class="card">
 <h3 id="ceremonyTitle"></h3>
-<p id="ceremonyTime">17:30h</p>
+<p>17:30h</p>
 <p id="ceremonyPlace"></p>
 </div>
 
@@ -188,25 +200,17 @@ footer{
 <div class="details-grid">
 
 <div class="card">
-
 <h3 id="stayTitle"></h3>
-<p id="stayText"></p>
 
-<p id="hotel1Title"></p>
-<p>15%</p>
+<p>Hotel Amistad Murcia</p>
+<a class="btn" target="_blank" href="Descuentos en hotel para vosotros.pdf">
+PDF Hotel
+</a>
 
-<a class="btn" target="_blank"
-href="Descuentos en hotel para vosotros.pdf"
-id="hotel1Btn"></a>
-
-<p style="margin-top:20px;"></p>
-
-<p id="hotel2Title"></p>
-<p>20%</p>
-
-<a class="btn" target="_blank"
-href="CETINA 2026 - SIEMPREVERDE-EL BOSCO.pdf"
-id="hotel2Btn"></a>
+<p style="margin-top:20px;">Cetina Murcia</p>
+<a class="btn" target="_blank" href="CETINA 2026 - SIEMPREVERDE-EL BOSCO.pdf">
+PDF Hotel
+</a>
 
 </div>
 
@@ -216,35 +220,64 @@ id="hotel2Btn"></a>
 <p id="musicText"></p>
 
 <a class="btn" target="_blank"
-href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe"
-id="musicBtn"></a>
+href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe">
+Playlist
+</a>
 
 </div>
 
 </div>
-
 </section>
 
+<!-- CONFIRM -->
 <section>
-
 <h2 class="section-title" id="confirmTitle"></h2>
 
 <div style="text-align:center;">
-<a class="btn" target="_blank"
-href="https://forms.gle/VbBLwKAwJP2qk6uT9"
-id="confirmBtn"></a>
+<a class="btn" target="_blank" href="https://forms.gle/VbBLwKAwJP2qk6uT9">
+Confirmar
+</a>
 </div>
 
 </section>
 
 <footer id="footer"></footer>
 
+<!-- AUDIO -->
 <audio id="bg-music" loop>
-<source src="Lavieenrose.mp3">
+<source src="Lavieenrose.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
+/* 🎵 AUDIO FIX REAL */
+let musicStarted = false;
+
+function startMusic(){
+  if(musicStarted) return;
+  const audio = document.getElementById("bg-music");
+  audio.volume = 0.25;
+  audio.play().catch(()=>{});
+  musicStarted = true;
+}
+
+document.addEventListener("click", startMusic);
+document.addEventListener("touchstart", startMusic);
+
+/* ⏱️ COUNTDOWN */
+const weddingDate = new Date("September 26, 2026 17:30:00").getTime();
+
+setInterval(()=>{
+const now = Date.now();
+const d = weddingDate - now;
+
+document.getElementById("timer").innerHTML =
+Math.floor(d/86400000)+" days · "+
+Math.floor(d%86400000/3600000)+"h · "+
+Math.floor(d%3600000/60000)+"m";
+},1000);
+
+/* 🌍 TRANSLATIONS */
 const translations = {
 
 es:{
@@ -259,19 +292,12 @@ partyText1:"Cena y fiesta",
 partyText2:"Hasta el amanecer ✨",
 dressTitle:"Dress Code",
 dressText1:"Libre",
-dressText2:"Lo importante es celebrar juntos ✨",
+dressText2:"Celebrar juntos ✨",
 stayTitle:"Alojamiento",
-stayText:"Opciones para vuestra estancia",
-hotel1Title:"Hotel Amistad Murcia",
-hotel1Btn:"Ver PDF",
-hotel2Title:"Cetina Murcia",
-hotel2Btn:"Ver PDF",
 musicTitle:"Música",
-musicText:"Añade canciones a la playlist ✨",
-musicBtn:"Abrir playlist",
+musicText:"Añade canciones ✨",
 confirmTitle:"Confirmación",
-confirmBtn:"Confirmar asistencia",
-footer:"Hecho con amor · Patricia & Hyo Hwan"
+footer:"Hecho con amor"
 },
 
 en:{
@@ -288,56 +314,36 @@ dressTitle:"Dress Code",
 dressText1:"Free",
 dressText2:"Celebrate together ✨",
 stayTitle:"Accommodation",
-stayText:"Stay options available",
-hotel1Title:"Hotel Amistad Murcia",
-hotel1Btn:"Open PDF",
-hotel2Title:"Cetina Murcia",
-hotel2Btn:"Open PDF",
 musicTitle:"Music",
-musicText:"Add songs to playlist ✨",
-musicBtn:"Open playlist",
+musicText:"Add songs ✨",
 confirmTitle:"RSVP",
-confirmBtn:"Confirm attendance",
-footer:"Made with love · Patricia & Hyo Hwan"
+footer:"Made with love"
 },
 
-fr:{heroSubtitle:"NOUS NOUS MARIONS",storyTitle:"Notre Histoire",storyText:"Deux chemins se sont croisés...",detailsTitle:"Détails",ceremonyTitle:"Cérémonie",ceremonyPlace:"Finca Siempre Verde · Murcie",partyTitle:"Célébration",partyText1:"Dîner et fête",partyText2:"Jusqu’au lever du soleil ✨",dressTitle:"Dress Code",dressText1:"Libre",dressText2:"Célébrer ensemble ✨",stayTitle:"Hébergement",stayText:"Options d’hébergement",hotel1Title:"Hotel Amistad Murcia",hotel1Btn:"Ouvrir PDF",hotel2Title:"Cetina Murcia",hotel2Btn:"Ouvrir PDF",musicTitle:"Musique",musicText:"Ajoutez des chansons ✨",musicBtn:"Playlist",confirmTitle:"Confirmation",confirmBtn:"Confirmer",footer:"Fait avec amour · Patricia & Hyo Hwan"},
+fr:{
+heroSubtitle:"NOUS NOUS MARIONS",
+storyTitle:"Notre Histoire",
+storyText:"Deux chemins se sont croisés...",
+detailsTitle:"Détails",
+ceremonyTitle:"Cérémonie",
+ceremonyPlace:"Murcie",
+partyTitle:"Célébration",
+partyText1:"Dîner et fête",
+partyText2:"Jusqu’au lever ✨",
+dressTitle:"Dress Code",
+dressText1:"Libre",
+dressText2:"Célébrer ensemble ✨",
+stayTitle:"Hébergement",
+musicTitle:"Musique",
+musicText:"Ajoutez des chansons ✨",
+confirmTitle:"Confirmation",
+footer:"Avec amour"
+},
 
-it:{heroSubtitle:"CI SPOSIAMO",storyTitle:"La Nostra Storia",storyText:"Due strade si sono incrociate...",detailsTitle:"Dettagli",ceremonyTitle:"Cerimonia",ceremonyPlace:"Finca Siempre Verde · Murcia",partyTitle:"Celebrazione",partyText1:"Cena e festa",partyText2:"Fino all’alba ✨",dressTitle:"Dress Code",dressText1:"Libero",dressText2:"Celebrare insieme ✨",stayTitle:"Alloggio",stayText:"Opzioni di soggiorno",hotel1Title:"Hotel Amistad Murcia",hotel1Btn:"Apri PDF",hotel2Title:"Cetina Murcia",hotel2Btn:"Apri PDF",musicTitle:"Musica",musicText:"Aggiungi brani ✨",musicBtn:"Playlist",confirmTitle:"Conferma",confirmBtn:"Conferma presenza",footer:"Fatto con amore · Patricia & Hyo Hwan"},
-
-kr:{heroSubtitle:"결혼합니다",storyTitle:"우리 이야기",storyText:"두 사람이 만난 순간...",detailsTitle:"정보",ceremonyTitle:"예식",ceremonyPlace:"Siempre Verde · 무르시아",partyTitle:"파티",partyText1:"디너 & 파티",partyText2:"새벽까지 ✨",dressTitle:"드레스 코드",dressText1:"자유",dressText2:"함께 축하 ✨",stayTitle:"숙소",stayText:"숙박 옵션",hotel1Title:"Hotel Amistad Murcia",hotel1Btn:"PDF 보기",hotel2Title:"Cetina Murcia",hotel2Btn:"PDF 보기",musicTitle:"음악",musicText:"플레이리스트 추가 ✨",musicBtn:"열기",confirmTitle:"참석",confirmBtn:"확인",footer:"사랑으로 제작됨 · Patricia & Hyo Hwan"}
-
-};
-
-function setLanguage(lang){
-
-document.getElementById("language-selector").style.display="none";
-
-Object.keys(translations[lang]).forEach(id=>{
-const el=document.getElementById(id);
-if(el) el.innerHTML = translations[lang][id];
-});
-
-const audio=document.getElementById("bg-music");
-audio.volume=0.25;
-audio.play().catch(()=>{});
-
-}
-
-const weddingDate=new Date("September 26, 2026 17:30:00").getTime();
-
-setInterval(()=>{
-const now=Date.now();
-const d=weddingDate-now;
-
-document.getElementById("timer").innerHTML =
-Math.floor(d/86400000)+" days · "+
-Math.floor(d%86400000/3600000)+"h · "+
-Math.floor(d%3600000/60000)+"m";
-
-},1000);
-
-</script>
-
-</body>
-</html>
+it:{
+heroSubtitle:"CI SPOSIAMO",
+storyTitle:"La Nostra Storia",
+storyText:"Due strade si sono incrociate...",
+detailsTitle:"Dettagli",
+ceremonyTitle:"Cerimonia",
+ceremonyPlace:"
