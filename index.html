@@ -1,349 +1,161 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Patricia & Hyo Hwan</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Boda</title>
 
 <style>
-
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-  font-family:'Montserrat',sans-serif;
-  color:white;
-  overflow-x:hidden;
-  background:
-  linear-gradient(rgba(0,0,0,0.70),rgba(0,0,0,0.70)),
-  url('foto2.jpg') center/cover fixed no-repeat;
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-/* 🔥 HERO MÁS BAJO (NO CARAS) */
-.hero{
-  height:100vh;
-  display:flex;
-  justify-content:flex-start;
-  align-items:center;
-  text-align:center;
-  position:relative;
-  padding:160px 20px 80px 20px;
-  background:
-  linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.45)),
-  url('foto1.jpg') center/cover no-repeat;
+body, html {
+  height: 100%;
+  overflow-x: hidden;
+  background: #000;
 }
 
-.hero h1{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(4rem,10vw,7rem);
+/* LANG SELECTOR */
+#langSelector {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+  background: rgba(0,0,0,0.6);
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: white;
 }
 
-/* ⬆️ TIMER MÁS ARRIBA */
-#timer{
-  font-size:1.3rem;
-  margin-bottom:120px;
-  padding:12px 24px;
-  border-radius:999px;
-  background:rgba(0,0,0,0.25);
-  backdrop-filter:blur(10px);
+#langSelector button {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 8px;
+  margin: 0 3px;
+  cursor: pointer;
 }
 
-/* TEXTO HERO MÁS BAJO */
-.hero p{
-  margin-top:20px;
-  letter-spacing:5px;
-  text-transform:uppercase;
+/* HERO */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
-section{
-  max-width:1100px;
-  margin:auto;
-  padding:100px 25px;
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.75);
 }
 
-.section-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:3rem;
-  text-align:center;
-  margin-bottom:25px;
+/* OVERLAY TEXT */
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+  padding: 20px;
+  max-width: 90%;
 }
 
-.intro{
-  text-align:center;
-  max-width:750px;
-  margin:auto;
-  line-height:1.8;
+.hero-text h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
 }
 
-.details-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
-  margin-top:60px;
+.hero-text p {
+  font-size: 1.2em;
 }
 
-.card{
-  background:rgba(255,255,255,0.08);
-  border-radius:24px;
-  padding:40px;
-  text-align:center;
-  backdrop-filter:blur(12px);
+/* COUNTDOWN */
+#countdown {
+  margin-top: 15px;
+  font-size: 1.5em;
 }
 
-.btn{
-  display:inline-block;
-  margin-top:20px;
-  padding:14px 34px;
-  border-radius:999px;
-  background:white;
-  color:black;
-  text-decoration:none;
+/* MUSIC BUTTON */
+#musicBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background: white;
 }
 
-footer{
-  text-align:center;
-  padding:40px;
-  color:#ccc;
+/* SECTIONS */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+  background: #111;
+  color: white;
 }
 
-/* LANGUAGE */
-#language-selector{
-  position:fixed;
-  inset:0;
-  background:#111;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
+.section img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-top: 20px;
 }
-
-.lang-buttons{
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
-.lang-btn{
-  padding:14px 28px;
-  border-radius:999px;
-  border:1px solid white;
-  background:transparent;
-  color:white;
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- 🌍 LANGUAGE -->
-<div id="language-selector">
-<h2>Choose Language</h2>
-<div class="lang-buttons">
-<button class="lang-btn" onclick="setLanguage('es')">Español</button>
-<button class="lang-btn" onclick="setLanguage('en')">English</button>
-<button class="lang-btn" onclick="setLanguage('fr')">Français</button>
-<button class="lang-btn" onclick="setLanguage('it')">Italiano</button>
-<button class="lang-btn" onclick="setLanguage('kr')">한국어</button>
-</div>
+<!-- LANGUAGE -->
+<div id="langSelector">
+  <button onclick="setLang('es')">ES</button>
+  <button onclick="setLang('en')">EN</button>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-<div>
-
-<div id="timer"></div>
-
-<p id="heroSubtitle">WE ARE GETTING MARRIED</p>
-<h1>Patricia & Hyo Hwan</h1>
-<p id="dateText">26 · September · 2026</p>
-
-</div>
-</section>
-
-<!-- STORY -->
-<section>
-<h2 class="section-title" id="storyTitle"></h2>
-<p class="intro" id="storyText"></p>
-</section>
-
-<!-- DETAILS -->
-<section>
-<h2 class="section-title" id="detailsTitle"></h2>
-
-<div class="details-grid">
-
-<div class="card">
-<h3 id="ceremonyTitle"></h3>
-<p>17:30h</p>
-<p id="ceremonyPlace"></p>
-</div>
-
-<div class="card">
-<h3 id="partyTitle"></h3>
-<p id="partyText1"></p>
-<p id="partyText2"></p>
-</div>
-
-<div class="card">
-<h3 id="dressTitle"></h3>
-<p id="dressText1"></p>
-<p id="dressText2"></p>
-</div>
-
-</div>
-
-<div class="details-grid">
-
-<div class="card">
-<h3 id="stayTitle"></h3>
-
-<p>Hotel Amistad Murcia</p>
-<a class="btn" target="_blank" href="Descuentos en hotel para vosotros.pdf">
-PDF Hotel
-</a>
-
-<p style="margin-top:20px;">Cetina Murcia</p>
-<a class="btn" target="_blank" href="CETINA 2026 - SIEMPREVERDE-EL BOSCO.pdf">
-PDF Hotel
-</a>
-
-</div>
-
-<div class="card">
-
-<h3 id="musicTitle"></h3>
-<p id="musicText"></p>
-
-<a class="btn" target="_blank"
-href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe">
-Playlist
-</a>
-
-</div>
-
-</div>
-</section>
-
-<!-- CONFIRM -->
-<section>
-<h2 class="section-title" id="confirmTitle"></h2>
-
-<div style="text-align:center;">
-<a class="btn" target="_blank" href="https://forms.gle/VbBLwKAwJP2qk6uT9">
-Confirmar
-</a>
-</div>
-
-</section>
-
-<footer id="footer"></footer>
-
-<!-- AUDIO -->
-<audio id="bg-music" loop>
-<source src="Lavieenrose.mp3" type="audio/mpeg">
+<!-- MUSIC -->
+<button id="musicBtn">▶ Música</button>
+<audio id="audio" loop>
+  <source src="La vie en rose - Louis Armstrong.mp3" type="audio/mpeg">
 </audio>
 
+<!-- HERO -->
+<div class="hero">
+  <img src="foto1.jpg" alt="boda">
+  <div class="hero-text">
+    <h1 id="title">Nuestra Boda</h1>
+    <p id="subtitle">24 de Mayo 2026</p>
+    
+    <div id="countdown"></div>
+  </div>
+</div>
+
+<!-- SECTION -->
+<div class="section">
+  <h2 id="storyTitle">Nuestra historia</h2>
+  <p id="storyText">
+    Desde el primer día supimos que esto era especial.
+  </p>
+  <img src="foto2.jpg" alt="historia">
+</div>
+
+<!-- SCRIPT -->
 <script>
-
-/* 🎵 AUDIO FIX REAL */
-let musicStarted = false;
-
-function startMusic(){
-  if(musicStarted) return;
-  const audio = document.getElementById("bg-music");
-  audio.volume = 0.25;
-  audio.play().catch(()=>{});
-  musicStarted = true;
-}
-
-document.addEventListener("click", startMusic);
-document.addEventListener("touchstart", startMusic);
-
-/* ⏱️ COUNTDOWN */
-const weddingDate = new Date("September 26, 2026 17:30:00").getTime();
-
-setInterval(()=>{
-const now = Date.now();
-const d = weddingDate - now;
-
-document.getElementById("timer").innerHTML =
-Math.floor(d/86400000)+" days · "+
-Math.floor(d%86400000/3600000)+"h · "+
-Math.floor(d%3600000/60000)+"m";
-},1000);
-
-/* 🌍 TRANSLATIONS */
-const translations = {
-
-es:{
-heroSubtitle:"NOS CASAMOS",
-storyTitle:"Nuestra Historia",
-storyText:"Dos caminos se cruzaron en el momento perfecto...",
-detailsTitle:"Detalles",
-ceremonyTitle:"Ceremonia",
-ceremonyPlace:"Finca Siempre Verde · Murcia",
-partyTitle:"Celebración",
-partyText1:"Cena y fiesta",
-partyText2:"Hasta el amanecer ✨",
-dressTitle:"Dress Code",
-dressText1:"Libre",
-dressText2:"Celebrar juntos ✨",
-stayTitle:"Alojamiento",
-musicTitle:"Música",
-musicText:"Añade canciones ✨",
-confirmTitle:"Confirmación",
-footer:"Hecho con amor"
-},
-
-en:{
-heroSubtitle:"WE ARE GETTING MARRIED",
-storyTitle:"Our Story",
-storyText:"Two paths crossed at the perfect moment...",
-detailsTitle:"Details",
-ceremonyTitle:"Ceremony",
-ceremonyPlace:"Siempre Verde Estate · Murcia",
-partyTitle:"Celebration",
-partyText1:"Dinner & Party",
-partyText2:"Until sunrise ✨",
-dressTitle:"Dress Code",
-dressText1:"Free",
-dressText2:"Celebrate together ✨",
-stayTitle:"Accommodation",
-musicTitle:"Music",
-musicText:"Add songs ✨",
-confirmTitle:"RSVP",
-footer:"Made with love"
-},
-
-fr:{
-heroSubtitle:"NOUS NOUS MARIONS",
-storyTitle:"Notre Histoire",
-storyText:"Deux chemins se sont croisés...",
-detailsTitle:"Détails",
-ceremonyTitle:"Cérémonie",
-ceremonyPlace:"Murcie",
-partyTitle:"Célébration",
-partyText1:"Dîner et fête",
-partyText2:"Jusqu’au lever ✨",
-dressTitle:"Dress Code",
-dressText1:"Libre",
-dressText2:"Célébrer ensemble ✨",
-stayTitle:"Hébergement",
-musicTitle:"Musique",
-musicText:"Ajoutez des chansons ✨",
-confirmTitle:"Confirmation",
-footer:"Avec amour"
-},
-
-it:{
-heroSubtitle:"CI SPOSIAMO",
-storyTitle:"La Nostra Storia",
-storyText:"Due strade si sono incrociate...",
-detailsTitle:"Dettagli",
-ceremonyTitle:"Cerimonia",
-ceremonyPlace:"
+// LANGUAGE
+function setLang(lang) {
+  if (lang === 'es') {
+    document.getElementById("title").innerText = "Nuestra Boda";
+    document.getElementById("subtitle").innerText = "24 de Mayo 2026";
+    document.getElementById("storyTitle").innerText = "Nuestra historia";
+    document.getElementById("
