@@ -248,28 +248,28 @@
     </p>  </section>  <section>
     <h2 class="section-title" id="detailsTitle">Detalles</h2><div class="details-grid">
   <div class="card">
-    <h3>Ceremonia</h3>
+    <h3 id="ceremonyTitle">Ceremonia</h3>
     <p>17:30h</p>
-    <p>Finca Siempre Verde · Murcia</p>
+    <p id="ceremonyPlace">Finca Siempre Verde · Murcia</p>
   </div>
 
   <div class="card">
-    <h3>Celebración</h3>
-    <p>Cena & Fiesta</p>
-    <p>Hasta el amanecer ✨</p>
+    <h3 id="partyTitle">Celebración</h3>
+    <p id="partyText1">Cena & Fiesta</p>
+    <p id="partyText2">Hasta el amanecer ✨</p>
   </div>
 
   <div class="card">
-    <h3>Dress Code</h3>
-    <p>Libre</p>
-    <p>Lo importante es celebrar juntos ✨</p>
+    <h3 id="dressTitle">Dress Code</h3>
+    <p id="dressText1">Libre</p>
+    <p id="dressText2">Lo importante es celebrar juntos ✨</p>
   </div>
 </div>
 
 <div class="details-grid" style="margin-top:60px;">
   <div class="card">
-    <h3>Alojamiento</h3>
-    <p>Hemos preparado varias opciones para que vuestra estancia sea cómoda y sencilla.</p>
+    <h3 id="stayTitle">Alojamiento</h3>
+    <p id="stayText">Hemos preparado varias opciones para que vuestra estancia sea cómoda y sencilla.</p>
 
     <p style="margin-top:22px; font-weight:600;">Hotel Amistad Murcia</p>
     <p>15% descuento</p>
@@ -285,17 +285,15 @@
   </div>
 
   <div class="card">
-    <h3>Música</h3>
-    <p>Añade canciones a nuestra playlist colaborativa para la fiesta ✨</p>
+    <h3 id="musicTitle">Música</h3>
+    <p id="musicText">Añade canciones a nuestra playlist colaborativa para la fiesta ✨</p>
     <a href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe?si=1tHEKd_NTpWhz4HExSFkEQ&pi=_cukPLaMRJWlD" target="_blank" class="btn" style="margin-top:20px; display:inline-block;">ABRIR PLAYLIST</a>
   </div>
 </div>
 
   </section>  <section class="rsvp">
     <h2 class="section-title" id="confirmTitle">Confirmación</h2>
-    <p class="intro">
-      Nos haría muchísima ilusión compartir este día contigo.
-    </p><a href="https://forms.gle/VbBLwKAwJP2qk6uT9" target="_blank" class="btn"><span id="confirmBtn">CONFIRMAR ASISTENCIA Y MENÚ</span></a>
+    <p class="intro" id="confirmText">Nos haría muchísima ilusión compartir este día contigo.</p><a href="https://forms.gle/VbBLwKAwJP2qk6uT9" target="_blank" class="btn"><span id="confirmBtn">CONFIRMAR ASISTENCIA Y MENÚ</span></a>
 
   </section><audio id="bg-music" autoplay loop>
 <source src="https://cdn.pixabay.com/download/audio/2022/02/22/audio_d1718ab41b.mp3?filename=romantic-jazz-ambience-11090.mp3" type="audio/mpeg">
@@ -322,8 +320,8 @@
       document.getElementById('timer').innerHTML = `${days} días · ${hours}h · ${minutes}m`;
     }, 1000);
   const translations = {
-  es:{heroSubtitle:'NOS CASAMOS',storyTitle:'Nuestra Historia',storyText:'Dos caminos completamente distintos terminaron cruzándose en el momento perfecto. Entre viajes, conversaciones infinitas y atardeceres junto al mar, Patricia y Hyo Hwan construyeron una historia llena de aventuras, calma y muchísimo amor. Ahora quieren celebrar el comienzo de esta nueva etapa rodeados de las personas que más quieren.',detailsTitle:'Detalles',countdownTitle:'Cuenta atrás',confirmTitle:'Confirmación',confirmBtn:'CONFIRMAR ASISTENCIA Y MENÚ'},
-  en:{heroSubtitle:'WE ARE GETTING MARRIED',storyTitle:'Our Story',storyText:'Two completely different paths crossed at exactly the right moment. Between travels, endless conversations and sunsets by the sea, Patricia and Hyo Hwan built a story full of adventure, peace and love.',detailsTitle:'Details',countdownTitle:'Countdown',confirmTitle:'RSVP',confirmBtn:'CONFIRM ATTENDANCE & MENU'},
+  es:{heroSubtitle:'NOS CASAMOS',storyTitle:'Nuestra Historia',storyText:'Dos caminos completamente distintos terminaron cruzándose en el momento perfecto. Entre viajes, conversaciones infinitas y atardeceres junto al mar, Patricia y Hyo Hwan construyeron una historia llena de aventuras, calma y muchísimo amor. Ahora quieren celebrar el comienzo de esta nueva etapa rodeados de las personas que más quieren.',detailsTitle:'Detalles',countdownTitle:'Cuenta atrás',confirmTitle:'Confirmación',confirmBtn:'CONFIRMAR ASISTENCIA Y MENÚ',ceremonyTitle:'Ceremonia',ceremonyPlace:'Finca Siempre Verde · Murcia',partyTitle:'Celebración',partyText1:'Cena & Fiesta',partyText2:'Hasta el amanecer ✨',dressTitle:'Dress Code',dressText1:'Libre',dressText2:'Lo importante es celebrar juntos ✨',stayTitle:'Alojamiento',stayText:'Hemos preparado varias opciones para que vuestra estancia sea cómoda y sencilla.',musicTitle:'Música',musicText:'Añade canciones a nuestra playlist colaborativa para la fiesta ✨',confirmText:'Nos haría muchísima ilusión compartir este día contigo.'},
+  en:{heroSubtitle:'WE ARE GETTING MARRIED',storyTitle:'Our Story',storyText:'Two completely different paths crossed at exactly the right moment. Between travels, endless conversations and sunsets by the sea, Patricia and Hyo Hwan built a story full of adventure, peace and love.',detailsTitle:'Details',countdownTitle:'Countdown',confirmTitle:'RSVP',confirmBtn:'CONFIRM ATTENDANCE & MENU',ceremonyTitle:'Ceremony',ceremonyPlace:'Finca Siempre Verde · Murcia',partyTitle:'Celebration',partyText1:'Dinner & Party',partyText2:'Until sunrise ✨',dressTitle:'Dress Code',dressText1:'Free',dressText2:'The important thing is celebrating together ✨',stayTitle:'Accommodation',stayText:'We have prepared several accommodation options to make your stay comfortable and easy.',musicTitle:'Music',musicText:'Add your favorite songs to our collaborative party playlist ✨',confirmText:'We would love to celebrate this special day with you.'},
   fr:{heroSubtitle:'NOUS NOUS MARIONS',storyTitle:'Notre Histoire',storyText:'Deux chemins totalement différents se sont croisés au moment parfait. Entre voyages et couchers de soleil au bord de la mer, Patricia et Hyo Hwan ont construit une magnifique histoire d’amour.',detailsTitle:'Détails',countdownTitle:'Compte à rebours',confirmTitle:'Confirmation',confirmBtn:'CONFIRMER PRÉSENCE & MENU'},
   it:{heroSubtitle:'CI SPOSIAMO',storyTitle:'La Nostra Storia',storyText:'Due percorsi completamente diversi si sono incontrati nel momento perfetto. Tra viaggi e tramonti sul mare, Patricia e Hyo Hwan hanno costruito una storia piena d’amore.',detailsTitle:'Dettagli',countdownTitle:'Conto alla rovescia',confirmTitle:'Conferma',confirmBtn:'CONFERMA PRESENZA & MENU'},
   kr:{heroSubtitle:'결혼합니다',storyTitle:'우리 이야기',storyText:'전혀 다른 두 사람이 완벽한 순간에 만나게 되었습니다. 여행과 바다의 노을 속에서 Patricia와 Hyo Hwan은 사랑으로 가득한 이야기를 만들어 왔습니다.',detailsTitle:'상세 정보',countdownTitle:'카운트다운',confirmTitle:'참석 확인',confirmBtn:'참석 및 메뉴 확인'}
