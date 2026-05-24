@@ -14,7 +14,7 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background: #f5f1eb;
+      background:#0f0f0f url('1723.jpg') center center/cover fixed no-repeat;
       color: #2d2d2d;
       overflow-x: hidden;
     }
@@ -23,7 +23,7 @@
       height: 100vh;
       background:
         linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)),
-        url('1723.jpg') center center/cover no-repeat;
+        url('1722.jpg') center center/cover no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -173,37 +173,20 @@
     }
 
     .lang-btn {
-      padding: 14px 28px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.3);
-      background: rgba(255,255,255,0.08);
-      color: white;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: 0.3s ease;
-      backdrop-filter: blur(8px);
+      padding:14px 28px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.25);
+      background:rgba(255,255,255,0.08);
+      color:white;
+      cursor:pointer;
+      transition:0.3s ease;
+      font-size:1rem;
+      backdrop-filter:blur(8px);
     }
 
     .lang-btn:hover {
-      background: rgba(255,255,255,0.18);
-      transform: translateY(-3px);
-    }
-
-    .lang-btn {
-      padding: 14px 28px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.3);
-      background: rgba(255,255,255,0.08);
-      color: white;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: 0.3s ease;
-      backdrop-filter: blur(8px);
-    }
-
-    .lang-btn:hover {
-      background: rgba(255,255,255,0.18);
-      transform: translateY(-3px);
+      background:rgba(255,255,255,0.18);
+      transform:translateY(-3px);
     }
 
     .btn:hover {
@@ -243,16 +226,16 @@
       }
     }
   </style></head>
-<body>  <div id="language-selector" style="position:fixed; inset:0; background:#111; z-index:9999; display:flex; align-items:center; justify-content:center; flex-direction:column; color:white; font-family:'Montserrat',sans-serif;">
-  <h2 style="font-family:'Cormorant Garamond',serif; font-size:3rem; margin-bottom:40px; font-weight:400;">Choose Language</h2>
-  <div style="display:flex; flex-wrap:wrap; gap:15px; justify-content:center; max-width:700px; padding:20px;">
+<body><div id="language-selector" style="position:fixed;inset:0;background:#111;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;color:white;font-family:'Montserrat',sans-serif;">
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:3rem;margin-bottom:40px;font-weight:400;">Choose Language</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:15px;justify-content:center;max-width:700px;padding:20px;">
     <button onclick="setLanguage('es')" class="lang-btn">Español</button>
     <button onclick="setLanguage('en')" class="lang-btn">English</button>
     <button onclick="setLanguage('fr')" class="lang-btn">Français</button>
     <button onclick="setLanguage('it')" class="lang-btn">Italiano</button>
     <button onclick="setLanguage('kr')" class="lang-btn">한국어</button>
   </div>
-</div><section class="hero" style="background:linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.35)), url('1722.jpg') center center/cover no-repeat;">
+</div>  <section class="hero">
     <div class="hero-content">
       <p id="heroSubtitle">WE ARE GETTING MARRIED</p>
       <h1>Patricia & Hyo Hwan</h1>
@@ -260,8 +243,7 @@
     </div>
   </section>  <section>
     <h2 class="section-title" id="storyTitle">Nuestra Historia</h2>
-    <p class="intro" id="storyText">
-      Dos caminos completamente distintos terminaron cruzándose en el momento perfecto. Entre viajes, conversaciones infinitas y atardeceres junto al mar, Patricia y Hyo Hwan construyeron una historia llena de aventuras, calma y muchísimo amor. Ahora quieren celebrar el comienzo de esta nueva etapa rodeados de las personas que más quieren.
+    <p class="intro" id="storyText">Dos caminos completamente distintos terminaron cruzándose en el momento perfecto. Entre viajes, conversaciones infinitas y atardeceres junto al mar, Patricia y Hyo Hwan construyeron una historia llena de aventuras, calma y muchísimo amor. Ahora quieren celebrar el comienzo de esta nueva etapa rodeados de las personas que más quieren.
     </p>  </section>  <section>
     <h2 class="section-title" id="detailsTitle">Detalles</h2><div class="details-grid">
   <div class="card">
@@ -319,7 +301,7 @@
 
   </section>  <section class="rsvp">
     <h2 class="section-title" id="confirmTitle">Confirmación</h2>
-    <p class="intro" id="storyText">
+    <p class="intro">
       Nos haría muchísima ilusión compartir este día contigo.
     </p><a href="https://forms.gle/VbBLwKAwJP2qk6uT9" target="_blank" class="btn"><span id="confirmBtn">CONFIRMAR ASISTENCIA Y MENÚ</span></a>
 
@@ -339,115 +321,19 @@
       document.getElementById('timer').innerHTML = `${days} días · ${hours}h · ${minutes}m`;
     }, 1000);
   const translations = {
-  es: {
-    heroSubtitle: 'NOS CASAMOS',
-    storyTitle: 'Nuestra Historia',
-    storyText: 'Dos caminos completamente distintos terminaron cruzándose en el momento perfecto. Entre viajes, conversaciones infinitas y atardeceres junto al mar, Patricia y Hyo Hwan construyeron una historia llena de aventuras, calma y muchísimo amor. Ahora quieren celebrar el comienzo de esta nueva etapa rodeados de las personas que más quieren.',
-    detailsTitle: 'Detalles',
-    countdownTitle: 'Cuenta atrás',
-    confirmTitle: 'Confirmación',
-    confirmBtn: 'CONFIRMAR ASISTENCIA Y MENÚ'
-  },
-  en: {
-    heroSubtitle: 'WE ARE GETTING MARRIED',
-    storyTitle: 'Our Story',
-    storyText: 'Two completely different paths crossed at exactly the right moment. Between travels, endless conversations and sunsets by the sea, Patricia and Hyo Hwan built a story full of adventure, peace and love. Now they want to celebrate this new chapter surrounded by the people they love the most.',
-    detailsTitle: 'Details',
-    countdownTitle: 'Countdown',
-    confirmTitle: 'RSVP',
-    confirmBtn: 'CONFIRM ATTENDANCE & MENU'
-  },
-  fr: {
-    heroSubtitle: 'NOUS NOUS MARIONS',
-    storyTitle: 'Notre Histoire',
-    storyText: 'Deux chemins totalement différents se sont croisés au moment parfait. Entre voyages, conversations infinies et couchers de soleil au bord de la mer, Patricia et Hyo Hwan ont construit une histoire remplie d’amour et d’aventures.',
-    detailsTitle: 'Détails',
-    countdownTitle: 'Compte à rebours',
-    confirmTitle: 'Confirmation',
-    confirmBtn: 'CONFIRMER PRÉSENCE & MENU'
-  },
-  it: {
-    heroSubtitle: 'CI SPOSIAMO',
-    storyTitle: 'La Nostra Storia',
-    storyText: 'Due percorsi completamente diversi si sono incontrati nel momento perfetto. Tra viaggi, conversazioni infinite e tramonti sul mare, Patricia e Hyo Hwan hanno costruito una storia piena di amore e avventura.',
-    detailsTitle: 'Dettagli',
-    countdownTitle: 'Conto alla rovescia',
-    confirmTitle: 'Conferma',
-    confirmBtn: 'CONFERMA PRESENZA & MENU'
-  },
-  kr: {
-    heroSubtitle: '결혼합니다',
-    storyTitle: '우리 이야기',
-    storyText: '전혀 다른 두 사람이 완벽한 순간에 만나게 되었습니다. 여행과 끝없는 대화, 바다의 노을 속에서 Patricia와 Hyo Hwan은 사랑과 행복으로 가득한 이야기를 만들어 왔습니다.',
-    detailsTitle: '상세 정보',
-    countdownTitle: '카운트다운',
-    confirmTitle: '참석 확인',
-    confirmBtn: '참석 및 메뉴 확인'
-  }
+  es:{heroSubtitle:'NOS CASAMOS',storyTitle:'Nuestra Historia',storyText:'Dos caminos completamente distintos terminaron cruzándose en el momento perfecto. Entre viajes, conversaciones infinitas y atardeceres junto al mar, Patricia y Hyo Hwan construyeron una historia llena de aventuras, calma y muchísimo amor. Ahora quieren celebrar el comienzo de esta nueva etapa rodeados de las personas que más quieren.',detailsTitle:'Detalles',countdownTitle:'Cuenta atrás',confirmTitle:'Confirmación',confirmBtn:'CONFIRMAR ASISTENCIA Y MENÚ'},
+  en:{heroSubtitle:'WE ARE GETTING MARRIED',storyTitle:'Our Story',storyText:'Two completely different paths crossed at exactly the right moment. Between travels, endless conversations and sunsets by the sea, Patricia and Hyo Hwan built a story full of adventure, peace and love.',detailsTitle:'Details',countdownTitle:'Countdown',confirmTitle:'RSVP',confirmBtn:'CONFIRM ATTENDANCE & MENU'},
+  fr:{heroSubtitle:'NOUS NOUS MARIONS',storyTitle:'Notre Histoire',storyText:'Deux chemins totalement différents se sont croisés au moment parfait. Entre voyages et couchers de soleil au bord de la mer, Patricia et Hyo Hwan ont construit une magnifique histoire d’amour.',detailsTitle:'Détails',countdownTitle:'Compte à rebours',confirmTitle:'Confirmation',confirmBtn:'CONFIRMER PRÉSENCE & MENU'},
+  it:{heroSubtitle:'CI SPOSIAMO',storyTitle:'La Nostra Storia',storyText:'Due percorsi completamente diversi si sono incontrati nel momento perfetto. Tra viaggi e tramonti sul mare, Patricia e Hyo Hwan hanno costruito una storia piena d’amore.',detailsTitle:'Dettagli',countdownTitle:'Conto alla rovescia',confirmTitle:'Conferma',confirmBtn:'CONFERMA PRESENZA & MENU'},
+  kr:{heroSubtitle:'결혼합니다',storyTitle:'우리 이야기',storyText:'전혀 다른 두 사람이 완벽한 순간에 만나게 되었습니다. 여행과 바다의 노을 속에서 Patricia와 Hyo Hwan은 사랑으로 가득한 이야기를 만들어 왔습니다.',detailsTitle:'상세 정보',countdownTitle:'카운트다운',confirmTitle:'참석 확인',confirmBtn:'참석 및 메뉴 확인'}
 };
 
-function setLanguage(lang) {
-  document.getElementById('language-selector').style.display = 'none';
-
-  Object.keys(translations[lang]).forEach(id => {
-    document.getElementById(id).innerHTML = translations[lang][id];
-  });
-}
-const translations = {
-  es: {
-    heroSubtitle: 'NOS CASAMOS',
-    storyTitle: 'Nuestra Historia',
-    storyText: 'Dos caminos completamente distintos terminaron cruzándose en el momento perfecto. Entre viajes, conversaciones infinitas y atardeceres junto al mar, Patricia y Hyo Hwan construyeron una historia llena de aventuras, calma y muchísimo amor. Ahora quieren celebrar el comienzo de esta nueva etapa rodeados de las personas que más quieren.',
-    detailsTitle: 'Detalles',
-    countdownTitle: 'Cuenta atrás',
-    confirmTitle: 'Confirmación',
-    confirmBtn: 'CONFIRMAR ASISTENCIA Y MENÚ'
-  },
-  en: {
-    heroSubtitle: 'WE ARE GETTING MARRIED',
-    storyTitle: 'Our Story',
-    storyText: 'Two completely different paths crossed at exactly the right moment. Between travels, endless conversations and sunsets by the sea, Patricia and Hyo Hwan built a story full of adventure, peace and love.',
-    detailsTitle: 'Details',
-    countdownTitle: 'Countdown',
-    confirmTitle: 'RSVP',
-    confirmBtn: 'CONFIRM ATTENDANCE & MENU'
-  },
-  fr: {
-    heroSubtitle: 'NOUS NOUS MARIONS',
-    storyTitle: 'Notre Histoire',
-    storyText: 'Deux chemins totalement différents se sont croisés au moment parfait. Entre voyages et couchers de soleil au bord de la mer, Patricia et Hyo Hwan ont construit une belle histoire d’amour.',
-    detailsTitle: 'Détails',
-    countdownTitle: 'Compte à rebours',
-    confirmTitle: 'Confirmation',
-    confirmBtn: 'CONFIRMER PRÉSENCE & MENU'
-  },
-  it: {
-    heroSubtitle: 'CI SPOSIAMO',
-    storyTitle: 'La Nostra Storia',
-    storyText: 'Due percorsi completamente diversi si sono incontrati nel momento perfetto. Tra viaggi e tramonti sul mare, Patricia e Hyo Hwan hanno costruito una storia piena di amore.',
-    detailsTitle: 'Dettagli',
-    countdownTitle: 'Conto alla rovescia',
-    confirmTitle: 'Conferma',
-    confirmBtn: 'CONFERMA PRESENZA & MENU'
-  },
-  kr: {
-    heroSubtitle: '결혼합니다',
-    storyTitle: '우리 이야기',
-    storyText: '전혀 다른 두 사람이 완벽한 순간에 만나게 되었습니다. 여행과 바다의 노을 속에서 Patricia와 Hyo Hwan은 사랑으로 가득한 이야기를 만들어 왔습니다.',
-    detailsTitle: '상세 정보',
-    countdownTitle: '카운트다운',
-    confirmTitle: '참석 확인',
-    confirmBtn: '참석 및 메뉴 확인'
-  }
-};
-
-function setLanguage(lang) {
-  document.getElementById('language-selector').style.display = 'none';
-
-  Object.keys(translations[lang]).forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.innerHTML = translations[lang][id];
-  });
+function setLanguage(lang){
+ document.getElementById('language-selector').style.display='none';
+ Object.keys(translations[lang]).forEach(id=>{
+   const el=document.getElementById(id);
+   if(el){el.innerHTML=translations[lang][id];}
+ });
 }
 </script></body>
 </html>
