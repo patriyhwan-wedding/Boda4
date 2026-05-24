@@ -319,4 +319,137 @@ PLAYLIST
 <h2 class="section-title" id="confirmTitle">Confirmación</h2>
 
 <div style="text-align:center;">
-<a href="https://forms.gle/VbBLwKAwJP
+<a href="https://forms.gle/VbBLwKAwJP2qk6uT9"
+target="_blank" class="btn">
+CONFIRMAR
+</a>
+</div>
+
+</section>
+
+<footer>
+Hecho con amor · Patricia & Hyo Hwan
+</footer>
+
+<audio id="bg-music" autoplay loop>
+<source src="Lavieenrose.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const translations = {
+
+es:{
+heroSubtitle:'NOS CASAMOS',
+storyTitle:'Nuestra Historia',
+storyText:'Dos caminos completamente distintos terminaron cruzándose en el momento perfecto...',
+detailsTitle:'Detalles',
+ceremonyTitle:'Ceremonia',
+partyTitle:'Celebración',
+dressTitle:'Dress Code',
+stayTitle:'Alojamiento',
+stayText:'Hemos preparado opciones para vuestra estancia.',
+musicTitle:'Música',
+musicText:'Añade canciones a la playlist ✨',
+confirmTitle:'Confirmación'
+},
+
+en:{
+heroSubtitle:'WE ARE GETTING MARRIED',
+storyTitle:'Our Story',
+storyText:'Two completely different paths crossed at the right moment...',
+detailsTitle:'Details',
+ceremonyTitle:'Ceremony',
+partyTitle:'Celebration',
+dressTitle:'Dress Code',
+stayTitle:'Accommodation',
+stayText:'We prepared accommodation options for your stay.',
+musicTitle:'Music',
+musicText:'Add songs to the playlist ✨',
+confirmTitle:'RSVP'
+},
+
+fr:{
+heroSubtitle:'NOUS NOUS MARIONS',
+storyTitle:'Notre Histoire',
+storyText:'Deux chemins se sont croisés au moment parfait...',
+detailsTitle:'Détails',
+ceremonyTitle:'Cérémonie',
+partyTitle:'Célébration',
+dressTitle:'Dress Code',
+stayTitle:'Hébergement',
+stayText:'Nous avons préparé des options d’hébergement.',
+musicTitle:'Musique',
+musicText:'Ajoutez des chansons ✨',
+confirmTitle:'Confirmation'
+},
+
+it:{
+heroSubtitle:'CI SPOSIAMO',
+storyTitle:'La Nostra Storia',
+storyText:'Due percorsi si sono incontrati nel momento perfetto...',
+detailsTitle:'Dettagli',
+ceremonyTitle:'Cerimonia',
+partyTitle:'Celebrazione',
+dressTitle:'Dress Code',
+stayTitle:'Alloggio',
+stayText:'Abbiamo preparato opzioni di alloggio.',
+musicTitle:'Musica',
+musicText:'Aggiungete canzoni ✨',
+confirmTitle:'Conferma'
+},
+
+kr:{
+heroSubtitle:'결혼합니다',
+storyTitle:'우리 이야기',
+storyText:'두 사람이 완벽한 순간에 만났습니다...',
+detailsTitle:'상세 정보',
+ceremonyTitle:'예식',
+partyTitle:'파티',
+dressTitle:'드레스 코드',
+stayTitle:'숙소',
+stayText:'숙박 옵션을 준비했습니다.',
+musicTitle:'음악',
+musicText:'플레이리스트에 추가하세요 ✨',
+confirmTitle:'참석'
+}
+
+};
+
+function setLanguage(lang){
+
+document.getElementById('language-selector').style.display='none';
+
+Object.keys(translations[lang]).forEach(id=>{
+
+const el=document.getElementById(id);
+if(el) el.innerHTML = translations[lang][id];
+
+});
+
+const audio=document.getElementById('bg-music');
+audio.volume=0.25;
+audio.play().catch(()=>{});
+
+}
+
+const weddingDate=new Date('September 26, 2026 17:30:00').getTime();
+
+setInterval(()=>{
+
+const now=new Date().getTime();
+const distance=weddingDate-now;
+
+const days=Math.floor(distance/(1000*60*60*24));
+const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+
+document.getElementById('timer').innerHTML =
+`${days} días · ${hours}h · ${minutes}m`;
+
+},1000);
+
+</script>
+
+</body>
+</html>
