@@ -14,7 +14,7 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background:#0f0f0f url('1723.jpg') center center/cover fixed no-repeat;
+      background:linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.72)), url('1723.jpg') center center/cover fixed no-repeat;
       color: #2d2d2d;
       overflow-x: hidden;
     }
@@ -237,6 +237,7 @@
   </div>
 </div>  <section class="hero">
     <div class="hero-content">
+      <div id="timer" style="font-size:1.4rem;margin-bottom:35px;font-weight:300;letter-spacing:3px;background:rgba(0,0,0,0.25);padding:14px 28px;border-radius:999px;backdrop-filter:blur(10px);"></div>
       <p id="heroSubtitle">WE ARE GETTING MARRIED</p>
       <h1>Patricia & Hyo Hwan</h1>
       <p>26 · Septiembre · 2026</p>
@@ -265,31 +266,22 @@
   </div>
 </div>
 
-<div class="countdown">
-  <h2 id="countdownTitle">Cuenta atrás</h2>
-  <div id="timer" style="font-size:2rem;margin-top:20px;font-weight:300;"></div>
-  <p style="margin-top:25px;">26 Septiembre 2026 · Murcia, España</p>
-</div>
-
 <div class="details-grid" style="margin-top:60px;">
   <div class="card">
     <h3>Alojamiento</h3>
-    <p>Hemos conseguido descuentos especiales para invitados en hoteles cercanos.</p>
+    <p>Hemos preparado varias opciones para que vuestra estancia sea cómoda y sencilla.</p>
 
-    <p style="margin-top:18px; font-weight:600;">Hotel Amistad Murcia</p>
-    <p>Código:</p>
+    <p style="margin-top:22px; font-weight:600;">Hotel Amistad Murcia</p>
+    <p>15% descuento</p>
     <p style="font-weight:600; letter-spacing:2px; margin-top:8px;">SIEMPREVERDEAMISTAD</p>
     <a href="https://www.sercotelhoteles.com/amistad/murcia" target="_blank" class="btn" style="margin-top:18px; display:inline-block;">VER HOTEL</a>
 
-    <p style="margin-top:28px; font-weight:600;">Cetina Murcia</p>
-    <p>20% descuento:</p>
+    <p style="margin-top:30px; font-weight:600;">Cetina Murcia</p>
+    <p>20% descuento</p>
     <p style="font-weight:600; letter-spacing:2px; margin-top:8px;">EVENTOSPREMIER</p>
-    <a href="https://www.cetinahotels.com/cetina-murcia/" target="_blank" class="btn" style="margin-top:18px; display:inline-block;">VER CETINA</a>
-  </div>
+    <a href="https://www.cetinahotels.com/cetina-murcia/" target="_blank" class="btn" style="margin-top:18px; display:inline-block;">VER HOTEL</a>
 
-  <div class="card">
-    <h3>Más opciones</h3>
-    <p>También podéis encontrar alojamiento en Airbnb, Booking o apartamentos turísticos cercanos a la finca.</p>
+    <p style="margin-top:30px;">También podéis encontrar alojamiento en Airbnb, Booking y apartamentos turísticos cerca de la finca.</p>
   </div>
 
   <div class="card">
@@ -305,7 +297,16 @@
       Nos haría muchísima ilusión compartir este día contigo.
     </p><a href="https://forms.gle/VbBLwKAwJP2qk6uT9" target="_blank" class="btn"><span id="confirmBtn">CONFIRMAR ASISTENCIA Y MENÚ</span></a>
 
-  </section>  <footer>
+  </section><audio id="bg-music" autoplay loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/02/22/audio_d1718ab41b.mp3?filename=romantic-jazz-ambience-11090.mp3" type="audio/mpeg">
+
+  </audio>  <script>
+    document.addEventListener('click', () => {
+      const audio = document.getElementById('bg-music');
+      audio.volume = 0.25;
+      audio.play().catch(() => {});
+    }, { once: true });
+  </script>  <footer>
     Hecho con amor · Patricia & Hyo Hwan
   </footer>  <script>
     const weddingDate = new Date('September 26, 2026 17:30:00').getTime();
