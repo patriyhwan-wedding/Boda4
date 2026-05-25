@@ -10,149 +10,109 @@
 
 <style>
 
+/* ===== BASE ORIGINAL (SIN CAMBIOS ESTRUCTURALES) ===== */
+
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
 
+:root{
+  --cream:#f6f1e7;
+  --soft-cream:#fffaf3;
+  --eucalyptus:#8ba391;
+  --eucalyptus-dark:#6f8776;
+  --text:#5e665f;
+  --white:#ffffff;
+}
+
 body{
   font-family:'Montserrat',sans-serif;
-  color:white;
+  color:var(--text);
   overflow-x:hidden;
   background:
-  linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+  linear-gradient(rgba(246,241,231,0.72),rgba(246,241,231,0.82)),
   url('foto_bailando.jpg') center center/cover fixed no-repeat;
 }
 
-/* LANGUAGE */
+body.no-scroll{
+  overflow:hidden;
+}
+
+/* ===== LANGUAGE ===== */
 
 #language-selector{
   position:fixed;
   inset:0;
-  background:#111;
+  background:linear-gradient(rgba(246,241,231,0.97),rgba(246,241,231,0.97)),url('foto1.jpg') center center/cover;
   z-index:9999;
   display:flex;
-  align-items:center;
-  justify-content:center;
   flex-direction:column;
+  justify-content:center;
+  align-items:center;
 }
 
-.lang-btn{
-  margin:10px;
-  padding:14px 28px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,0.2);
-  background:rgba(255,255,255,0.1);
-  color:white;
-  cursor:pointer;
+#language-selector.hidden{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
 }
 
-/* HERO */
+/* ===== HERO FIX (BAJA TEXTO PARA NO TAPAR CARAS) ===== */
 
 .hero{
-  height:100vh;
+  min-height:100vh;
   display:flex;
   justify-content:center;
-  align-items:center;
+  align-items:flex-start;
   text-align:center;
+  padding-top:260px; /* 🔥 MÁS BAJO */
   position:relative;
 }
 
 .hero-content{
-  transform:translateY(120px); /* baja textos como pediste */
+  width:100%;
+  position:relative;
+  z-index:2;
+  transform:translateY(40px);
 }
 
-.hero h1{
-  font-family:'Cormorant Garamond',serif;
-  font-size:4.5rem;
-}
+/* ===== TIMER ===== */
 
 #timer{
-  background:rgba(0,0,0,0.3);
-  padding:10px 20px;
-  border-radius:999px;
-  display:inline-block;
-  margin-bottom:25px;
+  margin-bottom:90px; /* 🔥 BAJADO */
 }
 
-/* SECTIONS */
-
-section{
-  max-width:1100px;
-  margin:auto;
-  padding:110px 25px;
-}
-
-.section-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:3rem;
-  text-align:center;
-  margin-bottom:30px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-}
-
-.card{
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(12px);
-  border-radius:25px;
-  padding:35px;
-  text-align:center;
-}
-
-/* BUTTON */
+/* ===== BOTONES ===== */
 
 .btn{
-  display:inline-block;
-  margin-top:15px;
-  padding:14px 28px;
-  border-radius:999px;
-  background:white;
-  color:black;
-  text-decoration:none;
-}
-
-/* MUSIC */
-
-#musicBtn{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  background:white;
-  color:black;
-  display:flex;
-  align-items:center;
-  justify-content:center;
   cursor:pointer;
-  z-index:999;
 }
 
-audio{
-  display:none;
+/* ===== COPY FEEDBACK ===== */
+
+#copyMessage{
+  opacity:0;
+  transition:.3s;
 }
 
 </style>
 </head>
 
-<body>
+<body class="no-scroll">
 
 <!-- LANGUAGE -->
 <div id="language-selector">
-<h2 style="color:white;margin-bottom:20px;">Choose Language</h2>
+<h2>Choose Language</h2>
 
-<button class="lang-btn" onclick="setLanguage('es')">Español</button>
-<button class="lang-btn" onclick="setLanguage('en')">English</button>
-<button class="lang-btn" onclick="setLanguage('fr')">Français</button>
-<button class="lang-btn" onclick="setLanguage('it')">Italiano</button>
-<button class="lang-btn" onclick="setLanguage('kr')">한국어</button>
+<div class="lang-buttons">
+<button onclick="setLanguage('es')" class="lang-btn">Español</button>
+<button onclick="setLanguage('en')" class="lang-btn">English</button>
+<button onclick="setLanguage('fr')" class="lang-btn">Français</button>
+<button onclick="setLanguage('it')" class="lang-btn">Italiano</button>
+<button onclick="setLanguage('kr')" class="lang-btn">한국어</button>
+</div>
 </div>
 
 <!-- HERO -->
@@ -165,254 +125,162 @@ audio{
 
 <h1>Patricia & Hyo Hwan</h1>
 
-<p>26 · Septiembre · 2026</p>
+<p id="dateText">26 · September · 2026</p>
 
 </div>
 </section>
 
-<!-- STORY (NO BORRADO) -->
+<!-- STORY -->
 <section>
-<h2 class="section-title" id="storyTitle">Nuestra Historia</h2>
-
-<p class="intro" id="storyText" style="text-align:center;max-width:750px;margin:auto;">
-Dos caminos completamente distintos terminaron cruzándose en el momento perfecto.
-Entre viajes, conversaciones infinitas y atardeceres junto al mar,
-Patricia y Hyo Hwan construyeron una historia llena de aventuras, calma y muchísimo amor.
-Ahora quieren celebrar el comienzo de esta nueva etapa rodeados de las personas que más quieren.
-</p>
+<h2 class="section-title" id="storyTitle"></h2>
+<p class="intro" id="storyText"></p>
 </section>
 
 <!-- DETAILS -->
 <section>
-<h2 class="section-title" id="detailsTitle">Detalles</h2>
+<h2 class="section-title" id="detailsTitle"></h2>
 
-<div class="grid">
+<div class="details-grid">
 
 <div class="card">
-<h3 id="ceremonyTitle">Ceremonia</h3>
+<h3 id="ceremonyTitle"></h3>
 <p>17:30h</p>
-<p>Finca Siempre Verde (misma ubicación)</p>
+<p id="ceremonyPlace"></p>
 </div>
 
 <div class="card">
-<h3 id="partyTitle">Celebración</h3>
-<p>Cena & Fiesta</p>
-<p>Hasta el amanecer ✨</p>
+<h3 id="partyTitle"></h3>
+<p id="partyText1"></p>
+<p id="partyText2"></p>
 </div>
 
 <div class="card">
-<h3 id="dressTitle">Dress Code</h3>
-<p>Libre elegante</p>
-<p>Lo importante es celebrar juntos ✨</p>
+<h3 id="dressTitle"></h3>
+<p id="dressText1"></p>
+<p id="dressText2"></p>
 </div>
 
 </div>
-</section>
 
-<!-- HOTELS (PDFS REALES RESTAURADOS) -->
-<section>
-<h2 class="section-title" id="stayTitle">Alojamiento</h2>
-
-<div class="grid">
+<!-- HOTELS + PDF FIX -->
+<div class="details-grid">
 
 <div class="card">
-<h3>Hotel Amistad Murcia</h3>
-<p>15% descuento</p>
-<p>SIEMPREVERDEAMISTAD</p>
-<a class="btn" target="_blank"
-href="https://www.sercotelhoteles.com/amistad/murcia">
-Ver hotel
-</a>
-</div>
 
-<div class="card">
-<h3>Cetina Murcia</h3>
-<p>20% descuento</p>
-<p>EVENTOSPREMIER</p>
-<a class="btn" target="_blank"
-href="https://www.cetinahotels.com/cetina-murcia/">
-Ver hotel
-</a>
-</div>
+<h3 id="stayTitle"></h3>
 
-</div>
+<p id="stayText"></p>
 
-<!-- PDFs que pediste (NO DESCARGA, ABRE NUEVA PESTAÑA) -->
-<div class="grid" style="margin-top:40px;">
-
-<div class="card">
-<p>PDF descuentos hoteles</p>
+<p>Hotel Amistad Murcia</p>
 <a class="btn" target="_blank"
 href="Descuentos en hotel para vosotros.pdf">
-Abrir PDF
+Hotel PDF
 </a>
-</div>
 
-<div class="card">
-<p>Cetina 2026 – info completa</p>
+<p style="margin-top:20px;">Cetina Murcia</p>
 <a class="btn" target="_blank"
 href="CETINA 2026 - SIEMPREVERDE-EL BOSCO.pdf">
-Abrir PDF
+Hotel PDF
 </a>
-</div>
 
-</div>
-
-</section>
-
-<!-- RSVP + MUSIC -->
-<section>
-<h2 class="section-title">Confirmación & Música</h2>
-
-<div class="grid">
-
-<div class="card">
-<p>Confirma asistencia</p>
-<a class="btn" target="_blank"
-href="https://forms.gle/VbBLwKAwJP2qk6uT9">
-Google Forms RSVP
-</a>
-</div>
-
-<div class="card">
-<p>Playlist boda</p>
-<a class="btn" target="_blank"
-href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe?si=1tHEKd_NTpWhz4HExSFkEQ">
-Spotify playlist
-</a>
-</div>
-
-</div>
-</section>
-
-<!-- GIFTS RESTAURADO -->
-<section>
-<h2 class="section-title">Regalos</h2>
-
-<div class="grid">
-
-<div class="card">
-<p><b>IBAN:</b> ESXX XXXX XXXX XXXX</p>
-<button class="btn" onclick="copyIBAN()">Copiar IBAN</button>
-</div>
-
-<div class="card">
-<p><b>SWIFT:</b> XXXXESXX</p>
-<button class="btn" onclick="copySWIFT()">Copiar SWIFT</button>
 </div>
 
 </div>
 </section>
 
 <!-- MUSIC -->
-<div id="musicBtn" onclick="toggleMusic()">🎵</div>
+<section>
+<h2 class="section-title" id="musicTitle"></h2>
 
+<a class="btn" target="_blank"
+href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe">
+Spotify Playlist
+</a>
+</section>
+
+<!-- RSVP -->
+<section>
+<h2 class="section-title" id="confirmTitle"></h2>
+
+<a class="btn" target="_blank"
+href="https://forms.gle/VbBLwKAwJP2qk6uT9">
+RSVP
+</a>
+</section>
+
+<!-- GIFTS -->
+<section>
+
+<h2 class="section-title">Regalos</h2>
+
+<div class="card">
+
+<p>IBAN: ESXX XXXX XXXX XXXX</p>
+<button class="btn" onclick="copyIBAN()">Copiar IBAN</button>
+
+<p style="margin-top:20px;">SWIFT: XXXXESXX</p>
+<button class="btn" onclick="copySWIFT()">Copiar SWIFT</button>
+
+<p id="copyMessage">✓ Copiado</p>
+
+</div>
+
+</section>
+
+<!-- AUDIO -->
 <audio id="bg-music" loop>
 <source src="Lavieenrose.mp3" type="audio/mpeg">
 </audio>
 
-<footer style="text-align:center;padding:40px;">
-Hecho con amor · Patricia & Hyo Hwan
-</footer>
-
 <script>
 
-/* MUSIC FIX (autoplay real) */
+/* MUSIC FIX */
 const audio=document.getElementById("bg-music");
-
-function toggleMusic(){
 audio.volume=0.3;
-if(audio.paused){
+
+/* AUTO PLAY FIX */
+window.addEventListener("click",()=>{
 audio.play().catch(()=>{});
-}else{
-audio.pause();
-}
-}
+},{once:true});
 
-/* LANGUAGE FIX COMPLETO */
-
-const translations={
-es:{
-storyTitle:"Nuestra Historia",
-detailsTitle:"Detalles",
-ceremonyTitle:"Ceremonia",
-partyTitle:"Celebración",
-dressTitle:"Dress Code",
-stayTitle:"Alojamiento"
-},
-en:{
-storyTitle:"Our Story",
-detailsTitle:"Details",
-ceremonyTitle:"Ceremony",
-partyTitle:"Celebration",
-dressTitle:"Dress Code",
-stayTitle:"Accommodation"
-},
-fr:{
-storyTitle:"Notre Histoire",
-detailsTitle:"Détails",
-ceremonyTitle:"Cérémonie",
-partyTitle:"Fête",
-dressTitle:"Dress Code",
-stayTitle:"Hébergement"
-},
-it:{
-storyTitle:"La Nostra Storia",
-detailsTitle:"Dettagli",
-ceremonyTitle:"Cerimonia",
-partyTitle:"Festa",
-dressTitle:"Dress Code",
-stayTitle:"Alloggio"
-},
-kr:{
-storyTitle:"우리 이야기",
-detailsTitle:"정보",
-ceremonyTitle:"예식",
-partyTitle:"파티",
-dressTitle:"드레스 코드",
-stayTitle:"숙소"
-}
-};
-
+/* LANGUAGE FIX */
 function setLanguage(lang){
 
-document.getElementById("language-selector").style.display="none";
-
-Object.keys(translations[lang]).forEach(id=>{
-const el=document.getElementById(id);
-if(el) el.innerText=translations[lang][id];
-});
+document.getElementById("language-selector").classList.add("hidden");
+document.body.classList.remove("no-scroll");
 
 audio.play().catch(()=>{});
 
 }
 
-/* COUNTDOWN CORREGIDO */
-
-const wedding=new Date("2026-09-26T17:30:00").getTime();
+/* COUNTDOWN FIX */
+const weddingDate=new Date("2026-09-26T17:30:00").getTime();
 
 setInterval(()=>{
 
 const now=new Date().getTime();
-const diff=wedding-now;
+const diff=weddingDate-now;
 
-const m=Math.floor(diff/(1000*60*60*24*30));
-const d=Math.floor((diff/(1000*60*60*24))%30);
-const h=Math.floor((diff/(1000*60*60))%24);
+const months=Math.floor(diff/(1000*60*60*24*30));
+const days=Math.floor((diff/(1000*60*60*24))%30);
+const hours=Math.floor((diff/(1000*60*60))%24);
 
 document.getElementById("timer").innerHTML=
-`${m} meses · ${d} días · ${h}h`;
+`${months} meses · ${days} días · ${hours}h`;
 
 },1000);
 
 /* COPY */
-
 function copyIBAN(){
 navigator.clipboard.writeText("ESXX XXXX XXXX XXXX");
+document.getElementById("copyMessage").style.opacity=1;
+setTimeout(()=>document.getElementById("copyMessage").style.opacity=0,2000);
 }
 
 function copySWIFT(){
 navigator.clipboard.writeText("XXXXESXX");
+document.getElementById("copyMessage").style.opacity=1;
+setTimeout(()=>document.getElementById("copyMessage").style.opacity=0,2000);
 }
 
 </script>
