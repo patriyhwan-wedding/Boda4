@@ -13,7 +13,7 @@
 :root{
   --cream:#f6f1e7;
   --green:#8ba391;
-  --green-dark:#6f8776;
+  --green-dark:#3f4a41;
   --text:#5e665f;
 }
 
@@ -24,7 +24,6 @@ body{
   color:var(--text);
   overflow-x:hidden;
 
-  /* 💃 FOTO BAILANDO COMO FONDO GLOBAL */
   background:
     linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),
     url("foto2.jpg") center/cover fixed no-repeat;
@@ -32,8 +31,7 @@ body{
 
 /* LANGUAGE */
 #lang{
-  position:fixed;
-  inset:0;
+  position:fixed;inset:0;
   background:var(--cream);
   display:flex;
   flex-direction:column;
@@ -56,10 +54,9 @@ body{
   border-radius:999px;
   border:none;
   background:rgba(139,163,145,0.2);
-  cursor:pointer;
 }
 
-/* HERO (PLAYA) */
+/* HERO */
 .hero{
   height:100vh;
   display:flex;
@@ -78,13 +75,9 @@ body{
   font-family:"Cormorant Garamond";
   font-size:4.5rem;
   color:white;
-  text-shadow:0 5px 25px rgba(0,0,0,0.35);
 }
 
-.hero p{
-  color:white;
-  letter-spacing:3px;
-}
+.hero p{color:white;letter-spacing:3px;}
 
 #timer{
   margin-bottom:60px;
@@ -113,6 +106,7 @@ section{
   max-width:750px;
   margin:auto;
   line-height:1.9;
+  color:#3f4a41;
 }
 
 /* GRID */
@@ -138,13 +132,11 @@ section{
   border-radius:999px;
   background:var(--green);
   color:white;
-  border:none;
-  cursor:pointer;
-  display:inline-block;
   text-decoration:none;
+  display:inline-block;
 }
 
-/* MAPA */
+/* MAP */
 .map-box{
   max-width:650px;
   margin:20px auto 0;
@@ -158,25 +150,19 @@ iframe{
   border:none;
 }
 
-/* AUDIO */
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:50px 20px;
+  color:#3f4a41;
+}
+
 audio{display:none;}
 
 </style>
 </head>
 
 <body>
-
-<!-- LANGUAGE -->
-<div id="lang">
-<h2>Choose Language</h2>
-<div class="lang-row">
-<button onclick="setLang()">Español</button>
-<button onclick="setLang()">English</button>
-<button onclick="setLang()">Français</button>
-<button onclick="setLang()">Italiano</button>
-<button onclick="setLang()">한국어</button>
-</div>
-</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -192,13 +178,13 @@ audio{display:none;}
 <!-- STORY -->
 <section>
 <h2 class="title">Nuestra Historia</h2>
+
 <p class="intro">
-Dos caminos completamente distintos terminaron cruzándose en el momento perfecto. Entre viajes, aviones, conversaciones infinitas y sobreviviendo a Charleroi (que no es poco), Patricia e Hyo Hwan han construido su historia entre gofres y patatas fritas.
-Ahora quieren celebrar esta nueva etapa rodeados de las personas que más quieren.
+Dos caminos completamente distintos terminaron cruzándose en el momento perfecto. Entre viajes, aviones, conversaciones infinitas y sobreviviendo a Charleroi (que no es poco), Patricia e Hyo Hwan han construido su historia entre gofres y patatas fritas. Ahora quieren celebrar esta nueva etapa rodeados de las personas que más quieren.
 </p>
 </section>
 
-<!-- CEREMONIA + MAPA -->
+<!-- CEREMONIA -->
 <section>
 <div class="grid">
 
@@ -208,9 +194,7 @@ Ahora quieren celebrar esta nueva etapa rodeados de las personas que más quiere
 <p>Finca Siempre Verde</p>
 
 <div class="map-box">
-<iframe
-src="https://www.google.com/maps?q=Finca%20Siempre%20Verde%20Murcia&output=embed">
-</iframe>
+<iframe src="https://www.google.com/maps?q=Finca%20Siempre%20Verde%20Murcia&output=embed"></iframe>
 </div>
 
 </div>
@@ -230,25 +214,39 @@ src="https://www.google.com/maps?q=Finca%20Siempre%20Verde%20Murcia&output=embed
 </div>
 </section>
 
-<!-- HOTELS -->
+<!-- ALOJAMIENTO (NUEVO COMPLETO) -->
 <section>
-<div class="grid">
-
 <div class="card">
-<h3>Hotel Amistad Murcia</h3>
+
+<h3>Alojamiento</h3>
+
+<p>
+Hemos conseguido descuentos especiales para invitados en hoteles cercanos.
+</p>
+
+<br>
+
+<p><b>Hotel Amistad Murcia</b></p>
 <p>Código: SIEMPREVERDEAMISTAD</p>
+
 <a class="btn" href="https://www.sercotelhoteles.com/amistad/murcia" target="_blank">
 VER HOTEL
 </a>
-</div>
 
-<div class="card">
-<h3>Cetina Murcia</h3>
+<br><br>
+
+<p><b>Cetina Murcia</b></p>
 <p>20% descuento: EVENTOSPREMIER</p>
+
 <a class="btn" href="CETINA 2026 - SIEMPREVERDE-EL BOSCO.pdf" target="_blank">
 VER CETINA
 </a>
-</div>
+
+<br><br>
+
+<p>
+Más opciones: Airbnb, Booking o apartamentos turísticos cercanos a la finca.
+</p>
 
 </div>
 </section>
@@ -258,6 +256,7 @@ VER CETINA
 <div class="card">
 
 <h3>Música</h3>
+
 <p>Añade canciones a nuestra playlist colaborativa para la fiesta ✨</p>
 
 <a class="btn" href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe" target="_blank">
@@ -274,8 +273,7 @@ ABRIR PLAYLIST
 <h3>Confirmación</h3>
 
 <p>
-Nos haría muchísima ilusión compartir este día contigo.
-Si no confirmas antes del <b><u>1 de septiembre</u></b>, entenderemos que lamentablemente no puedes acompañarnos.
+Nos haría muchísima ilusión compartir este día contigo. Si no confirmas antes del <b><u>1 de septiembre</u></b>, entenderemos que no puedes acompañarnos.
 </p>
 
 <a class="btn" href="https://forms.gle/VbBLwKAwJP2qk6uT9" target="_blank">
@@ -300,40 +298,8 @@ CONFIRMAR ASISTENCIA Y MENÚ
 </div>
 </section>
 
-<!-- MUSIC -->
-<audio id="music" loop>
-<source src="Lavieenrose.mp3">
-</audio>
-
-<script>
-
-const music=document.getElementById("music");
-
-document.addEventListener("click",()=>music.play(),{once:true});
-
-function setLang(){
-document.getElementById("lang").classList.add("hidden");
-music.play();
-}
-
-const d=new Date("2026-09-26T17:30:00").getTime();
-
-setInterval(()=>{
-let now=new Date().getTime();
-let diff=d-now;
-
-let m=Math.floor(diff/1000/60/60/24/30);
-let days=Math.floor(diff/1000/60/60/24)%30;
-let h=Math.floor(diff/1000/60/60)%24;
-
-document.getElementById("timer").innerHTML =
-`${m} meses · ${days} días · ${h}h`;
-
-},1000);
-
-</script>
-
-<footer style="text-align:center;padding:50px 20px;color:#7f867f;">
+<!-- FOOTER -->
+<footer>
 Hecho con amor · Patricia & Hyo Hwan<br>
 <small>(y un poco de ayuda de ChatGPT...)</small>
 </footer>
