@@ -9,120 +9,153 @@
 
 <style>
 
+/* =======================
+   PALETA PREMIUM
+======================= */
+
 :root{
   --cream:#f6f1e7;
-  --eucalyptus:#8ba391;
-  --dark:#5e665f;
-  --white:#fff;
+  --eucalipto:#8ba391;
+  --eucalipto-dark:#6f8776;
+  --text:#5e665f;
 }
 
+/* RESET */
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-  font-family:Montserrat,sans-serif;
+  font-family:'Montserrat',sans-serif;
+  color:var(--text);
+  overflow-x:hidden;
+
+  /* 🖼️ FOTO PRINCIPAL */
   background:
-    linear-gradient(rgba(246,241,231,0.72),rgba(246,241,231,0.75)),
-    url("foto.jpg") center/cover fixed no-repeat;
-  color:var(--dark);
+    linear-gradient(rgba(246,241,231,0.55),rgba(246,241,231,0.65)),
+    url("foto_boda.jpg") center/cover fixed no-repeat;
 }
 
-/* LANGUAGE */
+/* =======================
+   LANGUAGE
+======================= */
+
 #lang{
   position:fixed;inset:0;
   background:var(--cream);
-  display:flex;flex-direction:column;
-  justify-content:center;align-items:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   z-index:9999;
 }
 
 #lang.hidden{display:none;}
 
 .lang-btn{
-  padding:12px 24px;
+  padding:14px 26px;
   margin:10px;
   border-radius:999px;
   border:none;
-  background:rgba(139,163,145,0.2);
+  background:rgba(139,163,145,0.25);
+  color:var(--eucalipto-dark);
   cursor:pointer;
 }
 
-/* HERO */
+/* =======================
+   HERO (FORMATO PREMIUM)
+======================= */
+
 .hero{
   height:100vh;
   display:flex;
   flex-direction:column;
-  justify-content:center;
+  justify-content:flex-start;
   align-items:center;
   text-align:center;
-  padding-top:120px;
+  padding-top:220px; /* 👈 evita caras tapadas */
 }
 
 .hero h1{
-  font-family:"Cormorant Garamond";
-  font-size:4rem;
-  color:#fff;
-  text-shadow:0 5px 20px rgba(0,0,0,0.25);
+  font-family:'Cormorant Garamond';
+  font-size:4.5rem;
+  color:white;
+  text-shadow:0 6px 25px rgba(0,0,0,0.25);
 }
 
-.hero p{color:#fff;letter-spacing:3px;}
+.hero p{
+  color:white;
+  letter-spacing:3px;
+}
 
 #timer{
-  background:rgba(255,255,255,0.7);
-  padding:10px 20px;
+  margin-bottom:110px;
+  padding:12px 22px;
   border-radius:999px;
-  margin-bottom:40px;
+  background:rgba(255,255,255,0.7);
 }
 
-/* SECTIONS */
+/* =======================
+   SECCIONES
+======================= */
+
 section{
-  padding:80px 20px;
   max-width:1100px;
   margin:auto;
+  padding:90px 20px;
 }
 
 .title{
   text-align:center;
-  font-size:2.5rem;
-  margin-bottom:20px;
-  font-family:"Cormorant Garamond";
-  color:var(--eucalyptus);
+  font-family:'Cormorant Garamond';
+  font-size:2.8rem;
+  color:var(--eucalipto-dark);
+  margin-bottom:25px;
 }
 
-.cards{
+.intro{
+  text-align:center;
+  max-width:750px;
+  margin:auto;
+  line-height:1.9;
+}
+
+/* CARDS */
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+  margin-top:40px;
 }
 
 .card{
   background:rgba(255,255,255,0.6);
-  padding:25px;
-  border-radius:20px;
+  padding:30px;
+  border-radius:25px;
   backdrop-filter:blur(10px);
   text-align:center;
 }
 
 /* BUTTON */
 .btn{
-  display:inline-block;
   margin-top:15px;
-  padding:12px 22px;
-  background:var(--eucalyptus);
-  color:#fff;
+  padding:12px 24px;
   border-radius:999px;
-  text-decoration:none;
+  background:var(--eucalipto);
+  color:white;
   border:none;
   cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
 }
 
 /* MAP */
 iframe{
   width:100%;
-  height:300px;
+  height:320px;
   border:none;
   border-radius:20px;
 }
 
+/* MUSIC HIDDEN */
 audio{display:none;}
 
 </style>
@@ -142,20 +175,24 @@ audio{display:none;}
 
 <!-- HERO -->
 <div class="hero">
+
 <div id="timer"></div>
+
 <h1>Hyo Hwan & Patricia</h1>
+
 <p>26 · Septiembre · 2026</p>
+
 </div>
 
 <!-- STORY -->
 <section>
 <h2 class="title" id="storyTitle"></h2>
-<p id="storyText" style="text-align:center;max-width:700px;margin:auto;"></p>
+<p class="intro" id="storyText"></p>
 </section>
 
 <!-- DETAILS -->
 <section>
-<div class="cards">
+<div class="grid">
 
 <div class="card">
 <h3 id="ceremonyTitle"></h3>
@@ -180,7 +217,7 @@ audio{display:none;}
 
 <!-- HOTELS -->
 <section>
-<div class="cards">
+<div class="grid">
 
 <div class="card">
 <p>Hotel Amistad Murcia</p>
@@ -197,9 +234,13 @@ audio{display:none;}
 
 <!-- MUSIC + RSVP -->
 <section style="text-align:center;">
-<a class="btn" target="_blank" href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe">Spotify</a>
+<a class="btn" target="_blank"
+href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe">Spotify</a>
+
 <br><br>
-<a class="btn" target="_blank" href="https://forms.gle/VbBLwKAwJP2qk6uT9">RSVP</a>
+
+<a class="btn" target="_blank"
+href="https://forms.gle/VbBLwKAwJP2qk6uT9">RSVP</a>
 </section>
 
 <!-- MAP -->
@@ -210,9 +251,6 @@ audio{display:none;}
 src="https://www.google.com/maps?q=Finca%20Siempre%20Verde%20Murcia&output=embed">
 </iframe>
 
-<p style="text-align:center;margin-top:20px;">
-Taxi · Uber · Cabify · Bolt
-</p>
 </section>
 
 <!-- GIFTS -->
@@ -220,10 +258,10 @@ Taxi · Uber · Cabify · Bolt
 <div class="card">
 
 <p>IBAN: ESXX XXXX XXXX XXXX</p>
-<button class="btn" onclick="copy('iban')">Copiar IBAN</button>
+<button class="btn" onclick="copyIBAN()">Copiar IBAN</button>
 
 <p style="margin-top:20px;">SWIFT: XXXXESXX</p>
-<button class="btn" onclick="copy('swift')">Copiar SWIFT</button>
+<button class="btn" onclick="copySWIFT()">Copiar SWIFT</button>
 
 </div>
 </section>
@@ -237,38 +275,41 @@ Taxi · Uber · Cabify · Bolt
 
 const music=document.getElementById("music");
 
+/* autoplay real */
 document.addEventListener("click",()=>music.play(),{once:true});
 
-/* LANG */
-function setLang(l){
+/* language */
+function setLang(){
 document.getElementById("lang").classList.add("hidden");
 music.play();
 }
 
-/* COUNTDOWN */
-const d=new Date("2026-09-26T17:30:00").getTime();
+/* countdown */
+const date=new Date("2026-09-26T17:30:00").getTime();
 
 setInterval(()=>{
+
 let now=new Date().getTime();
-let diff=d-now;
+let diff=date-now;
 
 let m=Math.floor(diff/1000/60/60/24/30);
-let days=Math.floor(diff/1000/60/60/24)%30;
+let d=Math.floor(diff/1000/60/60/24)%30;
 let h=Math.floor(diff/1000/60/60)%24;
 
 document.getElementById("timer").innerHTML=
-`${m} meses · ${days} días · ${h}h`;
+`${m} meses · ${d} días · ${h}h`;
 
 },1000);
 
-/* COPY */
-function copy(type){
-if(type==="iban"){
-navigator.clipboard.writeText("ESXX XXXX XXXX");
+/* copy */
+function copyIBAN(){
+navigator.clipboard.writeText("ESXX XXXX XXXX XXXX");
+alert("IBAN copiado");
 }
-if(type==="swift"){
+
+function copySWIFT(){
 navigator.clipboard.writeText("XXXXESXX");
-}
+alert("SWIFT copiado");
 }
 
 </script>
