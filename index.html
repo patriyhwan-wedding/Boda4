@@ -21,17 +21,17 @@
 
 body{
   font-family:Montserrat,sans-serif;
+  color:var(--text);
   background:
     linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),
     url("foto2.jpg") center/cover fixed no-repeat;
-  color:var(--text);
 }
 
-/* MODAL */
+/* MODAL IDIOMA */
 #langModal{
   position:fixed;
   inset:0;
-  background:rgba(255,255,255,0.96);
+  background:rgba(255,255,255,0.97);
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -41,13 +41,13 @@ body{
 
 #langModal h2{
   font-family:"Cormorant Garamond";
-  font-size:2.6rem;
+  font-size:2.8rem;
   margin-bottom:20px;
 }
 
 #langModal button{
-  margin:6px;
-  padding:12px 18px;
+  margin:8px;
+  padding:12px 20px;
   border-radius:999px;
   border:none;
   background:var(--green);
@@ -62,7 +62,7 @@ body{
   justify-content:flex-start;
   align-items:center;
   text-align:center;
-  padding-top:110px;
+  padding-top:120px;
   background:
     linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.35)),
     url("foto1.jpg") center/cover no-repeat;
@@ -70,12 +70,16 @@ body{
 
 .hero h1{
   font-family:"Cormorant Garamond";
-  font-size:4rem;
+  font-size:4.2rem;
   color:white;
 }
 
-.hero p{color:white;letter-spacing:3px;}
+.hero p{
+  color:white;
+  letter-spacing:3px;
+}
 
+/* COUNTDOWN */
 #timer{
   margin-top:20px;
   padding:10px 18px;
@@ -83,14 +87,17 @@ body{
   border-radius:999px;
 }
 
+/* TEXTO HERO ABAJO (NO TAPAR CARA) */
 .hero-bottom{
   margin-top:auto;
-  padding-bottom:25px;
+  padding-bottom:30px;
   color:white;
-  opacity:.9;
+  font-size:0.95rem;
+  opacity:0.9;
+  max-width:700px;
 }
 
-/* SECTIONS */
+/* SECCIONES */
 section{
   max-width:1100px;
   margin:auto;
@@ -99,12 +106,12 @@ section{
 
 .title{
   text-align:center;
-  font-size:2.6rem;
+  font-size:2.7rem;
   font-family:"Cormorant Garamond";
   margin-bottom:20px;
 }
 
-/* GRID */
+/* GRID TARJETAS */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -112,12 +119,12 @@ section{
 }
 
 .card{
-  background:rgba(255,255,255,0.85);
-  padding:25px;
-  border-radius:20px;
+  background:rgba(255,255,255,0.8);
+  padding:22px;
+  border-radius:18px;
 }
 
-/* IMAGES */
+/* IMAGENES */
 .card img{
   width:100%;
   height:220px;
@@ -126,7 +133,7 @@ section{
   margin-top:10px;
 }
 
-/* MAP */
+/* MAPA */
 iframe{
   width:100%;
   height:200px;
@@ -135,10 +142,10 @@ iframe{
   margin-top:10px;
 }
 
-/* BUTTON */
+/* BOTONES */
 .btn{
   margin-top:12px;
-  padding:12px 22px;
+  padding:12px 20px;
   background:var(--green);
   color:white;
   border-radius:999px;
@@ -150,7 +157,7 @@ iframe{
 footer{
   text-align:center;
   padding:40px;
-  color:#2f3b31;
+  color:var(--text);
 }
 
 </style>
@@ -158,9 +165,9 @@ footer{
 
 <body>
 
-<!-- LANG -->
+<!-- LANGUAGE MODAL -->
 <div id="langModal">
-  <h2>Choose language</h2>
+  <h2>Select language</h2>
   <button onclick="setLang('es')">Español</button>
   <button onclick="setLang('en')">English</button>
   <button onclick="setLang('fr')">Français</button>
@@ -177,38 +184,36 @@ footer{
 <p>Hyo Hwan & Patricia</p>
 <p>26 · Septiembre · 2026</p>
 
-<div class="hero-bottom" id="introHero"></div>
+<div class="hero-bottom" id="introText"></div>
 
 </div>
 
 <!-- HISTORIA -->
 <section>
 <h2 class="title" id="t_story"></h2>
-<p id="story"></p>
+<p class="card" id="story"></p>
 </section>
 
-<!-- CEREMONIA -->
+<!-- INFO -->
 <section>
 <div class="grid">
 
 <div class="card">
-<h3>Ceremonia</h3>
+<h3 id="t_ceremony"></h3>
 <p>18:30h</p>
 <p>Finca Siempre Verde</p>
 <iframe src="https://www.google.com/maps?q=Finca%20Siempre%20Verde%20Murcia&output=embed"></iframe>
 </div>
 
 <div class="card">
-<h3>Celebración</h3>
-<p>Cena 21:00–21:30</p>
-<p>Hasta el amanecer ✨</p>
+<h3 id="t_party"></h3>
+<p id="party_time"></p>
 <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf">
 </div>
 
 <div class="card">
-<h3>Dress Code</h3>
-<p>Libre</p>
-<p>Lo importante es celebrar juntos ✨</p>
+<h3 id="t_dress"></h3>
+<p id="dress_text"></p>
 <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1">
 </div>
 
@@ -218,38 +223,37 @@ footer{
 <!-- ALOJAMIENTO -->
 <section>
 <div class="card">
-<h3>Alojamiento</h3>
-<p>Hoteles con descuento para invitados</p>
+<h3 id="t_hotel"></h3>
+
+<p id="hotel_text"></p>
+
 <p><b>Hotel Amistad Murcia</b> - SIEMPREVERDEAMISTAD</p>
-<a class="btn" href="#">VER HOTEL</a>
+<a class="btn">VER HOTEL</a>
 
 <p><b>Cetina Murcia</b> - EVENTOSPREMIER</p>
-<a class="btn" href="#">VER PDF</a>
+<a class="btn">VER PDF</a>
 </div>
 </section>
 
 <!-- MUSICA -->
 <section>
 <div class="card">
-<h3>Música</h3>
-<p>Playlist colaborativa</p>
-<a class="btn" href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe">ABRIR</a>
+<h3 id="t_music"></h3>
+<a class="btn" href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe">ABRIR PLAYLIST</a>
 </div>
 </section>
 
 <!-- CONFIRMACION -->
 <section>
 <div class="card">
-<h3>Confirmación</h3>
-<p>Nos haría ilusión compartir este día contigo. Fecha límite: <b>1 septiembre</b></p>
-<a class="btn" href="#">CONFIRMAR ASISTENCIA Y MENÚ</a>
+<h3 id="t_confirm"></h3>
+<p id="confirm_text"></p>
+<a class="btn">CONFIRMAR ASISTENCIA Y MENÚ</a>
 </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-Hecho con amor · Patricia & Hyo Hwan (y un poco de ayuda de ChatGPT...)
-</footer>
+<footer id="footerText"></footer>
 
 <audio id="music" autoplay loop>
 <source src="Lavieenrose.mp3">
@@ -257,9 +261,32 @@ Hecho con amor · Patricia & Hyo Hwan (y un poco de ayuda de ChatGPT...)
 
 <script>
 
-/* SOLO VERSION ESTABLE SIMPLE */
 function setLang(l){
-  document.getElementById("langModal").style.display="none";
+document.getElementById("langModal").style.display="none";
+
+const t={
+es:{
+t_story:"Nuestra Historia",
+story:"Dos caminos completamente distintos terminaron cruzándose en el momento perfecto. Entre viajes, aviones, conversaciones infinitas y sobrevivir en Charleroi (que no es poco!), Patricia e Hyo Hwan han ido construyendo su historia entre gofres y patatas fritas y ahora quieren celebrar el comienzo de esta nueva etapa rodeados de las personas que más quieren.",
+t_ceremony:"Ceremonia",
+t_party:"Celebración",
+party_time:"Cena 21:00–21:30 · Hasta el amanecer ✨",
+t_dress:"Dress Code",
+dress_text:"Libre · Lo importante es celebrar juntos ✨",
+t_hotel:"Alojamiento",
+hotel_text:"Hemos conseguido descuentos especiales para invitados en hoteles cercanos.",
+t_music:"Música",
+t_confirm:"Confirmación",
+confirm_text:"Nos haría muchísima ilusión compartir este día contigo. Si no confirmas antes del 1 de septiembre, entenderemos que no puedes acompañarnos."
+}
+};
+
+const langData=t[l];
+
+Object.keys(langData).forEach(k=>{
+const el=document.getElementById(k);
+if(el) el.innerHTML=langData[k];
+});
 }
 
 /* COUNTDOWN */
@@ -267,17 +294,17 @@ const target=new Date("2026-09-26T18:30:00");
 
 setInterval(()=>{
 const now=new Date();
-const diff=target-now;
+const d=target-now;
 
-const m=Math.floor(diff/1000/60/60/24/30);
-const d=Math.floor((diff/1000/60/60/24)%30);
-const h=Math.floor((diff/1000/60/60)%24);
+const m=Math.floor(d/1000/60/60/24/30);
+const days=Math.floor((d/1000/60/60/24)%30);
+const h=Math.floor((d/1000/60/60)%24);
 
 document.getElementById("timer").innerText=
-`${m} meses · ${d} días · ${h}h`;
+`${m} meses · ${days} días · ${h}h`;
 },1000);
 
-/* AUDIO FIX */
+/* MUSIC FIX */
 window.addEventListener("click",()=>{
 document.getElementById("music").play();
 },{once:true});
