@@ -1,161 +1,599 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Boda</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Patricia & Hyo Hwan</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body, html {
-  height: 100%;
-  overflow-x: hidden;
-  background: #000;
+body{
+  font-family:'Montserrat',sans-serif;
+  color:white;
+  overflow-x:hidden;
+  background:
+  linear-gradient(rgba(0,0,0,0.70),rgba(0,0,0,0.70)),
+  url('foto2.jpg') center/cover fixed no-repeat;
 }
 
-/* LANG SELECTOR */
-#langSelector {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 9999;
-  background: rgba(0,0,0,0.6);
-  padding: 8px 12px;
-  border-radius: 10px;
-  color: white;
+/* BLOQUEAR SCROLL AL INICIO */
+body.no-scroll{
+  overflow:hidden;
 }
 
-#langSelector button {
-  background: transparent;
-  border: 1px solid white;
-  color: white;
-  padding: 5px 8px;
-  margin: 0 3px;
-  cursor: pointer;
+/* SELECTOR IDIOMA */
+#language-selector{
+  position:fixed;
+  inset:0;
+  background:#111;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  transition:opacity .4s ease, visibility .4s ease;
+}
+
+#language-selector.hidden{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+#language-selector h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3rem;
+  margin-bottom:40px;
+  font-weight:400;
+}
+
+.lang-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  justify-content:center;
+}
+
+.lang-btn{
+  padding:14px 28px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.08);
+  color:white;
+  cursor:pointer;
+  font-size:1rem;
+  transition:.3s;
+}
+
+.lang-btn:hover{
+  background:rgba(255,255,255,0.2);
+  transform:translateY(-3px);
 }
 
 /* HERO */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
+.hero{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  text-align:center;
+  position:relative;
+  padding-top:220px;
+  padding-left:20px;
+  padding-right:20px;
+
+  background:
+  linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.45)),
+  url('foto1.jpg') center center/cover no-repeat;
 }
 
-.hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  filter: brightness(0.75);
+.hero-content{
+  width:100%;
 }
 
-/* OVERLAY TEXT */
-.hero-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  z-index: 2;
-  padding: 20px;
-  max-width: 90%;
+/* TIMER MÁS ARRIBA */
+#timer{
+  font-size:1.3rem;
+  margin-bottom:130px;
+  letter-spacing:3px;
+  background:rgba(0,0,0,0.25);
+  padding:12px 26px;
+  border-radius:999px;
+  backdrop-filter:blur(10px);
+  display:inline-block;
 }
 
-.hero-text h1 {
-  font-size: 3em;
-  margin-bottom: 10px;
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(4rem,10vw,7rem);
+  font-weight:400;
+  letter-spacing:4px;
 }
 
-.hero-text p {
-  font-size: 1.2em;
+.hero p{
+  margin-top:18px;
+  letter-spacing:5px;
+  text-transform:uppercase;
 }
 
-/* COUNTDOWN */
-#countdown {
-  margin-top: 15px;
-  font-size: 1.5em;
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:100px 25px;
 }
 
-/* MUSIC BUTTON */
-#musicBtn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  background: white;
+.section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3rem;
+  text-align:center;
+  margin-bottom:25px;
+  font-weight:400;
 }
 
-/* SECTIONS */
-.section {
-  padding: 60px 20px;
-  text-align: center;
-  background: #111;
-  color: white;
+.intro{
+  text-align:center;
+  font-size:1.1rem;
+  line-height:1.9;
+  color:#f1f1f1;
+  max-width:760px;
+  margin:auto;
 }
 
-.section img {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-  border-radius: 20px;
-  margin-top: 20px;
+.details-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  margin-top:70px;
 }
+
+.card{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(12px);
+  border-radius:28px;
+  padding:45px 35px;
+  text-align:center;
+}
+
+.card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;
+  margin-bottom:15px;
+  font-weight:500;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:16px 38px;
+  border-radius:999px;
+  background:white;
+  color:black;
+  text-decoration:none;
+  letter-spacing:2px;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:#d9c2a0;
+  transform:translateY(-3px);
+}
+
+footer{
+  text-align:center;
+  padding:40px 20px 60px;
+  color:#ccc;
+  font-size:.9rem;
+}
+
+@media(max-width:768px){
+
+.hero{
+  padding-top:180px;
+}
+
+.hero h1{
+  font-size:4rem;
+}
+
+#timer{
+  margin-bottom:100px;
+  font-size:1rem;
+}
+
+section{
+  padding:80px 20px;
+}
+
+}
+
 </style>
 </head>
 
-<body>
+<body class="no-scroll">
 
-<!-- LANGUAGE -->
-<div id="langSelector">
-  <button onclick="setLang('es')">ES</button>
-  <button onclick="setLang('en')">EN</button>
+<!-- SELECTOR -->
+<div id="language-selector">
+
+<h2>Choose Language</h2>
+
+<div class="lang-buttons">
+
+<button onclick="setLanguage('es')" class="lang-btn">Español</button>
+
+<button onclick="setLanguage('en')" class="lang-btn">English</button>
+
+<button onclick="setLanguage('fr')" class="lang-btn">Français</button>
+
+<button onclick="setLanguage('it')" class="lang-btn">Italiano</button>
+
+<button onclick="setLanguage('kr')" class="lang-btn">한국어</button>
+
 </div>
 
-<!-- MUSIC -->
-<button id="musicBtn">▶ Música</button>
-<audio id="audio" loop>
-  <source src="La vie en rose - Louis Armstrong.mp3" type="audio/mpeg">
-</audio>
+</div>
 
 <!-- HERO -->
-<div class="hero">
-  <img src="foto1.jpg" alt="boda">
-  <div class="hero-text">
-    <h1 id="title">Nuestra Boda</h1>
-    <p id="subtitle">24 de Mayo 2026</p>
-    
-    <div id="countdown"></div>
-  </div>
+<section class="hero">
+
+<div class="hero-content">
+
+<div id="timer"></div>
+
+<p id="heroSubtitle">WE ARE GETTING MARRIED</p>
+
+<h1>Patricia & Hyo Hwan</h1>
+
+<p id="dateText">26 · September · 2026</p>
+
 </div>
 
-<!-- SECTION -->
-<div class="section">
-  <h2 id="storyTitle">Nuestra historia</h2>
-  <p id="storyText">
-    Desde el primer día supimos que esto era especial.
-  </p>
-  <img src="foto2.jpg" alt="historia">
+</section>
+
+<!-- STORY -->
+<section>
+
+<h2 class="section-title" id="storyTitle"></h2>
+
+<p class="intro" id="storyText"></p>
+
+</section>
+
+<!-- DETAILS -->
+<section>
+
+<h2 class="section-title" id="detailsTitle"></h2>
+
+<div class="details-grid">
+
+<div class="card">
+
+<h3 id="ceremonyTitle"></h3>
+
+<p>17:30h</p>
+
+<p id="ceremonyPlace"></p>
+
 </div>
 
-<!-- SCRIPT -->
+<div class="card">
+
+<h3 id="partyTitle"></h3>
+
+<p id="partyText1"></p>
+
+<p id="partyText2"></p>
+
+</div>
+
+<div class="card">
+
+<h3 id="dressTitle"></h3>
+
+<p id="dressText1"></p>
+
+<p id="dressText2"></p>
+
+</div>
+
+</div>
+
+<div class="details-grid">
+
+<div class="card">
+
+<h3 id="stayTitle"></h3>
+
+<p id="stayText"></p>
+
+<p style="margin-top:20px;font-weight:600;">
+Hotel Amistad Murcia
+</p>
+
+<a
+href="Descuentos en hotel para vosotros.pdf"
+target="_blank"
+class="btn"
+id="hotel1Btn">
+</a>
+
+<p style="margin-top:30px;font-weight:600;">
+Cetina Murcia
+</p>
+
+<a
+href="CETINA 2026 - SIEMPREVERDE-EL BOSCO.pdf"
+target="_blank"
+class="btn"
+id="hotel2Btn">
+</a>
+
+</div>
+
+<div class="card">
+
+<h3 id="musicTitle"></h3>
+
+<p id="musicText"></p>
+
+<a
+href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe"
+target="_blank"
+class="btn"
+id="musicBtn">
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- RSVP -->
+<section>
+
+<h2 class="section-title" id="confirmTitle"></h2>
+
+<p class="intro" id="confirmText"></p>
+
+<div style="text-align:center;">
+
+<a
+href="https://forms.gle/VbBLwKAwJP2qk6uT9"
+target="_blank"
+class="btn"
+id="confirmBtn">
+</a>
+
+</div>
+
+</section>
+
+<footer id="footerText"></footer>
+
+<!-- AUDIO -->
+<audio id="bg-music" loop>
+<source src="Lavieenrose.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-// LANGUAGE
-function setLang(lang) {
-  if (lang === 'es') {
-    document.getElementById("title").innerText = "Nuestra Boda";
-    document.getElementById("subtitle").innerText = "24 de Mayo 2026";
-    document.getElementById("storyTitle").innerText = "Nuestra historia";
-    document.getElementById("
+
+/* BLOQUEAR SCROLL */
+document.body.classList.add("no-scroll");
+
+/* AUDIO */
+let musicStarted = false;
+
+function startMusic(){
+
+  if(musicStarted) return;
+
+  const audio = document.getElementById("bg-music");
+
+  audio.volume = 0.25;
+
+  audio.play().catch(()=>{});
+
+  musicStarted = true;
+}
+
+document.addEventListener("click", startMusic);
+document.addEventListener("touchstart", startMusic);
+
+/* TRADUCCIONES */
+const translations = {
+
+es:{
+heroSubtitle:"NOS CASAMOS",
+dateText:"26 · Septiembre · 2026",
+storyTitle:"Nuestra Historia",
+storyText:"Dos caminos completamente distintos terminaron cruzándose en el momento perfecto. Entre viajes, conversaciones infinitas y atardeceres junto al mar, Patricia y Hyo Hwan construyeron una historia llena de aventuras, calma y muchísimo amor.",
+detailsTitle:"Detalles",
+ceremonyTitle:"Ceremonia",
+ceremonyPlace:"Finca Siempre Verde · Murcia",
+partyTitle:"Celebración",
+partyText1:"Cena & Fiesta",
+partyText2:"Hasta el amanecer ✨",
+dressTitle:"Dress Code",
+dressText1:"Libre",
+dressText2:"Lo importante es celebrar juntos ✨",
+stayTitle:"Alojamiento",
+stayText:"Hemos preparado opciones para vuestra estancia.",
+hotel1Btn:"VER PDF HOTEL",
+hotel2Btn:"VER PDF HOTEL",
+musicTitle:"Música",
+musicText:"Añade canciones a nuestra playlist ✨",
+musicBtn:"ABRIR PLAYLIST",
+confirmTitle:"Confirmación",
+confirmText:"Nos haría muchísima ilusión compartir este día contigo.",
+confirmBtn:"CONFIRMAR ASISTENCIA",
+footerText:"Hecho con amor · Patricia & Hyo Hwan"
+},
+
+en:{
+heroSubtitle:"WE ARE GETTING MARRIED",
+dateText:"26 · September · 2026",
+storyTitle:"Our Story",
+storyText:"Two completely different paths crossed at the perfect moment. Between travels, endless conversations and sunsets by the sea, Patricia and Hyo Hwan built a beautiful story full of love.",
+detailsTitle:"Details",
+ceremonyTitle:"Ceremony",
+ceremonyPlace:"Siempre Verde Estate · Murcia",
+partyTitle:"Celebration",
+partyText1:"Dinner & Party",
+partyText2:"Until sunrise ✨",
+dressTitle:"Dress Code",
+dressText1:"Free",
+dressText2:"The important thing is celebrating together ✨",
+stayTitle:"Accommodation",
+stayText:"We prepared accommodation options for your stay.",
+hotel1Btn:"OPEN HOTEL PDF",
+hotel2Btn:"OPEN HOTEL PDF",
+musicTitle:"Music",
+musicText:"Add songs to our playlist ✨",
+musicBtn:"OPEN PLAYLIST",
+confirmTitle:"RSVP",
+confirmText:"We would love to celebrate this day with you.",
+confirmBtn:"CONFIRM ATTENDANCE",
+footerText:"Made with love · Patricia & Hyo Hwan"
+},
+
+fr:{
+heroSubtitle:"NOUS NOUS MARIONS",
+dateText:"26 · Septembre · 2026",
+storyTitle:"Notre Histoire",
+storyText:"Deux chemins totalement différents se sont croisés au moment parfait. Entre voyages et couchers de soleil au bord de la mer, Patricia et Hyo Hwan ont construit une magnifique histoire d’amour.",
+detailsTitle:"Détails",
+ceremonyTitle:"Cérémonie",
+ceremonyPlace:"Finca Siempre Verde · Murcie",
+partyTitle:"Célébration",
+partyText1:"Dîner & Fête",
+partyText2:"Jusqu’au lever du soleil ✨",
+dressTitle:"Dress Code",
+dressText1:"Libre",
+dressText2:"L’important est de célébrer ensemble ✨",
+stayTitle:"Hébergement",
+stayText:"Nous avons préparé plusieurs options d’hébergement.",
+hotel1Btn:"OUVRIR LE PDF",
+hotel2Btn:"OUVRIR LE PDF",
+musicTitle:"Musique",
+musicText:"Ajoutez des chansons à notre playlist ✨",
+musicBtn:"OUVRIR LA PLAYLIST",
+confirmTitle:"Confirmation",
+confirmText:"Nous serions ravis de partager ce jour avec vous.",
+confirmBtn:"CONFIRMER LA PRÉSENCE",
+footerText:"Fait avec amour · Patricia & Hyo Hwan"
+},
+
+it:{
+heroSubtitle:"CI SPOSIAMO",
+dateText:"26 · Settembre · 2026",
+storyTitle:"La Nostra Storia",
+storyText:"Due percorsi completamente diversi si sono incontrati nel momento perfetto. Tra viaggi e tramonti sul mare, Patricia e Hyo Hwan hanno costruito una storia piena d’amore.",
+detailsTitle:"Dettagli",
+ceremonyTitle:"Cerimonia",
+ceremonyPlace:"Finca Siempre Verde · Murcia",
+partyTitle:"Celebrazione",
+partyText1:"Cena & Festa",
+partyText2:"Fino all’alba ✨",
+dressTitle:"Dress Code",
+dressText1:"Libero",
+dressText2:"L’importante è festeggiare insieme ✨",
+stayTitle:"Alloggio",
+stayText:"Abbiamo preparato diverse opzioni di alloggio.",
+hotel1Btn:"APRI PDF HOTEL",
+hotel2Btn:"APRI PDF HOTEL",
+musicTitle:"Musica",
+musicText:"Aggiungete canzoni alla playlist ✨",
+musicBtn:"APRI PLAYLIST",
+confirmTitle:"Conferma",
+confirmText:"Saremmo felicissimi di condividere questo giorno con voi.",
+confirmBtn:"CONFERMA PRESENZA",
+footerText:"Fatto con amore · Patricia & Hyo Hwan"
+},
+
+kr:{
+heroSubtitle:"결혼합니다",
+dateText:"2026 · 9월 · 26일",
+storyTitle:"우리 이야기",
+storyText:"전혀 다른 두 사람이 완벽한 순간에 만나게 되었습니다. 여행과 바다의 노을 속에서 Patricia와 Hyo Hwan은 사랑으로 가득한 이야기를 만들어 왔습니다.",
+detailsTitle:"상세 정보",
+ceremonyTitle:"예식",
+ceremonyPlace:"무르시아 · Siempre Verde",
+partyTitle:"축하 파티",
+partyText1:"디너 & 파티",
+partyText2:"새벽까지 ✨",
+dressTitle:"드레스 코드",
+dressText1:"자유",
+dressText2:"함께 축하하는 것이 가장 중요해요 ✨",
+stayTitle:"숙소",
+stayText:"편안한 숙박을 위해 옵션을 준비했습니다.",
+hotel1Btn:"호텔 PDF 보기",
+hotel2Btn:"호텔 PDF 보기",
+musicTitle:"음악",
+musicText:"플레이리스트에 노래를 추가해주세요 ✨",
+musicBtn:"플레이리스트 열기",
+confirmTitle:"참석 확인",
+confirmText:"특별한 날을 함께해 주시면 정말 기쁠 거예요.",
+confirmBtn:"참석 확인",
+footerText:"사랑으로 제작됨 · Patricia & Hyo Hwan"
+}
+
+};
+
+/* CAMBIAR IDIOMA */
+function setLanguage(lang){
+
+  document
+    .getElementById("language-selector")
+    .classList.add("hidden");
+
+  document.body.classList.remove("no-scroll");
+
+  Object.keys(translations[lang]).forEach(id=>{
+
+    const el = document.getElementById(id);
+
+    if(el){
+      el.innerHTML = translations[lang][id];
+    }
+
+  });
+
+}
+
+/* COUNTDOWN */
+const weddingDate =
+new Date("September 26, 2026 17:30:00").getTime();
+
+setInterval(()=>{
+
+  const now = new Date().getTime();
+
+  const distance = weddingDate - now;
+
+  const days =
+  Math.floor(distance/(1000*60*60*24));
+
+  const hours =
+  Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+  const minutes =
+  Math.floor((distance%(1000*60*60))/(1000*60));
+
+  document.getElementById("timer").innerHTML =
+  `${days} days · ${hours}h · ${minutes}m`;
+
+},1000);
+
+</script>
+
+</body>
+</html>
