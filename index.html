@@ -731,4 +731,139 @@ heroDate:"26 · SEPTEMBER · 2026",
 countdownTitle:"Countdown",
 storyTitle:"Our Story",
 storyText:"Two completely different paths crossed at the perfect moment. Between flights, endless conversations and surviving in Charleroi (which is not easy!), Patricia and Hyo Hwan built their story between waffles and fries, and now they want to celebrate this new chapter surrounded by the people they love the most.",
-ceremonyTitle
+ceremonyTitle:"Ceremony",
+ceremonyText:"Siempre Verde Estate · Murcia",
+celebrationTitle:"Celebration",
+celebrationText1:"Dinner & Party",
+celebrationText2:"Until sunrise ✨",
+stayTitle:"Accommodation",
+stayText1:"We have arranged special hotel discounts for guests.",
+hotelBtn:"VIEW HOTEL",
+cetinaBtn:"VIEW CETINA",
+musicTitle:"Music",
+musicText:"Add songs to our collaborative wedding playlist ✨",
+playlistBtn:"OPEN PLAYLIST",
+confirmTitle:"RSVP",
+confirmText:"We would love to celebrate this special day with you. If you do not confirm before <b>September 1st</b>, we will sadly assume you cannot join us and you will have to cry under the rain while looking at the wedding photos.",
+confirmBtn:"RSVP & MENU SELECTION",
+travelTitle:"How to arrive",
+travelText:"Nearby airports: Alicante & Murcia<br><br>Taxi · Uber · Cabify · Bolt<br><br>Parking available at the venue",
+timelineTitle:"Wedding Timeline",
+timeline1:"Ceremony",
+timeline2:"Cocktail",
+timeline3:"Dinner",
+timeline4:"Party",
+faqTitle:"FAQ",
+faq1q:"Can I bring a guest?",
+faq1a:"Only if indicated in your invitation.",
+faq2q:"Is parking available?",
+faq2a:"Yes, inside the venue.",
+faq3q:"Is there a dress code?",
+faq3a:"Whatever you want, but look stunning just in case 😉",
+faq4q:"Are ceremony and celebration in the same place?",
+faq4a:"Yes, everything will happen at the same venue.",
+giftTitle:"Gifts",
+giftQuote:"The best gift is sharing this special day with you, but if you would like to help us begin this new adventure, you can do it here ✨",
+copyIbanBtn:"COPY IBAN",
+copySwiftBtn:"COPY SWIFT",
+footerText:"Made with love · Patricia & Hyo Hwan",
+footerSmall:"(and a little help from ChatGPT...)"
+}
+
+};
+
+function setLang(lang){
+
+document.getElementById("languageModal").style.display="none";
+
+const music=document.getElementById("bgMusic");
+
+music.volume=0.25;
+
+music.play().catch(()=>{});
+
+const t=translations[lang] || translations.es;
+
+Object.keys(t).forEach(id=>{
+
+const el=document.getElementById(id);
+
+if(el){
+el.innerHTML=t[id];
+}
+
+});
+
+}
+
+function toggleMusic(){
+
+const music=document.getElementById("bgMusic");
+const button=document.getElementById("musicToggle");
+
+if(music.paused){
+
+music.play();
+button.innerHTML="♫";
+
+}else{
+
+music.pause();
+button.innerHTML="🔇";
+
+}
+
+}
+
+const targetDate=new Date("2026-09-26T18:30:00");
+
+setInterval(()=>{
+
+const now=new Date();
+const diff=targetDate-now;
+
+const months=Math.floor(diff/(1000*60*60*24*30));
+const days=Math.floor((diff/(1000*60*60*24))%30);
+const hours=Math.floor((diff/(1000*60*60))%24);
+
+document.getElementById("timer").innerHTML=
+`${months} meses · ${days} días · ${hours} horas`;
+
+},1000);
+
+function copyIBAN(){
+
+navigator.clipboard.writeText(
+document.getElementById("ibanText").innerText
+);
+
+showCopied();
+
+}
+
+function copySWIFT(){
+
+navigator.clipboard.writeText(
+document.getElementById("swiftText").innerText
+);
+
+showCopied();
+
+}
+
+function showCopied(){
+
+const msg=document.getElementById("copyMessage");
+
+msg.style.opacity="1";
+
+setTimeout(()=>{
+msg.style.opacity="0";
+},2000);
+
+}
+
+</script>
+
+</body>
+</html>
