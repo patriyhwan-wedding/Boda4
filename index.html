@@ -14,136 +14,254 @@
   --cream:#f6f1e7;
   --green:#8ba391;
   --green-dark:#3f4a41;
+  --text:#4d564f;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body{
-  font-family:Montserrat,sans-serif;
-  background:var(--cream);
-  color:var(--green-dark);
+  font-family:'Montserrat',sans-serif;
+  background:
+    linear-gradient(rgba(246,241,231,0.15),rgba(246,241,231,0.15)),
+    url("foto2.jpg") center/cover fixed no-repeat;
+  color:var(--text);
+  overflow-x:hidden;
 }
 
-/* MODAL */
-#langModal{
+/* LANGUAGE MODAL */
+
+#languageModal{
   position:fixed;
   inset:0;
-  background:rgba(246,241,231,0.98);
+  background:
+    linear-gradient(rgba(246,241,231,0.95),rgba(246,241,231,0.95)),
+    url("foto1.jpg") center/cover no-repeat;
+  z-index:9999;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  z-index:9999;
 }
 
-#langModal h2{
-  font-family:"Cormorant Garamond";
-  font-size:2.6rem;
-  margin-bottom:20px;
+#languageModal h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3rem;
+  margin-bottom:30px;
+  color:var(--green-dark);
 }
 
-#langModal button{
-  margin:6px;
-  padding:12px 20px;
-  border-radius:999px;
+.language-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+}
+
+.language-buttons button{
   border:none;
   background:var(--green);
   color:white;
+  padding:14px 24px;
+  border-radius:999px;
+  cursor:pointer;
+  font-size:1rem;
 }
 
 /* HERO */
+
 .hero{
-  height:90vh;
+  min-height:100vh;
   background:
-    linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(246,241,231,0.1)),
+    linear-gradient(rgba(0,0,0,0.28),rgba(0,0,0,0.28)),
     url("foto1.jpg") center/cover no-repeat;
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
   align-items:center;
   text-align:center;
-  padding:40px;
+  padding:60px 20px 40px;
   color:white;
 }
 
 .hero h1{
-  font-size:3.5rem;
-  font-family:"Cormorant Garamond";
+  font-family:'Cormorant Garamond',serif;
+  font-size:4.8rem;
+  font-weight:500;
+  margin-bottom:10px;
 }
 
-.hero-date{
-  font-size:2.2rem;
-  margin-top:10px;
+.hero .names{
+  font-size:1.4rem;
+  letter-spacing:2px;
 }
 
-/* COUNTDOWN */
-#timer{
-  background:rgba(255,255,255,0.85);
+.hero .date{
+  font-size:2.3rem;
+  margin-top:12px;
+  font-weight:500;
+}
+
+.hero .intro{
+  max-width:850px;
+  margin-top:35px;
+  line-height:1.9;
+  background:rgba(255,255,255,0.12);
+  padding:18px 22px;
+  border-radius:20px;
+  backdrop-filter:blur(8px);
+}
+
+/* TIMER */
+
+.countdown{
+  max-width:900px;
+  margin:50px auto 0;
+  padding:0 20px;
+}
+
+.timer-card{
+  background:rgba(255,255,255,0.88);
+  border-radius:24px;
+  padding:30px;
+  text-align:center;
+}
+
+.timer-card h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.5rem;
+  margin-bottom:10px;
   color:var(--green-dark);
-  padding:10px 20px;
-  border-radius:999px;
-  margin-bottom:20px;
+}
+
+#timer{
+  font-size:1.5rem;
+  color:var(--green-dark);
 }
 
 /* SECTIONS */
+
 section{
-  max-width:1000px;
+  max-width:1100px;
   margin:auto;
-  padding:70px 20px;
+  padding:90px 20px;
 }
 
-.title{
+.section-title{
   text-align:center;
-  font-size:2.4rem;
-  font-family:"Cormorant Garamond";
-  margin-bottom:25px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:3rem;
+  margin-bottom:35px;
+  color:var(--green-dark);
 }
 
-/* CARDS */
+/* GRID */
+
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:15px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
 }
+
+/* CARD */
 
 .card{
-  background:white;
-  border-radius:18px;
-  padding:20px;
+  background:rgba(255,255,255,0.86);
+  border-radius:24px;
+  padding:24px;
+  backdrop-filter:blur(8px);
 }
 
-/* IMAGES */
+.card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;
+  margin-bottom:15px;
+  color:var(--green-dark);
+}
+
+.card p{
+  line-height:1.8;
+}
+
 .card img{
   width:100%;
-  border-radius:12px;
-  margin-top:10px;
+  height:220px;
+  object-fit:cover;
+  border-radius:16px;
+  margin-top:16px;
 }
 
-/* MAP */
-iframe{
-  width:100%;
-  height:180px;
-  border:none;
-  border-radius:12px;
-  margin-top:10px;
-}
+/* BUTTON */
 
-/* BTN */
 .btn{
   display:inline-block;
-  padding:12px 18px;
+  margin-top:18px;
+  padding:12px 22px;
+  border-radius:999px;
   background:var(--green);
   color:white;
-  border-radius:999px;
-  margin-top:10px;
   text-decoration:none;
 }
 
+/* MAP */
+
+iframe{
+  width:100%;
+  height:220px;
+  border:none;
+  border-radius:18px;
+  margin-top:15px;
+}
+
+/* FAQ */
+
+.faq-item{
+  margin-bottom:22px;
+}
+
+.faq-item h4{
+  color:var(--green-dark);
+  margin-bottom:8px;
+}
+
 /* FOOTER */
+
 footer{
   text-align:center;
-  padding:40px;
-  color:var(--green-dark);
+  padding:60px 20px;
+  color:#2f3731;
+  font-size:1rem;
+  background:rgba(255,255,255,0.4);
+}
+
+footer small{
+  display:block;
+  margin-top:8px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero{
+  padding-bottom:25px;
+}
+
+.hero h1{
+  font-size:3.4rem;
+}
+
+.hero .date{
+  font-size:1.8rem;
+}
+
+.section-title{
+  font-size:2.5rem;
+}
+
 }
 
 </style>
@@ -151,48 +269,455 @@ footer{
 
 <body>
 
-<!-- LANGUAGE -->
-<div id="langModal">
-  <h2>Select language</h2>
-  <button onclick="setLang('es')">Español</button>
-  <button onclick="setLang('en')">English</button>
-  <button onclick="setLang('fr')">Français</button>
-  <button onclick="setLang('it')">Italiano</button>
-  <button onclick="setLang('kr')">한국어</button>
+<!-- LANGUAGE MODAL -->
+
+<div id="languageModal">
+
+<h2>Select language</h2>
+
+<div class="language-buttons">
+<button onclick="setLang('es')">Español</button>
+<button onclick="setLang('en')">English</button>
+<button onclick="setLang('fr')">Français</button>
+<button onclick="setLang('it')">Italiano</button>
+<button onclick="setLang('kr')">한국어</button>
+</div>
+
 </div>
 
 <!-- HERO -->
-<div class="hero">
 
-  <div id="timer"></div>
+<section class="hero">
 
-  <h1 id="weddingTitle">¡¡¡NOS CASAMOS!!!</h1>
+<h1 id="heroTitle">¡¡¡NOS CASAMOS!!!</h1>
 
-  <p>Hyo Hwan & Patricia</p>
+<div class="names">
+Hyo Hwan & Patricia
+</div>
 
-  <div class="hero-date" id="weddingDate">
-    26 · SEPTIEMBRE · 2026
-  </div>
+<div class="date" id="heroDate">
+26 · SEPTIEMBRE · 2026
+</div>
 
-  <p id="intro"></p>
+<div class="intro" id="heroIntro">
+Dos caminos completamente distintos terminaron cruzándose en el momento perfecto...
+</div>
+
+</section>
+
+<!-- COUNTDOWN -->
+
+<div class="countdown">
+
+<div class="timer-card">
+
+<h2 id="countdownTitle">Cuenta atrás</h2>
+
+<div id="timer"></div>
 
 </div>
 
-<!-- COUNTDOWN -->
-<section>
-  <div class="card">
-    <h2 id="countTitle">Cuenta atrás</h2>
-    <div id="timerBig" style="font-size:1.4rem;"></div>
-  </div>
-</section>
+</div>
 
 <!-- HISTORIA -->
+
 <section>
-<h2 class="title" id="t_story"></h2>
-<p class="card" id="story"></p>
+
+<h2 class="section-title" id="storyTitle">Nuestra Historia</h2>
+
+<div class="card">
+
+<p id="storyText">
+Dos caminos completamente distintos terminaron cruzándose en el momento perfecto. Entre viajes, aviones, conversaciones infinitas y sobrevivir en Charleroi (que no es poco!), Patricia e Hyo Hwan han ido construyendo su historia entre gofres y patatas fritas y ahora quieren celebrar el comienzo de esta nueva etapa rodeados de las personas que más quieren.
+</p>
+
+</div>
+
 </section>
 
 <!-- CEREMONIA -->
+
 <section>
+
+<div class="grid">
+
 <div class="card">
-<h3 id="t
+
+<h3 id="ceremonyTitle">Ceremonia</h3>
+
+<p>18:30h</p>
+
+<p id="ceremonyText">
+Finca Siempre Verde · Murcia
+</p>
+
+<iframe src="https://www.google.com/maps?q=Finca+Siempre+Verde+Murcia&output=embed"></iframe>
+
+</div>
+
+<div class="card">
+
+<h3 id="celebrationTitle">Celebración</h3>
+
+<p id="celebrationText1">
+Cena & Fiesta
+</p>
+
+<p id="celebrationText2">
+Hasta el amanecer ✨
+</p>
+
+<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+<div class="card">
+
+<h3 id="dressTitle">Dress Code</h3>
+
+<p id="dressText1">
+Libre
+</p>
+
+<p id="dressText2">
+Ponte guap@! que nunca se sabe...
+</p>
+
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ALOJAMIENTO -->
+
+<section>
+
+<h2 class="section-title" id="stayTitle">Alojamiento</h2>
+
+<div class="card">
+
+<p id="stayText">
+Hemos conseguido descuentos especiales para invitados en hoteles cercanos.
+</p>
+
+<br>
+
+<p><b>Hotel Amistad Murcia</b></p>
+
+<p id="hotelCode">
+Código: SIEMPREVERDEAMISTAD
+</p>
+
+<a class="btn" href="https://www.sercotelhoteles.com/es/hotel-amistad-murcia/" target="_blank" id="hotelBtn">
+VER HOTEL
+</a>
+
+<br><br>
+
+<p><b>Cetina Murcia</b></p>
+
+<p id="cetinaCode">
+20% descuento: EVENTOSPREMIER
+</p>
+
+<a class="btn" href="CETINA 2026 - SIEMPREVERDE-EL BOSCO.pdf" target="_blank" id="cetinaBtn">
+VER CETINA
+</a>
+
+<br><br>
+
+<p id="moreStay">
+También podéis encontrar alojamiento en Airbnb, Booking o apartamentos turísticos cercanos a la finca.
+</p>
+
+</div>
+
+</section>
+
+<!-- MUSIC -->
+
+<section>
+
+<div class="card">
+
+<h3 id="musicTitle">Música</h3>
+
+<p id="musicText">
+Añade canciones a nuestra playlist colaborativa para la fiesta ✨
+</p>
+
+<a class="btn" href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe" target="_blank" id="musicBtn">
+ABRIR PLAYLIST
+</a>
+
+</div>
+
+</section>
+
+<!-- CONFIRM -->
+
+<section>
+
+<div class="card">
+
+<h3 id="confirmTitle">Confirmación</h3>
+
+<p id="confirmText">
+Nos haría muchísima ilusión compartir este día contigo...
+</p>
+
+<a class="btn" href="https://forms.gle/VbBLwKAwJP2qk6uT9" target="_blank" id="confirmBtn">
+CONFIRMACIÓN Y SELECCIÓN DE MENÚ
+</a>
+
+</div>
+
+</section>
+
+<!-- TIMELINE -->
+
+<section>
+
+<h2 class="section-title" id="timelineTitle">Horario del día</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>18:30</h3>
+<p id="timeline1">Ceremonia</p>
+</div>
+
+<div class="card">
+<h3>19:30</h3>
+<p id="timeline2">Cóctel</p>
+</div>
+
+<div class="card">
+<h3>21:00</h3>
+<p id="timeline3">Cena</p>
+</div>
+
+<div class="card">
+<h3>00:00</h3>
+<p id="timeline4">Fiesta</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- COMO LLEGAR -->
+
+<section>
+
+<h2 class="section-title" id="travelTitle">Cómo llegar</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3 id="airportTitle">Aeropuertos</h3>
+
+<p id="airportText">
+Alicante & Murcia
+</p>
+
+</div>
+
+<div class="card">
+
+<h3 id="transportTitle">Transporte</h3>
+
+<p id="transportText">
+Taxi · Uber · Cabify · Bolt
+</p>
+
+</div>
+
+<div class="card">
+
+<h3 id="parkingTitle">Parking</h3>
+
+<p id="parkingText">
+Disponible en la finca
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FAQ -->
+
+<section>
+
+<h2 class="section-title" id="faqTitle">
+Preguntas frecuentes
+</h2>
+
+<div class="card">
+
+<div class="faq-item">
+<h4 id="faq1q">¿Puedo ir con acompañante?</h4>
+<p id="faq1a">Solo si está indicado en la invitación.</p>
+</div>
+
+<div class="faq-item">
+<h4 id="faq2q">¿Hay parking?</h4>
+<p id="faq2a">Sí, dentro de la finca.</p>
+</div>
+
+<div class="faq-item">
+<h4 id="faq3q">¿Hay dress code obligatorio?</h4>
+<p id="faq3a">No, pero recomendamos elegante relajado.</p>
+</div>
+
+<div class="faq-item">
+<h4 id="faq4q">¿La ceremonia y la celebración son en el mismo lugar?</h4>
+<p id="faq4a">Sí, todo será en la misma finca.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer id="footerText">
+
+Hecho con amor · Patricia & Hyo Hwan
+
+<small>
+(y un poco de ayuda de ChatGPT...)
+</small>
+
+</footer>
+
+<!-- MUSIC -->
+
+<audio id="bgMusic" loop>
+<source src="Lavieenrose.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const translations = {
+
+es:{
+heroTitle:"¡¡¡NOS CASAMOS!!!",
+heroDate:"26 · SEPTIEMBRE · 2026",
+heroIntro:"Una historia de amor que queremos celebrar contigo ✨",
+
+countdownTitle:"Cuenta atrás",
+
+storyTitle:"Nuestra Historia",
+
+storyText:"Dos caminos completamente distintos terminaron cruzándose en el momento perfecto. Entre viajes, aviones, conversaciones infinitas y sobrevivir en Charleroi (que no es poco!), Patricia e Hyo Hwan han ido construyendo su historia entre gofres y patatas fritas y ahora quieren celebrar el comienzo de esta nueva etapa rodeados de las personas que más quieren.",
+
+ceremonyTitle:"Ceremonia",
+ceremonyText:"Finca Siempre Verde · Murcia",
+
+celebrationTitle:"Celebración",
+celebrationText1:"Cena & Fiesta",
+celebrationText2:"Hasta el amanecer ✨",
+
+dressTitle:"Dress Code",
+dressText1:"Libre",
+dressText2:"Ponte guap@! que nunca se sabe...",
+
+stayTitle:"Alojamiento",
+stayText:"Hemos conseguido descuentos especiales para invitados en hoteles cercanos.",
+hotelCode:"Código: SIEMPREVERDEAMISTAD",
+hotelBtn:"VER HOTEL",
+cetinaCode:"20% descuento: EVENTOSPREMIER",
+cetinaBtn:"VER CETINA",
+moreStay:"También podéis encontrar alojamiento en Airbnb, Booking o apartamentos turísticos cercanos a la finca.",
+
+musicTitle:"Música",
+musicText:"Añade canciones a nuestra playlist colaborativa para la fiesta ✨",
+musicBtn:"ABRIR PLAYLIST",
+
+confirmTitle:"Confirmación",
+confirmText:"Nos haría muchísima ilusión compartir este día contigo. Si no confirmas antes del 1 de septiembre, entenderemos que lamentablemente no puedes acompañarnos en este día y que tendrás que conformarte con ver las fotos mientras lloras bajo la lluvia.",
+confirmBtn:"CONFIRMACIÓN Y SELECCIÓN DE MENÚ",
+
+timelineTitle:"Horario del día",
+timeline1:"Ceremonia",
+timeline2:"Cóctel",
+timeline3:"Cena",
+timeline4:"Fiesta",
+
+travelTitle:"Cómo llegar",
+airportTitle:"Aeropuertos",
+airportText:"Alicante & Murcia",
+transportTitle:"Transporte",
+transportText:"Taxi · Uber · Cabify · Bolt",
+parkingTitle:"Parking",
+parkingText:"Disponible en la finca",
+
+faqTitle:"Preguntas frecuentes",
+faq1q:"¿Puedo ir con acompañante?",
+faq1a:"Solo si está indicado en la invitación.",
+faq2q:"¿Hay parking?",
+faq2a:"Sí, dentro de la finca.",
+faq3q:"¿Hay dress code obligatorio?",
+faq3a:"No, pero recomendamos elegante relajado.",
+faq4q:"¿La ceremonia y la celebración son en el mismo lugar?",
+faq4a:"Sí, todo será en la misma finca.",
+
+footerText:"Hecho con amor · Patricia & Hyo Hwan <small>(y un poco de ayuda de ChatGPT...)</small>"
+}
+
+};
+
+function setLang(lang){
+
+const t = translations[lang];
+
+Object.keys(t).forEach(key=>{
+
+const el = document.getElementById(key);
+
+if(el){
+el.innerHTML = t[key];
+}
+
+});
+
+document.getElementById("languageModal").style.display = "none";
+
+const music = document.getElementById("bgMusic");
+
+music.volume = 0.25;
+
+music.play().catch(()=>{});
+
+}
+
+const targetDate = new Date("2026-09-26T18:30:00");
+
+setInterval(()=>{
+
+const now = new Date();
+
+const diff = targetDate - now;
+
+const months = Math.floor(diff / (1000*60*60*24*30));
+
+const days = Math.floor((diff / (1000*60*60*24)) % 30);
+
+const hours = Math.floor((diff / (1000*60*60)) % 24);
+
+document.getElementById("timer").innerHTML =
+`${months} meses · ${days} días · ${hours} horas`;
+
+},1000);
+
+</script>
+
+</body>
+</html>
