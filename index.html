@@ -43,10 +43,11 @@ body{
   font-family:"Cormorant Garamond";
   font-size:2.8rem;
   margin-bottom:20px;
+  color:var(--green-dark);
 }
 
 #langModal button{
-  margin:8px;
+  margin:6px;
   padding:12px 20px;
   border-radius:999px;
   border:none;
@@ -72,6 +73,7 @@ body{
   font-family:"Cormorant Garamond";
   font-size:4.2rem;
   color:white;
+  text-shadow:0 5px 20px rgba(0,0,0,0.3);
 }
 
 .hero p{
@@ -79,7 +81,6 @@ body{
   letter-spacing:3px;
 }
 
-/* COUNTDOWN */
 #timer{
   margin-top:20px;
   padding:10px 18px;
@@ -87,14 +88,13 @@ body{
   border-radius:999px;
 }
 
-/* TEXTO HERO ABAJO (NO TAPAR CARA) */
 .hero-bottom{
   margin-top:auto;
   padding-bottom:30px;
   color:white;
   font-size:0.95rem;
+  max-width:750px;
   opacity:0.9;
-  max-width:700px;
 }
 
 /* SECCIONES */
@@ -106,34 +106,37 @@ section{
 
 .title{
   text-align:center;
-  font-size:2.7rem;
+  font-size:2.8rem;
   font-family:"Cormorant Garamond";
   margin-bottom:20px;
+  color:var(--green-dark);
 }
 
-/* GRID TARJETAS */
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:20px;
 }
 
+/* CARD */
 .card{
-  background:rgba(255,255,255,0.8);
+  background:rgba(255,255,255,0.82);
   padding:22px;
   border-radius:18px;
+  backdrop-filter:blur(10px);
 }
 
-/* IMAGENES */
+/* IMAGES */
 .card img{
   width:100%;
   height:220px;
   object-fit:cover;
   border-radius:14px;
-  margin-top:10px;
+  margin-top:12px;
 }
 
-/* MAPA */
+/* MAP */
 iframe{
   width:100%;
   height:200px;
@@ -142,7 +145,7 @@ iframe{
   margin-top:10px;
 }
 
-/* BOTONES */
+/* BUTTON */
 .btn{
   margin-top:12px;
   padding:12px 20px;
@@ -157,7 +160,7 @@ iframe{
 footer{
   text-align:center;
   padding:40px;
-  color:var(--text);
+  color:var(--green-dark);
 }
 
 </style>
@@ -194,26 +197,28 @@ footer{
 <p class="card" id="story"></p>
 </section>
 
-<!-- INFO -->
+<!-- INFO PRINCIPAL -->
 <section>
 <div class="grid">
 
 <div class="card">
 <h3 id="t_ceremony"></h3>
 <p>18:30h</p>
-<p>Finca Siempre Verde</p>
+<p>Finca Siempre Verde · Murcia</p>
 <iframe src="https://www.google.com/maps?q=Finca%20Siempre%20Verde%20Murcia&output=embed"></iframe>
 </div>
 
 <div class="card">
 <h3 id="t_party"></h3>
-<p id="party_time"></p>
+<p>Cena 21:00–21:30</p>
+<p>Hasta el amanecer ✨</p>
 <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf">
 </div>
 
 <div class="card">
 <h3 id="t_dress"></h3>
-<p id="dress_text"></p>
+<p>Libre</p>
+<p>Lo importante es celebrar juntos ✨</p>
 <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1">
 </div>
 
@@ -225,91 +230,14 @@ footer{
 <div class="card">
 <h3 id="t_hotel"></h3>
 
-<p id="hotel_text"></p>
+<p>Descuentos especiales para invitados en hoteles cercanos.</p>
 
-<p><b>Hotel Amistad Murcia</b> - SIEMPREVERDEAMISTAD</p>
-<a class="btn">VER HOTEL</a>
+<p><b>Hotel Amistad Murcia</b></p>
+<p>Código: SIEMPREVERDEAMISTAD</p>
+<a class="btn" href="https://www.sercotelhoteles.com/amistad/murcia">VER HOTEL</a>
 
-<p><b>Cetina Murcia</b> - EVENTOSPREMIER</p>
-<a class="btn">VER PDF</a>
-</div>
-</section>
+<br><br>
 
-<!-- MUSICA -->
-<section>
-<div class="card">
-<h3 id="t_music"></h3>
-<a class="btn" href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe">ABRIR PLAYLIST</a>
-</div>
-</section>
-
-<!-- CONFIRMACION -->
-<section>
-<div class="card">
-<h3 id="t_confirm"></h3>
-<p id="confirm_text"></p>
-<a class="btn">CONFIRMAR ASISTENCIA Y MENÚ</a>
-</div>
-</section>
-
-<!-- FOOTER -->
-<footer id="footerText"></footer>
-
-<audio id="music" autoplay loop>
-<source src="Lavieenrose.mp3">
-</audio>
-
-<script>
-
-function setLang(l){
-document.getElementById("langModal").style.display="none";
-
-const t={
-es:{
-t_story:"Nuestra Historia",
-story:"Dos caminos completamente distintos terminaron cruzándose en el momento perfecto. Entre viajes, aviones, conversaciones infinitas y sobrevivir en Charleroi (que no es poco!), Patricia e Hyo Hwan han ido construyendo su historia entre gofres y patatas fritas y ahora quieren celebrar el comienzo de esta nueva etapa rodeados de las personas que más quieren.",
-t_ceremony:"Ceremonia",
-t_party:"Celebración",
-party_time:"Cena 21:00–21:30 · Hasta el amanecer ✨",
-t_dress:"Dress Code",
-dress_text:"Libre · Lo importante es celebrar juntos ✨",
-t_hotel:"Alojamiento",
-hotel_text:"Hemos conseguido descuentos especiales para invitados en hoteles cercanos.",
-t_music:"Música",
-t_confirm:"Confirmación",
-confirm_text:"Nos haría muchísima ilusión compartir este día contigo. Si no confirmas antes del 1 de septiembre, entenderemos que no puedes acompañarnos."
-}
-};
-
-const langData=t[l];
-
-Object.keys(langData).forEach(k=>{
-const el=document.getElementById(k);
-if(el) el.innerHTML=langData[k];
-});
-}
-
-/* COUNTDOWN */
-const target=new Date("2026-09-26T18:30:00");
-
-setInterval(()=>{
-const now=new Date();
-const d=target-now;
-
-const m=Math.floor(d/1000/60/60/24/30);
-const days=Math.floor((d/1000/60/60/24)%30);
-const h=Math.floor((d/1000/60/60)%24);
-
-document.getElementById("timer").innerText=
-`${m} meses · ${days} días · ${h}h`;
-},1000);
-
-/* MUSIC FIX */
-window.addEventListener("click",()=>{
-document.getElementById("music").play();
-},{once:true});
-
-</script>
-
-</body>
-</html>
+<p><b>Cetina Murcia</b></p>
+<p>20% descuento: EVENTOSPREMIER</p>
+<a class="btn" href="C
