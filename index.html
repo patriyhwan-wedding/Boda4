@@ -10,42 +10,36 @@
 
 <style>
 
-/* =======================
-   BASE PREMIUM
-======================= */
+/* =========================
+   BASE
+========================= */
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 :root{
---cream:#f6f1e7;
 --green:#8ba391;
 --green-dark:#5f7567;
---text:#4f5a52;
+--text:#4d5a52;
 }
 
 body{
 font-family:'Montserrat',sans-serif;
-color:var(--text);
+color:white;
 overflow-x:hidden;
 
-/* 🔥 MÁS COLOR + MENOS “BLANCO LAVADO” */
+/* FOTO ORIGINAL + CONTRASTE MÁS ELEGANTE */
 background:
-linear-gradient(rgba(10,15,20,0.35),rgba(20,25,30,0.35)),
-url('foto1.jpg') center/cover fixed;
+linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.35)),
+url('foto_bailando.jpg') center/cover fixed;
 }
 
-/* =======================
-   LANGUAGE SCREEN
-======================= */
+/* =========================
+   LANGUAGE
+========================= */
 
 #language-selector{
-position:fixed;
-inset:0;
-background:rgba(246,241,231,0.95);
+position:fixed;inset:0;
+background:rgba(255,255,255,0.95);
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -54,153 +48,111 @@ z-index:9999;
 }
 
 #language-selector.hidden{
-opacity:0;
-visibility:hidden;
-pointer-events:none;
+display:none;
 }
 
 .lang-btn{
 margin:8px;
 padding:14px 28px;
 border-radius:999px;
-border:1px solid rgba(0,0,0,0.1);
+border:1px solid #ddd;
 background:white;
 cursor:pointer;
 transition:0.3s;
 }
 
 .lang-btn:hover{
-transform:translateY(-3px);
 background:var(--green);
 color:white;
+transform:translateY(-3px);
 }
 
-/* =======================
-   HERO
-======================= */
+/* =========================
+   HERO (BAJADO PARA NO TAPAR CARA)
+========================= */
 
 .hero{
-min-height:100vh;
+height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-padding:0 20px;
-position:relative;
-
-/* ligera capa elegante, NO blanca fuerte */
-background:linear-gradient(to bottom,rgba(0,0,0,0.25),rgba(0,0,0,0.45));
 }
 
-/* 🔥 BAJAMOS TEXTO PARA NO TAPAR LA CARA */
 .hero-content{
-transform:translateY(120px);
+transform:translateY(130px);
 }
 
 .hero h1{
-font-family:'Cormorant Garamond',serif;
 font-size:4.5rem;
-color:white;
-text-shadow:0 8px 30px rgba(0,0,0,0.4);
-letter-spacing:2px;
+font-family:'Cormorant Garamond',serif;
+text-shadow:0 8px 25px rgba(0,0,0,0.5);
 }
 
-.hero p{
-color:#f1f1f1;
-letter-spacing:4px;
-}
-
-/* TIMER */
 #timer{
+background:rgba(255,255,255,0.2);
+padding:10px 20px;
+border-radius:999px;
 display:inline-block;
 margin-bottom:20px;
-padding:10px 20px;
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(10px);
-border-radius:999px;
-color:white;
 }
 
-/* =======================
-   SECTIONS
-======================= */
+/* =========================
+   SECCIONES (CARDS)
+========================= */
 
 section{
 max-width:1100px;
 margin:auto;
-padding:110px 25px;
+padding:90px 20px;
 }
 
 .section-title{
-font-family:'Cormorant Garamond',serif;
-font-size:3rem;
 text-align:center;
+font-size:3rem;
 margin-bottom:40px;
-color:var(--green-dark);
+font-family:'Cormorant Garamond',serif;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
 .card{
-background:rgba(255,255,255,0.7);
-backdrop-filter:blur(10px);
-padding:40px;
-border-radius:25px;
-margin:20px 0;
-box-shadow:0 15px 40px rgba(0,0,0,0.1);
+background:rgba(255,255,255,0.85);
+color:#3d4a44;
+padding:25px;
+border-radius:18px;
 text-align:center;
 }
 
 /* BUTTON */
 .btn{
 display:inline-block;
-padding:14px 28px;
+margin-top:10px;
+padding:12px 24px;
 border-radius:999px;
 background:var(--green);
 color:white;
 text-decoration:none;
-margin-top:15px;
-transition:0.3s;
 }
 
-.btn:hover{
-transform:translateY(-3px);
-background:var(--green-dark);
-}
-
-/* =======================
-   ANIMATIONS
-======================= */
-
-.fade{
-opacity:0;
-transform:translateY(40px);
-transition:all 1s ease;
-}
-
-.fade.show{
-opacity:1;
-transform:translateY(0);
-}
-
-/* =======================
-   MUSIC BUTTON
-======================= */
-
+/* MUSIC */
 #musicBtn{
 position:fixed;
-bottom:25px;
-right:25px;
-width:60px;
-height:60px;
+bottom:20px;
+right:20px;
+width:55px;
+height:55px;
 border-radius:50%;
 background:var(--green);
-color:white;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:20px;
 cursor:pointer;
-box-shadow:0 10px 25px rgba(0,0,0,0.25);
-z-index:999;
+font-size:18px;
 }
 
 </style>
@@ -211,7 +163,6 @@ z-index:999;
 <!-- LANGUAGE -->
 <div id="language-selector">
 <h2>Choose Language</h2>
-
 <button class="lang-btn" onclick="setLanguage('es')">Español</button>
 <button class="lang-btn" onclick="setLanguage('en')">English</button>
 <button class="lang-btn" onclick="setLanguage('fr')">Français</button>
@@ -220,31 +171,30 @@ z-index:999;
 </div>
 
 <!-- HERO -->
-<section class="hero fade">
+<section class="hero">
 <div class="hero-content">
-
 <div id="timer"></div>
-
 <h1>Hyo Hwan & Patricia</h1>
-
 <p id="dateText">26 · Septiembre · 2026</p>
-
 </div>
 </section>
 
 <!-- STORY -->
-<section class="fade">
+<section>
 <h2 class="section-title" id="storyTitle"></h2>
-<p id="storyText" style="text-align:center;max-width:750px;margin:auto;"></p>
+<p id="storyText" style="text-align:center;max-width:700px;margin:auto;"></p>
 </section>
 
 <!-- DETAILS -->
-<section class="fade">
+<section>
 <h2 class="section-title" id="detailsTitle"></h2>
+
+<div class="grid">
 
 <div class="card">
 <h3 id="ceremonyTitle"></h3>
-<p>17:30h · Finca Siempre Verde</p>
+<p>17:30h</p>
+<p>En la misma finca</p>
 </div>
 
 <div class="card">
@@ -258,53 +208,72 @@ z-index:999;
 <p id="dressText1"></p>
 <p id="dressText2"></p>
 </div>
+
+</div>
 </section>
 
 <!-- HOTELS -->
-<section class="fade">
-<h2 class="section-title">Alojamiento</h2>
+<section>
+<h2 class="section-title" id="stayTitle"></h2>
+
+<div class="grid">
 
 <div class="card">
+<p>Hotel descuentos</p>
+<a class="btn" target="_blank" href="Descuentos en hotel para vosotros.pdf">PDF</a>
+</div>
 
-<a class="btn" target="_blank" href="Descuentos en hotel para vosotros.pdf">
-Hotel descuento 1
-</a>
-
-<a class="btn" target="_blank" href="CETINA 2026 - SIEMPREVERDE-EL BOSCO.pdf">
-Hotel descuento 2
-</a>
+<div class="card">
+<p>Cetina 2026</p>
+<a class="btn" target="_blank" href="CETINA 2026 - SIEMPREVERDE-EL BOSCO.pdf">PDF</a>
+</div>
 
 </div>
 </section>
 
-<!-- TIMELINE -->
-<section class="fade">
-<h2 class="section-title">Schedule</h2>
+<!-- LOCATION -->
+<section>
+<h2 class="section-title">Ubicación</h2>
 
-<div class="card">17:30 · Ceremony</div>
-<div class="card">19:00 · Cocktail</div>
-<div class="card">21:00 · Dinner</div>
-<div class="card">00:00 · Party</div>
+<div class="grid">
+
+<div class="card">
+<p>Finca Siempre Verde</p>
+<a class="btn" target="_blank"
+href="https://www.google.com/maps/search/?api=1&query=Finca+Siempre+Verde+Murcia">
+Google Maps
+</a>
+</div>
+
+<div class="card">
+<p>Aeropuerto: Alicante (ALC)</p>
+</div>
+
+<div class="card">
+<p>Taxi · Uber · Cabify · Bolt</p>
+</div>
+
+</div>
 </section>
 
 <!-- GIFTS -->
-<section class="fade">
+<section>
 <h2 class="section-title">Regalos</h2>
 
+<div class="grid">
+
 <div class="card">
+<p><b>IBAN:</b> ESXX XXXX XXXX</p>
+<button class="btn" onclick="copyIBAN()">Copiar</button>
+</div>
 
-<p><b>IBAN:</b> ESXX XXXX XXXX XXXX</p>
-<button class="btn" onclick="copyIBAN()">Copiar IBAN</button>
-
-<p style="margin-top:20px;"><b>SWIFT:</b> XXXXESXX</p>
-<button class="btn" onclick="copySWIFT()">Copiar SWIFT</button>
+<div class="card">
+<p><b>SWIFT:</b> XXXXESXX</p>
+<button class="btn" onclick="copySWIFT()">Copiar</button>
+</div>
 
 </div>
 </section>
-
-<footer style="text-align:center;padding:50px;">
-Hecho con amor · Hyo Hwan & Patricia
-</footer>
 
 <!-- MUSIC -->
 <div id="musicBtn" onclick="toggleMusic()">🎵</div>
@@ -313,56 +282,21 @@ Hecho con amor · Hyo Hwan & Patricia
 <source src="Lavieenrose.mp3">
 </audio>
 
+<footer style="text-align:center;padding:40px;">
+Hecho con amor
+</footer>
+
 <script>
 
-/* =======================
-   MUSIC
-======================= */
+/* =========================
+   TRANSLATIONS (COMPLETO REAL)
+========================= */
 
-const audio=document.getElementById("bg-music");
-let playing=false;
-
-function toggleMusic(){
-if(!playing){
-audio.volume=0.3;
-audio.play();
-playing=true;
-document.getElementById("musicBtn").innerText="⏸";
-}else{
-audio.pause();
-playing=false;
-document.getElementById("musicBtn").innerText="🎵";
-}
-}
-
-/* fallback autoplay */
-window.addEventListener("click",()=>audio.play(),{once:true});
-
-/* =======================
-   LANGUAGE
-======================= */
-
-function setLanguage(lang){
-document.getElementById("language-selector").classList.add("hidden");
-document.body.classList.remove("no-scroll");
-
-Object.keys(translations[lang]).forEach(id=>{
-const el=document.getElementById(id);
-if(el) el.innerHTML=translations[lang][id];
-});
-
-audio.play().catch(()=>{});
-}
-
-/* =======================
-   TRANSLATIONS (completas base)
-======================= */
-
-const translations={
+const translations = {
 
 es:{
 storyTitle:"Nuestra Historia",
-storyText:"Historia de amor entre dos mundos...",
+storyText:"Dos caminos se cruzaron en el momento perfecto...",
 detailsTitle:"Detalles",
 ceremonyTitle:"Ceremonia",
 partyTitle:"Celebración",
@@ -370,12 +304,12 @@ partyText1:"Cena & fiesta",
 partyText2:"Hasta el amanecer ✨",
 dressTitle:"Dress Code",
 dressText1:"Libre",
-dressText2:"Elegante pero tú",
+dressText2:"Elegante"
 },
 
 en:{
 storyTitle:"Our Story",
-storyText:"Love between two worlds...",
+storyText:"Two paths crossed at the perfect moment...",
 detailsTitle:"Details",
 ceremonyTitle:"Ceremony",
 partyTitle:"Celebration",
@@ -383,12 +317,12 @@ partyText1:"Dinner & party",
 partyText2:"Until sunrise ✨",
 dressTitle:"Dress Code",
 dressText1:"Free",
-dressText2:"Elegant but you",
+dressText2:"Elegant"
 },
 
 fr:{
 storyTitle:"Notre Histoire",
-storyText:"Une histoire d’amour...",
+storyText:"Deux chemins se sont croisés...",
 detailsTitle:"Détails",
 ceremonyTitle:"Cérémonie",
 partyTitle:"Fête",
@@ -396,12 +330,12 @@ partyText1:"Dîner",
 partyText2:"Jusqu’au matin ✨",
 dressTitle:"Dress Code",
 dressText1:"Libre",
-dressText2:"Élégant",
+dressText2:"Élégant"
 },
 
 it:{
 storyTitle:"La Nostra Storia",
-storyText:"Una storia d’amore...",
+storyText:"Due strade si sono incrociate...",
 detailsTitle:"Dettagli",
 ceremonyTitle:"Cerimonia",
 partyTitle:"Festa",
@@ -409,12 +343,12 @@ partyText1:"Cena",
 partyText2:"Fino all’alba ✨",
 dressTitle:"Dress Code",
 dressText1:"Libero",
-dressText2:"Elegante",
+dressText2:"Elegante"
 },
 
 kr:{
 storyTitle:"우리 이야기",
-storyText:"사랑 이야기...",
+storyText:"두 사람이 완벽한 순간에 만났습니다...",
 detailsTitle:"정보",
 ceremonyTitle:"예식",
 partyTitle:"파티",
@@ -422,54 +356,59 @@ partyText1:"저녁",
 partyText2:"새벽까지 ✨",
 dressTitle:"드레스",
 dressText1:"자유",
-dressText2:"우아하게",
+dressText2:"우아함"
 }
 
 };
 
-/* =======================
+/* =========================
+   LANGUAGE FUNCTION (ARREGLADO)
+========================= */
+
+function setLanguage(lang){
+
+document.getElementById("language-selector").classList.add("hidden");
+document.body.classList.remove("no-scroll");
+
+Object.keys(translations[lang]).forEach(id=>{
+const el=document.getElementById(id);
+if(el) el.innerHTML = translations[lang][id];
+});
+
+audio.play().catch(()=>{});
+
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+const audio=document.getElementById("bg-music");
+
+function toggleMusic(){
+audio.volume=0.3;
+if(audio.paused) audio.play();
+else audio.pause();
+}
+
+/* =========================
    COUNTDOWN
-======================= */
+========================= */
 
 const wedding=new Date("2026-09-26T17:30:00").getTime();
 
 setInterval(()=>{
-
 const now=new Date().getTime();
-const diff=wedding-now;
+const d=wedding-now;
 
-const m=Math.floor(diff/(1000*60*60*24*30));
-const d=Math.floor((diff/(1000*60*60*24))%30);
-const h=Math.floor((diff/(1000*60*60))%24);
+const m=Math.floor(d/(1000*60*60*24*30));
+const da=Math.floor((d/(1000*60*60*24))%30);
+const h=Math.floor((d/(1000*60*60))%24);
 
 document.getElementById("timer").innerHTML=
-`${m} meses · ${d} días · ${h}h`;
+`${m}m · ${da}d · ${h}h`;
 
 },1000);
-
-/* =======================
-   COPY
-======================= */
-
-function copyIBAN(){
-navigator.clipboard.writeText("ESXX XXXX XXXX");
-}
-
-function copySWIFT(){
-navigator.clipboard.writeText("XXXXESXX");
-}
-
-/* =======================
-   SCROLL ANIMATIONS
-======================= */
-
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(e=>{
-if(e.isIntersecting)e.target.classList.add("show");
-});
-});
-
-document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
 
 </script>
 
