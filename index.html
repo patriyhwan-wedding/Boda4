@@ -11,23 +11,21 @@
 <style>
 
 :root{
-  --cream:#f6f1e7;
   --green:#8ba391;
   --green-dark:#2f3b31;
-  --text:#2f3b31;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
   font-family:Montserrat,sans-serif;
-  color:var(--text);
+  color:var(--green-dark);
   background:
     linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),
     url("foto2.jpg") center/cover fixed no-repeat;
 }
 
-/* MODAL IDIOMA */
+/* MODAL */
 #langModal{
   position:fixed;
   inset:0;
@@ -41,9 +39,8 @@ body{
 
 #langModal h2{
   font-family:"Cormorant Garamond";
-  font-size:2.8rem;
+  font-size:2.6rem;
   margin-bottom:20px;
-  color:var(--green-dark);
 }
 
 #langModal button{
@@ -71,15 +68,11 @@ body{
 
 .hero h1{
   font-family:"Cormorant Garamond";
-  font-size:4.2rem;
+  font-size:4rem;
   color:white;
-  text-shadow:0 5px 20px rgba(0,0,0,0.3);
 }
 
-.hero p{
-  color:white;
-  letter-spacing:3px;
-}
+.hero p{color:white;letter-spacing:3px;}
 
 #timer{
   margin-top:20px;
@@ -92,9 +85,8 @@ body{
   margin-top:auto;
   padding-bottom:30px;
   color:white;
+  max-width:700px;
   font-size:0.95rem;
-  max-width:750px;
-  opacity:0.9;
 }
 
 /* SECCIONES */
@@ -106,10 +98,9 @@ section{
 
 .title{
   text-align:center;
-  font-size:2.8rem;
+  font-size:2.6rem;
   font-family:"Cormorant Garamond";
   margin-bottom:20px;
-  color:var(--green-dark);
 }
 
 /* GRID */
@@ -119,12 +110,10 @@ section{
   gap:20px;
 }
 
-/* CARD */
 .card{
-  background:rgba(255,255,255,0.82);
+  background:rgba(255,255,255,0.85);
   padding:22px;
   border-radius:18px;
-  backdrop-filter:blur(10px);
 }
 
 /* IMAGES */
@@ -133,7 +122,7 @@ section{
   height:220px;
   object-fit:cover;
   border-radius:14px;
-  margin-top:12px;
+  margin-top:10px;
 }
 
 /* MAP */
@@ -197,20 +186,20 @@ footer{
 <p class="card" id="story"></p>
 </section>
 
-<!-- INFO PRINCIPAL -->
+<!-- GRID -->
 <section>
 <div class="grid">
 
 <div class="card">
 <h3 id="t_ceremony"></h3>
 <p>18:30h</p>
-<p>Finca Siempre Verde · Murcia</p>
+<p>Finca Siempre Verde</p>
 <iframe src="https://www.google.com/maps?q=Finca%20Siempre%20Verde%20Murcia&output=embed"></iframe>
 </div>
 
 <div class="card">
 <h3 id="t_party"></h3>
-<p>Cena 21:00–21:30</p>
+<p>21:00–21:30 Cena</p>
 <p>Hasta el amanecer ✨</p>
 <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf">
 </div>
@@ -230,14 +219,146 @@ footer{
 <div class="card">
 <h3 id="t_hotel"></h3>
 
-<p>Descuentos especiales para invitados en hoteles cercanos.</p>
+<p>Descuentos para invitados en hoteles cercanos.</p>
 
-<p><b>Hotel Amistad Murcia</b></p>
-<p>Código: SIEMPREVERDEAMISTAD</p>
-<a class="btn" href="https://www.sercotelhoteles.com/amistad/murcia">VER HOTEL</a>
+<p><b>Hotel Amistad Murcia</b> - SIEMPREVERDEAMISTAD</p>
+<a class="btn">VER HOTEL</a>
 
-<br><br>
+<p><b>Cetina Murcia</b> - EVENTOSPREMIER</p>
+<a class="btn">VER PDF</a>
 
-<p><b>Cetina Murcia</b></p>
-<p>20% descuento: EVENTOSPREMIER</p>
-<a class="btn" href="C
+<p>También Airbnb, Booking y apartamentos turísticos.</p>
+
+</div>
+</section>
+
+<!-- MUSICA -->
+<section>
+<div class="card">
+<h3 id="t_music"></h3>
+<a class="btn" href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe">ABRIR PLAYLIST</a>
+</div>
+</section>
+
+<!-- CONFIRMACION -->
+<section>
+<div class="card">
+<h3 id="t_confirm"></h3>
+<p id="confirm_text"></p>
+<a class="btn">CONFIRMAR ASISTENCIA Y MENÚ</a>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+Hecho con amor · Patricia & Hyo Hwan (y un poco de ayuda de ChatGPT...)
+</footer>
+
+<audio id="music" loop>
+<source src="Lavieenrose.mp3">
+</audio>
+
+<script>
+
+/* ===== TRANSLATIONS COMPLETAS ===== */
+const T = {
+es:{
+introText:"Una historia de amor que queremos celebrar contigo ✨",
+t_story:"Nuestra Historia",
+story:"Dos caminos completamente distintos terminaron cruzándose en el momento perfecto. Entre viajes, aviones, conversaciones infinitas y sobrevivir en Charleroi (que no es poco!), Patricia e Hyo Hwan han construido su historia entre gofres y patatas fritas.",
+t_ceremony:"Ceremonia",
+t_party:"Celebración",
+t_dress:"Dress Code",
+t_hotel:"Alojamiento",
+t_music:"Música",
+t_confirm:"Confirmación",
+confirm_text:"Nos haría muchísima ilusión compartir este día contigo. Fecha límite: 1 de septiembre."
+},
+
+en:{
+introText:"A love story we want to celebrate with you ✨",
+t_story:"Our Story",
+story:"Two completely different paths crossed at the perfect moment. Between travels, conversations and life adventures, Patricia and Hyo Hwan built their story with love and joy.",
+t_ceremony:"Ceremony",
+t_party:"Celebration",
+t_dress:"Dress Code",
+t_hotel:"Accommodation",
+t_music:"Music",
+t_confirm:"RSVP",
+confirm_text:"We would love to celebrate with you. Deadline: September 1st."
+},
+
+fr:{
+introText:"Une histoire d’amour à célébrer avec vous ✨",
+t_story:"Notre Histoire",
+story:"Deux chemins différents se sont croisés au moment parfait et ont construit une belle histoire d’amour.",
+t_ceremony:"Cérémonie",
+t_party:"Célébration",
+t_dress:"Dress Code",
+t_hotel:"Hébergement",
+t_music:"Musique",
+t_confirm:"Confirmation",
+confirm_text:"Nous serions ravis de partager ce jour avec vous."
+},
+
+it:{
+introText:"Una storia d’amore da celebrare insieme ✨",
+t_story:"La Nostra Storia",
+story:"Due percorsi diversi si sono incontrati nel momento perfetto.",
+t_ceremony:"Cerimonia",
+t_party:"Celebrazione",
+t_dress:"Dress Code",
+t_hotel:"Alloggio",
+t_music:"Musica",
+t_confirm:"RSVP",
+confirm_text:"Saremo felici di condividere questo giorno con voi."
+},
+
+kr:{
+introText:"함께 축하하고 싶은 사랑 이야기 ✨",
+t_story:"우리 이야기",
+story:"전혀 다른 두 사람이 완벽한 순간에 만나 사랑을 만들어왔습니다.",
+t_ceremony:"예식",
+t_party:"축하",
+t_dress:"드레스 코드",
+t_hotel:"숙소",
+t_music:"음악",
+t_confirm:"참석",
+confirm_text:"이 특별한 날을 함께해 주세요."
+}
+};
+
+/* ===== LANGUAGE ===== */
+function setLang(l){
+const t=T[l];
+Object.keys(t).forEach(id=>{
+const el=document.getElementById(id);
+if(el) el.innerHTML=t[id];
+});
+document.getElementById("langModal").style.display="none";
+}
+
+/* ===== COUNTDOWN ===== */
+const target=new Date("2026-09-26T18:30:00");
+
+setInterval(()=>{
+const now=new Date();
+const d=target-now;
+
+const m=Math.floor(d/1000/60/60/24/30);
+const days=Math.floor((d/1000/60/60/24)%30);
+const h=Math.floor((d/1000/60/60)%24);
+
+document.getElementById("timer").innerText=
+`${m} meses · ${days} días · ${h}h`;
+},1000);
+
+/* ===== AUDIO FIX ===== */
+window.addEventListener("click",()=>{
+document.getElementById("music").play();
+},{once:true});
+
+</script>
+
+</body>
+</html>
