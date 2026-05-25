@@ -11,6 +11,7 @@
 <style>
 
 :root{
+  --cream:#f6f1e7;
   --green:#8ba391;
   --green-dark:#2f3b31;
   --text:#2f3b31;
@@ -20,10 +21,10 @@
 
 body{
   font-family:Montserrat,sans-serif;
-  color:var(--text);
   background:
     linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),
     url("foto2.jpg") center/cover fixed no-repeat;
+  color:var(--text);
 }
 
 /* MODAL */
@@ -40,8 +41,8 @@ body{
 
 #langModal h2{
   font-family:"Cormorant Garamond";
-  font-size:2.8rem;
-  margin-bottom:25px;
+  font-size:2.6rem;
+  margin-bottom:20px;
 }
 
 #langModal button{
@@ -61,7 +62,7 @@ body{
   justify-content:flex-start;
   align-items:center;
   text-align:center;
-  padding-top:120px;
+  padding-top:110px;
   background:
     linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.35)),
     url("foto1.jpg") center/cover no-repeat;
@@ -69,9 +70,8 @@ body{
 
 .hero h1{
   font-family:"Cormorant Garamond";
-  font-size:4.5rem;
+  font-size:4rem;
   color:white;
-  margin-top:15px;
 }
 
 .hero p{color:white;letter-spacing:3px;}
@@ -83,13 +83,11 @@ body{
   border-radius:999px;
 }
 
-/* HERO TEXT */
 .hero-bottom{
   margin-top:auto;
-  padding-bottom:30px;
+  padding-bottom:25px;
   color:white;
   opacity:.9;
-  text-align:center;
 }
 
 /* SECTIONS */
@@ -103,12 +101,188 @@ section{
   text-align:center;
   font-size:2.6rem;
   font-family:"Cormorant Garamond";
-  color:var(--green-dark);
-  margin-bottom:25px;
+  margin-bottom:20px;
 }
 
-.intro{
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:rgba(255,255,255,0.85);
+  padding:25px;
+  border-radius:20px;
+}
+
+/* IMAGES */
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:14px;
+  margin-top:10px;
+}
+
+/* MAP */
+iframe{
+  width:100%;
+  height:200px;
+  border:none;
+  border-radius:14px;
+  margin-top:10px;
+}
+
+/* BUTTON */
+.btn{
+  margin-top:12px;
+  padding:12px 22px;
+  background:var(--green);
+  color:white;
+  border-radius:999px;
+  display:inline-block;
+  text-decoration:none;
+}
+
+/* FOOTER */
+footer{
   text-align:center;
-  max-width:750px;
-  margin:auto;
-  line-height:1.9;
+  padding:40px;
+  color:#2f3b31;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LANG -->
+<div id="langModal">
+  <h2>Choose language</h2>
+  <button onclick="setLang('es')">Español</button>
+  <button onclick="setLang('en')">English</button>
+  <button onclick="setLang('fr')">Français</button>
+  <button onclick="setLang('it')">Italiano</button>
+  <button onclick="setLang('kr')">한국어</button>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+
+<div id="timer"></div>
+
+<h1>¡¡¡NOS CASAMOS!!!</h1>
+<p>Hyo Hwan & Patricia</p>
+<p>26 · Septiembre · 2026</p>
+
+<div class="hero-bottom" id="introHero"></div>
+
+</div>
+
+<!-- HISTORIA -->
+<section>
+<h2 class="title" id="t_story"></h2>
+<p id="story"></p>
+</section>
+
+<!-- CEREMONIA -->
+<section>
+<div class="grid">
+
+<div class="card">
+<h3>Ceremonia</h3>
+<p>18:30h</p>
+<p>Finca Siempre Verde</p>
+<iframe src="https://www.google.com/maps?q=Finca%20Siempre%20Verde%20Murcia&output=embed"></iframe>
+</div>
+
+<div class="card">
+<h3>Celebración</h3>
+<p>Cena 21:00–21:30</p>
+<p>Hasta el amanecer ✨</p>
+<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf">
+</div>
+
+<div class="card">
+<h3>Dress Code</h3>
+<p>Libre</p>
+<p>Lo importante es celebrar juntos ✨</p>
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1">
+</div>
+
+</div>
+</section>
+
+<!-- ALOJAMIENTO -->
+<section>
+<div class="card">
+<h3>Alojamiento</h3>
+<p>Hoteles con descuento para invitados</p>
+<p><b>Hotel Amistad Murcia</b> - SIEMPREVERDEAMISTAD</p>
+<a class="btn" href="#">VER HOTEL</a>
+
+<p><b>Cetina Murcia</b> - EVENTOSPREMIER</p>
+<a class="btn" href="#">VER PDF</a>
+</div>
+</section>
+
+<!-- MUSICA -->
+<section>
+<div class="card">
+<h3>Música</h3>
+<p>Playlist colaborativa</p>
+<a class="btn" href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe">ABRIR</a>
+</div>
+</section>
+
+<!-- CONFIRMACION -->
+<section>
+<div class="card">
+<h3>Confirmación</h3>
+<p>Nos haría ilusión compartir este día contigo. Fecha límite: <b>1 septiembre</b></p>
+<a class="btn" href="#">CONFIRMAR ASISTENCIA Y MENÚ</a>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+Hecho con amor · Patricia & Hyo Hwan (y un poco de ayuda de ChatGPT...)
+</footer>
+
+<audio id="music" autoplay loop>
+<source src="Lavieenrose.mp3">
+</audio>
+
+<script>
+
+/* SOLO VERSION ESTABLE SIMPLE */
+function setLang(l){
+  document.getElementById("langModal").style.display="none";
+}
+
+/* COUNTDOWN */
+const target=new Date("2026-09-26T18:30:00");
+
+setInterval(()=>{
+const now=new Date();
+const diff=target-now;
+
+const m=Math.floor(diff/1000/60/60/24/30);
+const d=Math.floor((diff/1000/60/60/24)%30);
+const h=Math.floor((diff/1000/60/60)%24);
+
+document.getElementById("timer").innerText=
+`${m} meses · ${d} días · ${h}h`;
+},1000);
+
+/* AUDIO FIX */
+window.addEventListener("click",()=>{
+document.getElementById("music").play();
+},{once:true});
+
+</script>
+
+</body>
+</html>
