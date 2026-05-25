@@ -22,25 +22,26 @@ body{
   overflow-x:hidden;
   background:
   linear-gradient(rgba(0,0,0,0.70),rgba(0,0,0,0.70)),
-  url('foto2.jpg') center/cover fixed no-repeat;
+  url('foto2.jpg') center center/cover fixed no-repeat;
 }
 
-/* BLOQUEAR SCROLL AL INICIO */
 body.no-scroll{
   overflow:hidden;
 }
 
-/* SELECTOR IDIOMA */
+/* SELECTOR */
 #language-selector{
   position:fixed;
   inset:0;
   background:#111;
+  z-index:9999;
+
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  z-index:9999;
-  transition:opacity .4s ease, visibility .4s ease;
+
+  transition:opacity .5s ease, visibility .5s ease;
 }
 
 #language-selector.hidden{
@@ -59,8 +60,8 @@ body.no-scroll{
 .lang-buttons{
   display:flex;
   flex-wrap:wrap;
-  gap:15px;
   justify-content:center;
+  gap:15px;
 }
 
 .lang-btn{
@@ -82,11 +83,15 @@ body.no-scroll{
 /* HERO */
 .hero{
   height:100vh;
+
   display:flex;
   justify-content:center;
   align-items:flex-start;
+
   text-align:center;
+
   position:relative;
+
   padding-top:220px;
   padding-left:20px;
   padding-right:20px;
@@ -100,15 +105,18 @@ body.no-scroll{
   width:100%;
 }
 
-/* TIMER MÁS ARRIBA */
 #timer{
   font-size:1.3rem;
   margin-bottom:130px;
   letter-spacing:3px;
+
   background:rgba(0,0,0,0.25);
+
   padding:12px 26px;
   border-radius:999px;
+
   backdrop-filter:blur(10px);
+
   display:inline-block;
 }
 
@@ -227,15 +235,25 @@ section{
 
 <div class="lang-buttons">
 
-<button onclick="setLanguage('es')" class="lang-btn">Español</button>
+<button onclick="setLanguage('es')" class="lang-btn">
+Español
+</button>
 
-<button onclick="setLanguage('en')" class="lang-btn">English</button>
+<button onclick="setLanguage('en')" class="lang-btn">
+English
+</button>
 
-<button onclick="setLanguage('fr')" class="lang-btn">Français</button>
+<button onclick="setLanguage('fr')" class="lang-btn">
+Français
+</button>
 
-<button onclick="setLanguage('it')" class="lang-btn">Italiano</button>
+<button onclick="setLanguage('it')" class="lang-btn">
+Italiano
+</button>
 
-<button onclick="setLanguage('kr')" class="lang-btn">한국어</button>
+<button onclick="setLanguage('kr')" class="lang-btn">
+한국어
+</button>
 
 </div>
 
@@ -377,11 +395,112 @@ id="confirmBtn">
 
 </section>
 
+<!-- REGALOS -->
+<section>
+
+<h2 class="section-title" id="giftTitle"></h2>
+
+<div class="card" style="max-width:700px;margin:auto;">
+
+<p
+id="giftQuote"
+style="
+font-style:italic;
+margin-bottom:25px;
+line-height:1.8;
+opacity:.9;
+"
+></p>
+
+<p
+id="giftText"
+style="margin-bottom:30px;"
+></p>
+
+<!-- IBAN -->
+<div
+style="
+background:rgba(255,255,255,0.08);
+padding:20px;
+border-radius:18px;
+margin-bottom:20px;
+"
+>
+
+<p style="margin-bottom:10px;font-weight:600;">
+IBAN
+</p>
+
+<div
+id="ibanText"
+style="
+font-size:1.05rem;
+letter-spacing:2px;
+word-break:break-word;
+"
+>
+ESXX XXXX XXXX XXXX XXXX XXXX
+</div>
+
+</div>
+
+<!-- SWIFT -->
+<div
+style="
+background:rgba(255,255,255,0.08);
+padding:20px;
+border-radius:18px;
+margin-bottom:25px;
+"
+>
+
+<p style="margin-bottom:10px;font-weight:600;">
+SWIFT / BIC
+</p>
+
+<div
+id="swiftText"
+style="
+font-size:1.05rem;
+letter-spacing:2px;
+word-break:break-word;
+"
+>
+XXXXESXX
+</div>
+
+</div>
+
+<button
+onclick="copyBankData()"
+class="btn"
+id="copyBtn"
+style="border:none;cursor:pointer;"
+>
+COPIAR DATOS
+</button>
+
+<p
+id="copyMessage"
+style="
+margin-top:20px;
+opacity:0;
+transition:.3s;
+font-size:.95rem;
+"
+>
+✓ Copiado
+</p>
+
+</div>
+
+</section>
+
 <footer id="footerText"></footer>
 
 <!-- AUDIO -->
-<audio id="bg-music" loop>
-<source src="Lavieenrose.mp3" type="audio/mpeg">
+<audio id="bg-music" loop playsinline>
+  <source src="Lavieenrose.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -390,23 +509,8 @@ id="confirmBtn">
 document.body.classList.add("no-scroll");
 
 /* AUDIO */
-let musicStarted = false;
-
-function startMusic(){
-
-  if(musicStarted) return;
-
-  const audio = document.getElementById("bg-music");
-
-  audio.volume = 0.25;
-
-  audio.play().catch(()=>{});
-
-  musicStarted = true;
-}
-
-document.addEventListener("click", startMusic);
-document.addEventListener("touchstart", startMusic);
+const audio = document.getElementById("bg-music");
+audio.volume = 0.25;
 
 /* TRADUCCIONES */
 const translations = {
@@ -435,6 +539,10 @@ musicBtn:"ABRIR PLAYLIST",
 confirmTitle:"Confirmación",
 confirmText:"Nos haría muchísima ilusión compartir este día contigo.",
 confirmBtn:"CONFIRMAR ASISTENCIA",
+giftTitle:"Regalos",
+giftQuote:"El mejor regalo es compartir este día con vosotros, pero si queréis ayudarnos a comenzar esta nueva aventura, podéis hacerlo aquí ✨",
+giftText:"Vuestra presencia es lo más importante para nosotros.",
+copyBtn:"COPIAR DATOS",
 footerText:"Hecho con amor · Patricia & Hyo Hwan"
 },
 
@@ -462,88 +570,11 @@ musicBtn:"OPEN PLAYLIST",
 confirmTitle:"RSVP",
 confirmText:"We would love to celebrate this day with you.",
 confirmBtn:"CONFIRM ATTENDANCE",
+giftTitle:"Gifts",
+giftQuote:"The best gift is sharing this special day with you, but if you would like to help us start this new adventure, you can do it here ✨",
+giftText:"Your presence means the world to us.",
+copyBtn:"COPY DETAILS",
 footerText:"Made with love · Patricia & Hyo Hwan"
-},
-
-fr:{
-heroSubtitle:"NOUS NOUS MARIONS",
-dateText:"26 · Septembre · 2026",
-storyTitle:"Notre Histoire",
-storyText:"Deux chemins totalement différents se sont croisés au moment parfait. Entre voyages et couchers de soleil au bord de la mer, Patricia et Hyo Hwan ont construit une magnifique histoire d’amour.",
-detailsTitle:"Détails",
-ceremonyTitle:"Cérémonie",
-ceremonyPlace:"Finca Siempre Verde · Murcie",
-partyTitle:"Célébration",
-partyText1:"Dîner & Fête",
-partyText2:"Jusqu’au lever du soleil ✨",
-dressTitle:"Dress Code",
-dressText1:"Libre",
-dressText2:"L’important est de célébrer ensemble ✨",
-stayTitle:"Hébergement",
-stayText:"Nous avons préparé plusieurs options d’hébergement.",
-hotel1Btn:"OUVRIR LE PDF",
-hotel2Btn:"OUVRIR LE PDF",
-musicTitle:"Musique",
-musicText:"Ajoutez des chansons à notre playlist ✨",
-musicBtn:"OUVRIR LA PLAYLIST",
-confirmTitle:"Confirmation",
-confirmText:"Nous serions ravis de partager ce jour avec vous.",
-confirmBtn:"CONFIRMER LA PRÉSENCE",
-footerText:"Fait avec amour · Patricia & Hyo Hwan"
-},
-
-it:{
-heroSubtitle:"CI SPOSIAMO",
-dateText:"26 · Settembre · 2026",
-storyTitle:"La Nostra Storia",
-storyText:"Due percorsi completamente diversi si sono incontrati nel momento perfetto. Tra viaggi e tramonti sul mare, Patricia e Hyo Hwan hanno costruito una storia piena d’amore.",
-detailsTitle:"Dettagli",
-ceremonyTitle:"Cerimonia",
-ceremonyPlace:"Finca Siempre Verde · Murcia",
-partyTitle:"Celebrazione",
-partyText1:"Cena & Festa",
-partyText2:"Fino all’alba ✨",
-dressTitle:"Dress Code",
-dressText1:"Libero",
-dressText2:"L’importante è festeggiare insieme ✨",
-stayTitle:"Alloggio",
-stayText:"Abbiamo preparato diverse opzioni di alloggio.",
-hotel1Btn:"APRI PDF HOTEL",
-hotel2Btn:"APRI PDF HOTEL",
-musicTitle:"Musica",
-musicText:"Aggiungete canzoni alla playlist ✨",
-musicBtn:"APRI PLAYLIST",
-confirmTitle:"Conferma",
-confirmText:"Saremmo felicissimi di condividere questo giorno con voi.",
-confirmBtn:"CONFERMA PRESENZA",
-footerText:"Fatto con amore · Patricia & Hyo Hwan"
-},
-
-kr:{
-heroSubtitle:"결혼합니다",
-dateText:"2026 · 9월 · 26일",
-storyTitle:"우리 이야기",
-storyText:"전혀 다른 두 사람이 완벽한 순간에 만나게 되었습니다. 여행과 바다의 노을 속에서 Patricia와 Hyo Hwan은 사랑으로 가득한 이야기를 만들어 왔습니다.",
-detailsTitle:"상세 정보",
-ceremonyTitle:"예식",
-ceremonyPlace:"무르시아 · Siempre Verde",
-partyTitle:"축하 파티",
-partyText1:"디너 & 파티",
-partyText2:"새벽까지 ✨",
-dressTitle:"드레스 코드",
-dressText1:"자유",
-dressText2:"함께 축하하는 것이 가장 중요해요 ✨",
-stayTitle:"숙소",
-stayText:"편안한 숙박을 위해 옵션을 준비했습니다.",
-hotel1Btn:"호텔 PDF 보기",
-hotel2Btn:"호텔 PDF 보기",
-musicTitle:"음악",
-musicText:"플레이리스트에 노래를 추가해주세요 ✨",
-musicBtn:"플레이리스트 열기",
-confirmTitle:"참석 확인",
-confirmText:"특별한 날을 함께해 주시면 정말 기쁠 거예요.",
-confirmBtn:"참석 확인",
-footerText:"사랑으로 제작됨 · Patricia & Hyo Hwan"
 }
 
 };
@@ -566,6 +597,51 @@ function setLanguage(lang){
     }
 
   });
+
+  /* MÚSICA */
+  audio.muted = false;
+
+  const playPromise = audio.play();
+
+  if(playPromise !== undefined){
+
+    playPromise
+      .then(() => {
+        console.log("audio iniciado");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  }
+
+}
+
+/* COPIAR DATOS */
+function copyBankData(){
+
+const iban =
+document.getElementById("ibanText").innerText;
+
+const swift =
+document.getElementById("swiftText").innerText;
+
+const text =
+`IBAN: ${iban}
+SWIFT/BIC: ${swift}`;
+
+navigator.clipboard.writeText(text);
+
+const msg =
+document.getElementById("copyMessage");
+
+msg.style.opacity = "1";
+
+setTimeout(()=>{
+
+msg.style.opacity = "0";
+
+},2000);
 
 }
 
