@@ -16,12 +16,21 @@
   box-sizing:border-box;
 }
 
+:root{
+  --cream:#f6f1e7;
+  --soft-cream:#fffaf3;
+  --eucalyptus:#8ba391;
+  --eucalyptus-dark:#6f8776;
+  --text:#5e665f;
+  --white:#ffffff;
+}
+
 body{
   font-family:'Montserrat',sans-serif;
-  color:white;
+  color:var(--text);
   overflow-x:hidden;
   background:
-  linear-gradient(rgba(0,0,0,0.70),rgba(0,0,0,0.70)),
+  linear-gradient(rgba(246,241,231,0.72),rgba(246,241,231,0.82)),
   url('foto2.jpg') center center/cover fixed no-repeat;
 }
 
@@ -29,18 +38,15 @@ body.no-scroll{
   overflow:hidden;
 }
 
-/* SELECTOR */
 #language-selector{
   position:fixed;
   inset:0;
-  background:#111;
+  background:linear-gradient(rgba(246,241,231,0.97),rgba(246,241,231,0.97)),url('foto1.jpg') center center/cover;
   z-index:9999;
-
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-
   transition:opacity .5s ease, visibility .5s ease;
 }
 
@@ -52,9 +58,10 @@ body.no-scroll{
 
 #language-selector h2{
   font-family:'Cormorant Garamond',serif;
-  font-size:3rem;
+  font-size:3.2rem;
   margin-bottom:40px;
-  font-weight:400;
+  font-weight:500;
+  color:var(--eucalyptus-dark);
 }
 
 .lang-buttons{
@@ -62,144 +69,167 @@ body.no-scroll{
   flex-wrap:wrap;
   justify-content:center;
   gap:15px;
+  padding:20px;
 }
 
 .lang-btn{
-  padding:14px 28px;
+  padding:14px 30px;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,0.2);
-  background:rgba(255,255,255,0.08);
-  color:white;
+  border:none;
+  background:rgba(139,163,145,0.18);
+  color:var(--eucalyptus-dark);
   cursor:pointer;
   font-size:1rem;
   transition:.3s;
+  backdrop-filter:blur(10px);
+  font-weight:500;
 }
 
 .lang-btn:hover{
-  background:rgba(255,255,255,0.2);
+  background:var(--eucalyptus);
+  color:white;
   transform:translateY(-3px);
 }
 
-/* HERO */
 .hero{
-  height:100vh;
-
+  min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:flex-start;
-
   text-align:center;
-
   position:relative;
-
-  padding-top:220px;
+  padding-top:230px;
   padding-left:20px;
   padding-right:20px;
-
   background:
-  linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.45)),
+  linear-gradient(rgba(246,241,231,0.45),rgba(246,241,231,0.55)),
   url('foto1.jpg') center center/cover no-repeat;
+}
+
+.hero::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:180px;
+  background:linear-gradient(to top,var(--cream),transparent);
 }
 
 .hero-content{
   width:100%;
+  position:relative;
+  z-index:2;
 }
 
 #timer{
-  font-size:1.3rem;
-  margin-bottom:130px;
-  letter-spacing:3px;
-
-  background:rgba(0,0,0,0.25);
-
-  padding:12px 26px;
+  font-size:1.2rem;
+  margin-bottom:140px;
+  letter-spacing:2px;
+  background:rgba(255,255,255,0.55);
+  padding:14px 30px;
   border-radius:999px;
-
   backdrop-filter:blur(10px);
-
   display:inline-block;
+  color:var(--eucalyptus-dark);
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
 }
 
 .hero h1{
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(4rem,10vw,7rem);
-  font-weight:400;
-  letter-spacing:4px;
+  font-weight:500;
+  letter-spacing:3px;
+  color:#ffffff;
+  text-shadow:0 4px 20px rgba(0,0,0,0.18);
 }
 
 .hero p{
   margin-top:18px;
   letter-spacing:5px;
   text-transform:uppercase;
+  color:#ffffff;
+  text-shadow:0 2px 10px rgba(0,0,0,0.18);
 }
 
 section{
-  max-width:1100px;
+  max-width:1150px;
   margin:auto;
-  padding:100px 25px;
+  padding:110px 25px;
 }
 
 .section-title{
   font-family:'Cormorant Garamond',serif;
-  font-size:3rem;
+  font-size:3.2rem;
   text-align:center;
-  margin-bottom:25px;
-  font-weight:400;
+  margin-bottom:30px;
+  font-weight:500;
+  color:var(--eucalyptus-dark);
 }
 
 .intro{
   text-align:center;
-  font-size:1.1rem;
-  line-height:1.9;
-  color:#f1f1f1;
-  max-width:760px;
+  font-size:1.08rem;
+  line-height:2;
+  color:#6a726b;
+  max-width:800px;
   margin:auto;
 }
 
 .details-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:30px;
   margin-top:70px;
 }
 
 .card{
-  background:rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.52);
   backdrop-filter:blur(12px);
-  border-radius:28px;
+  border-radius:32px;
   padding:45px 35px;
   text-align:center;
+  box-shadow:0 12px 35px rgba(110,126,116,0.12);
+  border:1px solid rgba(255,255,255,0.5);
 }
 
 .card h3{
   font-family:'Cormorant Garamond',serif;
   font-size:2rem;
-  margin-bottom:15px;
+  margin-bottom:18px;
   font-weight:500;
+  color:var(--eucalyptus-dark);
+}
+
+.card p{
+  line-height:1.8;
 }
 
 .btn{
   display:inline-block;
   margin-top:25px;
-  padding:16px 38px;
+  padding:15px 34px;
   border-radius:999px;
-  background:white;
-  color:black;
+  background:var(--eucalyptus);
+  color:white;
   text-decoration:none;
   letter-spacing:2px;
   transition:.3s;
+  border:none;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(139,163,145,0.28);
 }
 
 .btn:hover{
-  background:#d9c2a0;
+  background:var(--eucalyptus-dark);
   transform:translateY(-3px);
 }
 
 footer{
   text-align:center;
-  padding:40px 20px 60px;
-  color:#ccc;
-  font-size:.9rem;
+  padding:50px 20px 70px;
+  color:#7f867f;
+  font-size:.95rem;
 }
 
 @media(max-width:768px){
@@ -213,12 +243,16 @@ footer{
 }
 
 #timer{
-  margin-bottom:100px;
+  margin-bottom:110px;
   font-size:1rem;
 }
 
 section{
   padding:80px 20px;
+}
+
+#language-selector h2{
+  font-size:2.4rem;
 }
 
 }
@@ -228,38 +262,20 @@ section{
 
 <body class="no-scroll">
 
-<!-- SELECTOR -->
 <div id="language-selector">
 
 <h2>Choose Language</h2>
 
 <div class="lang-buttons">
-
-<button onclick="setLanguage('es')" class="lang-btn">
-Español
-</button>
-
-<button onclick="setLanguage('en')" class="lang-btn">
-English
-</button>
-
-<button onclick="setLanguage('fr')" class="lang-btn">
-Français
-</button>
-
-<button onclick="setLanguage('it')" class="lang-btn">
-Italiano
-</button>
-
-<button onclick="setLanguage('kr')" class="lang-btn">
-한국어
-</button>
-
+<button onclick="setLanguage('es')" class="lang-btn">Español</button>
+<button onclick="setLanguage('en')" class="lang-btn">English</button>
+<button onclick="setLanguage('fr')" class="lang-btn">Français</button>
+<button onclick="setLanguage('it')" class="lang-btn">Italiano</button>
+<button onclick="setLanguage('kr')" class="lang-btn">한국어</button>
 </div>
 
 </div>
 
-<!-- HERO -->
 <section class="hero">
 
 <div class="hero-content">
@@ -268,7 +284,7 @@ Italiano
 
 <p id="heroSubtitle">WE ARE GETTING MARRIED</p>
 
-<h1>Patricia & Hyo Hwan</h1>
+<h1>Hyo Hwan & Patricia</h1>
 
 <p id="dateText">26 · September · 2026</p>
 
@@ -276,7 +292,6 @@ Italiano
 
 </section>
 
-<!-- STORY -->
 <section>
 
 <h2 class="section-title" id="storyTitle"></h2>
@@ -285,7 +300,6 @@ Italiano
 
 </section>
 
-<!-- DETAILS -->
 <section>
 
 <h2 class="section-title" id="detailsTitle"></h2>
@@ -293,33 +307,21 @@ Italiano
 <div class="details-grid">
 
 <div class="card">
-
 <h3 id="ceremonyTitle"></h3>
-
 <p>17:30h</p>
-
 <p id="ceremonyPlace"></p>
-
 </div>
 
 <div class="card">
-
 <h3 id="partyTitle"></h3>
-
 <p id="partyText1"></p>
-
 <p id="partyText2"></p>
-
 </div>
 
 <div class="card">
-
 <h3 id="dressTitle"></h3>
-
 <p id="dressText1"></p>
-
 <p id="dressText2"></p>
-
 </div>
 
 </div>
@@ -375,7 +377,6 @@ id="musicBtn">
 
 </section>
 
-<!-- RSVP -->
 <section>
 
 <h2 class="section-title" id="confirmTitle"></h2>
@@ -395,7 +396,6 @@ id="confirmBtn">
 
 </section>
 
-<!-- REGALOS -->
 <section>
 
 <h2 class="section-title" id="giftTitle"></h2>
@@ -404,92 +404,41 @@ id="confirmBtn">
 
 <p
 id="giftQuote"
-style="
-font-style:italic;
-margin-bottom:25px;
-line-height:1.8;
-opacity:.9;
-"
+style="font-style:italic;margin-bottom:25px;line-height:1.9;opacity:.9;"
 ></p>
 
-<p
-id="giftText"
-style="margin-bottom:30px;"
-></p>
+<p id="giftText" style="margin-bottom:30px;"></p>
 
-<!-- IBAN -->
-<div
-style="
-background:rgba(255,255,255,0.08);
-padding:20px;
-border-radius:18px;
-margin-bottom:20px;
-"
->
+<div style="background:rgba(255,255,255,0.45);padding:20px;border-radius:20px;margin-bottom:22px;">
 
-<p style="margin-bottom:10px;font-weight:600;">
+<p style="margin-bottom:10px;font-weight:600;color:var(--eucalyptus-dark);">
 IBAN
 </p>
 
-<div
-id="ibanText"
-style="
-font-size:1.05rem;
-letter-spacing:2px;
-word-break:break-word;
-"
->
+<div id="ibanText" style="font-size:1.05rem;letter-spacing:2px;word-break:break-word;margin-bottom:20px;">
 ESXX XXXX XXXX XXXX XXXX XXXX
 </div>
 
+<button onclick="copyIBAN()" class="btn" id="copyIbanBtn" style="margin-top:0;"></button>
+
 </div>
 
-<!-- SWIFT -->
-<div
-style="
-background:rgba(255,255,255,0.08);
-padding:20px;
-border-radius:18px;
-margin-bottom:25px;
-"
->
+<div style="background:rgba(255,255,255,0.45);padding:20px;border-radius:20px;margin-bottom:25px;">
 
-<p style="margin-bottom:10px;font-weight:600;">
+<p style="margin-bottom:10px;font-weight:600;color:var(--eucalyptus-dark);">
 SWIFT / BIC
 </p>
 
-<div
-id="swiftText"
-style="
-font-size:1.05rem;
-letter-spacing:2px;
-word-break:break-word;
-"
->
+<div id="swiftText" style="font-size:1.05rem;letter-spacing:2px;word-break:break-word;margin-bottom:20px;">
 XXXXESXX
 </div>
 
+<button onclick="copySWIFT()" class="btn" id="copySwiftBtn" style="margin-top:0;"></button>
+
 </div>
 
-<button
-onclick="copyBankData()"
-class="btn"
-id="copyBtn"
-style="border:none;cursor:pointer;"
->
-COPIAR DATOS
-</button>
-
-<p
-id="copyMessage"
-style="
-margin-top:20px;
-opacity:0;
-transition:.3s;
-font-size:.95rem;
-"
->
-✓ Copiado
+<p id="copyMessage" style="margin-top:20px;opacity:0;transition:.3s;font-size:.95rem;color:var(--eucalyptus-dark);">
+✓ Copied
 </p>
 
 </div>
@@ -498,21 +447,17 @@ font-size:.95rem;
 
 <footer id="footerText"></footer>
 
-<!-- AUDIO -->
 <audio id="bg-music" loop playsinline>
-  <source src="Lavieenrose.mp3" type="audio/mpeg">
+<source src="Lavieenrose.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
-/* BLOQUEAR SCROLL */
 document.body.classList.add("no-scroll");
 
-/* AUDIO */
 const audio = document.getElementById("bg-music");
 audio.volume = 0.25;
 
-/* TRADUCCIONES */
 const translations = {
 
 es:{
@@ -531,8 +476,8 @@ dressText1:"Libre",
 dressText2:"Lo importante es celebrar juntos ✨",
 stayTitle:"Alojamiento",
 stayText:"Hemos preparado opciones para vuestra estancia.",
-hotel1Btn:"VER PDF HOTEL",
-hotel2Btn:"VER PDF HOTEL",
+hotel1Btn:"VER HOTEL",
+hotel2Btn:"VER HOTEL",
 musicTitle:"Música",
 musicText:"Añade canciones a nuestra playlist ✨",
 musicBtn:"ABRIR PLAYLIST",
@@ -542,7 +487,8 @@ confirmBtn:"CONFIRMAR ASISTENCIA",
 giftTitle:"Regalos",
 giftQuote:"El mejor regalo es compartir este día con vosotros, pero si queréis ayudarnos a comenzar esta nueva aventura, podéis hacerlo aquí ✨",
 giftText:"Vuestra presencia es lo más importante para nosotros.",
-copyBtn:"COPIAR DATOS",
+copyIbanBtn:"COPIAR IBAN",
+copySwiftBtn:"COPIAR SWIFT",
 footerText:"Hecho con amor · Patricia & Hyo Hwan"
 },
 
@@ -562,8 +508,8 @@ dressText1:"Free",
 dressText2:"The important thing is celebrating together ✨",
 stayTitle:"Accommodation",
 stayText:"We prepared accommodation options for your stay.",
-hotel1Btn:"OPEN HOTEL PDF",
-hotel2Btn:"OPEN HOTEL PDF",
+hotel1Btn:"OPEN HOTEL",
+hotel2Btn:"OPEN HOTEL",
 musicTitle:"Music",
 musicText:"Add songs to our playlist ✨",
 musicBtn:"OPEN PLAYLIST",
@@ -573,18 +519,18 @@ confirmBtn:"CONFIRM ATTENDANCE",
 giftTitle:"Gifts",
 giftQuote:"The best gift is sharing this special day with you, but if you would like to help us start this new adventure, you can do it here ✨",
 giftText:"Your presence means the world to us.",
-copyBtn:"COPY DETAILS",
+copyIbanBtn:"COPY IBAN",
+copySwiftBtn:"COPY SWIFT",
 footerText:"Made with love · Patricia & Hyo Hwan"
 }
 
 };
 
-/* CAMBIAR IDIOMA */
 function setLanguage(lang){
 
   document
-    .getElementById("language-selector")
-    .classList.add("hidden");
+  .getElementById("language-selector")
+  .classList.add("hidden");
 
   document.body.classList.remove("no-scroll");
 
@@ -598,39 +544,35 @@ function setLanguage(lang){
 
   });
 
-  /* MÚSICA */
   audio.muted = false;
 
-  const playPromise = audio.play();
-
-  if(playPromise !== undefined){
-
-    playPromise
-      .then(() => {
-        console.log("audio iniciado");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-  }
+  audio.play().catch(()=>{});
 
 }
 
-/* COPIAR DATOS */
-function copyBankData(){
+function copyIBAN(){
 
 const iban =
 document.getElementById("ibanText").innerText;
 
+navigator.clipboard.writeText(iban);
+
+showCopiedMessage();
+
+}
+
+function copySWIFT(){
+
 const swift =
 document.getElementById("swiftText").innerText;
 
-const text =
-`IBAN: ${iban}
-SWIFT/BIC: ${swift}`;
+navigator.clipboard.writeText(swift);
 
-navigator.clipboard.writeText(text);
+showCopiedMessage();
+
+}
+
+function showCopiedMessage(){
 
 const msg =
 document.getElementById("copyMessage");
@@ -638,34 +580,37 @@ document.getElementById("copyMessage");
 msg.style.opacity = "1";
 
 setTimeout(()=>{
-
 msg.style.opacity = "0";
-
 },2000);
 
 }
 
-/* COUNTDOWN */
 const weddingDate =
 new Date("September 26, 2026 17:30:00").getTime();
 
 setInterval(()=>{
 
-  const now = new Date().getTime();
+const now = new Date().getTime();
 
-  const distance = weddingDate - now;
+const distance = weddingDate - now;
 
-  const days =
-  Math.floor(distance/(1000*60*60*24));
+const totalDays =
+Math.floor(distance / (1000 * 60 * 60 * 24));
 
-  const hours =
-  Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+const months =
+Math.floor(totalDays / 30);
 
-  const minutes =
-  Math.floor((distance%(1000*60*60))/(1000*60));
+const days =
+totalDays % 30;
 
-  document.getElementById("timer").innerHTML =
-  `${days} days · ${hours}h · ${minutes}m`;
+const hours =
+Math.floor(
+(distance % (1000*60*60*24)) /
+(1000*60*60)
+);
+
+ document.getElementById("timer").innerHTML =
+ `${months} months · ${days} days · ${hours}h`;
 
 },1000);
 
