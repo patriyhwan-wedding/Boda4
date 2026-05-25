@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Hyo Hwan & Patricia</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -23,15 +24,16 @@ body{
   color:var(--text);
   overflow-x:hidden;
 
-  /* ✅ FOTO 1 (PRINCIPAL) */
+  /* 💃 FOTO BAILANDO COMO FONDO GLOBAL */
   background:
-    linear-gradient(rgba(246,241,231,0.35),rgba(246,241,231,0.35)),
-    url("foto1.jpg") center/cover fixed no-repeat;
+    linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),
+    url("foto2.jpg") center/cover fixed no-repeat;
 }
 
 /* LANGUAGE */
 #lang{
-  position:fixed;inset:0;
+  position:fixed;
+  inset:0;
   background:var(--cream);
   display:flex;
   flex-direction:column;
@@ -57,7 +59,7 @@ body{
   cursor:pointer;
 }
 
-/* HERO */
+/* HERO (PLAYA) */
 .hero{
   height:100vh;
   display:flex;
@@ -65,7 +67,11 @@ body{
   justify-content:flex-start;
   align-items:center;
   text-align:center;
-  padding-top:210px;
+  padding-top:160px;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),
+    url("foto1.jpg") center/cover no-repeat;
 }
 
 .hero h1{
@@ -75,12 +81,15 @@ body{
   text-shadow:0 5px 25px rgba(0,0,0,0.35);
 }
 
-.hero p{color:white;letter-spacing:3px;}
+.hero p{
+  color:white;
+  letter-spacing:3px;
+}
 
 #timer{
-  margin-bottom:90px;
+  margin-bottom:60px;
   padding:10px 18px;
-  background:rgba(255,255,255,0.75);
+  background:rgba(255,255,255,0.65);
   border-radius:999px;
 }
 
@@ -106,7 +115,7 @@ section{
   line-height:1.9;
 }
 
-/* CARDS */
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -135,17 +144,17 @@ section{
   text-decoration:none;
 }
 
-/* MAP PEQUEÑO */
+/* MAPA */
 .map-box{
   max-width:650px;
-  margin:auto;
+  margin:20px auto 0;
   border-radius:18px;
   overflow:hidden;
 }
 
 iframe{
   width:100%;
-  height:260px;
+  height:240px;
   border:none;
 }
 
@@ -160,7 +169,6 @@ audio{display:none;}
 <!-- LANGUAGE -->
 <div id="lang">
 <h2>Choose Language</h2>
-
 <div class="lang-row">
 <button onclick="setLang()">Español</button>
 <button onclick="setLang()">English</button>
@@ -185,11 +193,12 @@ audio{display:none;}
 <section>
 <h2 class="title">Nuestra Historia</h2>
 <p class="intro">
-Dos caminos distintos se cruzaron en el momento perfecto.
+Dos caminos completamente distintos terminaron cruzándose en el momento perfecto. Entre viajes, aviones, conversaciones infinitas y sobreviviendo a Charleroi (que no es poco), Patricia e Hyo Hwan han construido su historia entre gofres y patatas fritas.
+Ahora quieren celebrar esta nueva etapa rodeados de las personas que más quieren.
 </p>
 </section>
 
-<!-- DETAILS -->
+<!-- CEREMONIA + MAPA -->
 <section>
 <div class="grid">
 
@@ -197,16 +206,25 @@ Dos caminos distintos se cruzaron en el momento perfecto.
 <h3>Ceremonia</h3>
 <p>17:30h</p>
 <p>Finca Siempre Verde</p>
+
+<div class="map-box">
+<iframe
+src="https://www.google.com/maps?q=Finca%20Siempre%20Verde%20Murcia&output=embed">
+</iframe>
+</div>
+
 </div>
 
 <div class="card">
 <h3>Celebración</h3>
-<p>Cena & fiesta</p>
+<p>Cena & Fiesta</p>
+<p>Hasta el amanecer ✨</p>
 </div>
 
 <div class="card">
 <h3>Dress Code</h3>
-<p>Elegante / libre</p>
+<p>Libre</p>
+<p>Lo importante es celebrar juntos ✨</p>
 </div>
 
 </div>
@@ -217,33 +235,61 @@ Dos caminos distintos se cruzaron en el momento perfecto.
 <div class="grid">
 
 <div class="card">
-<p>Cetina Murcia</p>
-<a class="btn" target="_blank" href="CETINA 2026 - SIEMPREVERDE-EL BOSCO.pdf">Ver PDF</a>
+<h3>Hotel Amistad Murcia</h3>
+<p>Código: SIEMPREVERDEAMISTAD</p>
+<a class="btn" href="https://www.sercotelhoteles.com/amistad/murcia" target="_blank">
+VER HOTEL
+</a>
 </div>
 
 <div class="card">
-<p>Hotel Amistad</p>
-<a class="btn" target="_blank" href="Descuentos en hotel para vosotros.pdf">Ver PDF</a>
+<h3>Cetina Murcia</h3>
+<p>20% descuento: EVENTOSPREMIER</p>
+<a class="btn" href="CETINA 2026 - SIEMPREVERDE-EL BOSCO.pdf" target="_blank">
+VER CETINA
+</a>
 </div>
 
 </div>
 </section>
 
-<!-- MAP -->
+<!-- MUSIC -->
 <section>
-<h2 class="title">Cómo llegar</h2>
+<div class="card">
 
-<div class="map-box">
-<iframe
-src="https://www.google.com/maps?q=Finca%20Siempre%20Verde%20Murcia&output=embed">
-</iframe>
+<h3>Música</h3>
+<p>Añade canciones a nuestra playlist colaborativa para la fiesta ✨</p>
+
+<a class="btn" href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe" target="_blank">
+ABRIR PLAYLIST
+</a>
+
 </div>
+</section>
 
+<!-- CONFIRMACIÓN -->
+<section>
+<div class="card">
+
+<h3>Confirmación</h3>
+
+<p>
+Nos haría muchísima ilusión compartir este día contigo.
+Si no confirmas antes del <b><u>1 de septiembre</u></b>, entenderemos que lamentablemente no puedes acompañarnos.
+</p>
+
+<a class="btn" href="https://forms.gle/VbBLwKAwJP2qk6uT9" target="_blank">
+CONFIRMAR ASISTENCIA Y MENÚ
+</a>
+
+</div>
 </section>
 
 <!-- GIFTS -->
 <section>
 <div class="card">
+
+<h3>Regalos</h3>
 
 <p>IBAN: ESXX XXXX XXXX XXXX</p>
 <button class="btn" onclick="navigator.clipboard.writeText('ESXX XXXX XXXX XXXX')">Copiar IBAN</button>
@@ -263,16 +309,13 @@ src="https://www.google.com/maps?q=Finca%20Siempre%20Verde%20Murcia&output=embed
 
 const music=document.getElementById("music");
 
-/* autoplay real */
 document.addEventListener("click",()=>music.play(),{once:true});
 
-/* idioma */
 function setLang(){
 document.getElementById("lang").classList.add("hidden");
 music.play();
 }
 
-/* countdown */
 const d=new Date("2026-09-26T17:30:00").getTime();
 
 setInterval(()=>{
@@ -289,6 +332,11 @@ document.getElementById("timer").innerHTML =
 },1000);
 
 </script>
+
+<footer style="text-align:center;padding:50px 20px;color:#7f867f;">
+Hecho con amor · Patricia & Hyo Hwan<br>
+<small>(y un poco de ayuda de ChatGPT...)</small>
+</footer>
 
 </body>
 </html>
