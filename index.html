@@ -13,8 +13,8 @@
 :root{
   --cream:#f6f1e7;
   --green:#8ba391;
-  --green-dark:#3f4a41;
-  --text:#5e665f;
+  --green-dark:#2f3b31;
+  --text:#2f3b31;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -22,9 +22,8 @@
 body{
   font-family:Montserrat,sans-serif;
   color:var(--text);
-  overflow-x:hidden;
   background:
-    linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),
+    linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),
     url("foto2.jpg") center/cover fixed no-repeat;
 }
 
@@ -36,9 +35,9 @@ body{
   justify-content:flex-start;
   align-items:center;
   text-align:center;
-  padding-top:160px;
+  padding-top:120px;
   background:
-    linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),
+    linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.35)),
     url("foto1.jpg") center/cover no-repeat;
 }
 
@@ -46,22 +45,37 @@ body{
   font-family:"Cormorant Garamond";
   font-size:4.5rem;
   color:white;
+  margin-top:20px;
+  text-shadow:0 5px 25px rgba(0,0,0,0.4);
 }
 
 .hero p{color:white;letter-spacing:3px;}
 
 #timer{
-  margin-bottom:60px;
+  margin-top:30px;
   padding:10px 18px;
-  background:rgba(255,255,255,0.65);
+  background:rgba(255,255,255,0.75);
   border-radius:999px;
+  color:var(--green-dark);
+}
+
+/* LANGUAGE */
+#langBox{
+  position:fixed;
+  top:0;left:0;right:0;
+  background:#fff;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  padding:10px;
+  z-index:9999;
 }
 
 /* SECTIONS */
 section{
   max-width:1100px;
   margin:auto;
-  padding:90px 20px;
+  padding:80px 20px;
 }
 
 .title{
@@ -77,9 +91,10 @@ section{
   max-width:750px;
   margin:auto;
   line-height:1.9;
-  color:#3f4a41;
+  color:#1f2a22; /* MÁS LEGIBLE */
 }
 
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -88,13 +103,19 @@ section{
 }
 
 .card{
-  background:rgba(255,255,255,0.6);
+  background:rgba(255,255,255,0.75);
   padding:25px;
   border-radius:22px;
-  backdrop-filter:blur(10px);
-  text-align:center;
 }
 
+/* IMAGES */
+.card img{
+  width:100%;
+  border-radius:14px;
+  margin-top:10px;
+}
+
+/* BUTTON */
 .btn{
   margin-top:15px;
   padding:12px 22px;
@@ -105,35 +126,20 @@ section{
   display:inline-block;
 }
 
-/* MAP */
-.map-box{
-  margin-top:15px;
-  border-radius:16px;
-  overflow:hidden;
-}
-
-iframe{
-  width:100%;
-  height:220px;
-  border:none;
-}
-
-/* FAQ */
-.faq{
-  text-align:left;
-  max-width:800px;
-  margin:auto;
-}
-
-.faq h4{
-  margin-top:20px;
-  color:var(--green-dark);
-}
-
+/* FOOTER */
 footer{
   text-align:center;
   padding:50px 20px;
-  color:#3f4a41;
+  color:#1f2a22;
+}
+
+/* MAP */
+iframe{
+  width:100%;
+  height:200px;
+  border:0;
+  border-radius:14px;
+  margin-top:10px;
 }
 
 </style>
@@ -141,23 +147,30 @@ footer{
 
 <body>
 
+<!-- LANGUAGE -->
+<div id="langBox">
+<button onclick="setLang('es')">ES</button>
+<button onclick="setLang('en')">EN</button>
+<button onclick="setLang('fr')">FR</button>
+<button onclick="setLang('it')">IT</button>
+<button onclick="setLang('kr')">KR</button>
+</div>
+
 <!-- HERO -->
 <div class="hero">
 
 <div id="timer"></div>
 
-<h1>Hyo Hwan & Patricia</h1>
+<h1>¡¡¡NOS CASAMOS!!!</h1>
+<p id="subtitle">Hyo Hwan & Patricia</p>
 <p>26 · Septiembre · 2026</p>
 
 </div>
 
 <!-- HISTORIA -->
 <section>
-<h2 class="title">Nuestra Historia</h2>
-
-<p class="intro">
-Entre viajes, aviones, conversaciones infinitas y sobrevivir en Charleroi (que no es poco), Patricia e Hyo Hwan han construido su historia entre gofres y patatas fritas. Ahora quieren celebrar esta nueva etapa rodeados de las personas que más quieren.
-</p>
+<h2 class="title" id="t_story"></h2>
+<p class="intro" id="story"></p>
 </section>
 
 <!-- CEREMONIA -->
@@ -165,138 +178,204 @@ Entre viajes, aviones, conversaciones infinitas y sobrevivir en Charleroi (que n
 <div class="grid">
 
 <div class="card">
-<h3>Ceremonia</h3>
+<h3 id="t_ceremony"></h3>
 <p>17:30h</p>
 <p>Finca Siempre Verde</p>
-
-<div class="map-box">
 <iframe src="https://www.google.com/maps?q=Finca%20Siempre%20Verde%20Murcia&output=embed"></iframe>
 </div>
+
+<div class="card">
+<h3 id="t_party"></h3>
+<p id="party1"></p>
+<p id="party2"></p>
+<img src="foto2.jpg">
 </div>
 
 <div class="card">
-<h3>Celebración</h3>
-<p>Cena & Fiesta</p>
-<p>Hasta el amanecer ✨</p>
-</div>
-
-<div class="card">
-<h3>Dress Code</h3>
-<p>Libre</p>
-<p>Lo importante es celebrar juntos ✨</p>
+<h3 id="t_dress"></h3>
+<p id="dress1"></p>
+<p id="dress2"></p>
+<p><b>¡Ponte guap@! que nunca se sabe...</b></p>
+<img src="foto1.jpg">
 </div>
 
 </div>
 </section>
 
 <!-- ALOJAMIENTO -->
-<section>
-<div class="card">
-
-<h3>Alojamiento</h3>
-
-<p>Descuentos especiales para invitados en hoteles cercanos.</p>
-
-<br>
-
-<p><b>Hotel Amistad Murcia</b></p>
-<p>Código: SIEMPREVERDEAMISTAD</p>
-<a class="btn" href="https://www.sercotelhoteles.com/amistad/murcia" target="_blank">VER HOTEL</a>
-
-<br><br>
-
-<p><b>Cetina Murcia</b></p>
-<p>20% descuento: EVENTOSPREMIER</p>
-<a class="btn" href="CETINA 2026 - SIEMPREVERDE-EL BOSCO.pdf" target="_blank">VER CETINA</a>
-
-<br><br>
-
-<p>También podéis alojaros en Airbnb, Booking o apartamentos cercanos.</p>
-
-</div>
+<section class="card">
+<h3 id="t_stay"></h3>
+<p id="stay"></p>
 </section>
 
-<!-- MÚSICA -->
-<section>
-<div class="card">
-<h3>Música</h3>
-<p>Añade canciones a nuestra playlist ✨</p>
-<a class="btn" href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe" target="_blank">ABRIR PLAYLIST</a>
-</div>
+<!-- MUSICA -->
+<section class="card">
+<h3 id="t_music"></h3>
+<p id="music"></p>
+<a class="btn" href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe">PLAYLIST</a>
 </section>
 
-<!-- CONFIRMACIÓN -->
-<section>
-<div class="card">
-
-<h3>Confirmación</h3>
-
-<p>
-Nos haría muchísima ilusión compartir este día contigo. Si no confirmas antes del <b>1 de septiembre</b>, entenderemos que no podrás acompañarnos.
-</p>
-
-<a class="btn" href="https://forms.gle/VbBLwKAwJP2qk6uT9">CONFIRMAR ASISTENCIA</a>
-
-</div>
+<!-- CONFIRMACION -->
+<section class="card">
+<h3 id="t_confirm"></h3>
+<p id="confirm"></p>
+<a class="btn" href="https://forms.gle/VbBLwKAwJP2qk6uT9">CONFIRMAR ASISTENCIA Y MENÚ</a>
 </section>
 
 <!-- TIMELINE -->
 <section>
-<h2 class="title">Horario del día</h2>
-
+<h2 class="title">Timeline</h2>
 <div class="grid">
-
-<div class="card"><b>17:30</b><p>Ceremonia</p></div>
-<div class="card"><b>18:30</b><p>Cóctel</p></div>
-<div class="card"><b>20:30</b><p>Cena</p></div>
-<div class="card"><b>00:00</b><p>Fiesta</p></div>
-
+<div class="card">17:30 <br> Ceremonia</div>
+<div class="card">18:30 <br> Cóctel</div>
+<div class="card">20:30 <br> Cena</div>
+<div class="card">00:00 <br> Fiesta</div>
 </div>
 </section>
 
 <!-- COMO LLEGAR -->
 <section>
 <h2 class="title">Cómo llegar</h2>
-
 <div class="card">
-
-<p><b>Aeropuertos cercanos:</b> Alicante, Murcia</p>
-
-<p><b>Transporte:</b> Taxi, Cabify, Uber, coche privado</p>
-
-<p><b>Parking:</b> Disponible en la finca</p>
-
-<p><b>Ubicación:</b> 20 min desde Murcia centro</p>
-
-</div>
-</section>
-
-<!-- FAQ -->
-<section>
-<h2 class="title">Preguntas frecuentes</h2>
-
-<div class="faq">
-
-<h4>¿Puedo ir con acompañante?</h4>
-<p>Solo si está indicado en la invitación.</p>
-
-<h4>¿Hay dress code obligatorio?</h4>
-<p>No, pero recomendamos estilo elegante relajado.</p>
-
-<h4>¿Hay parking?</h4>
-<p>Sí, dentro de la finca.</p>
-
-<h4>¿Se puede llevar niños?</h4>
-<p>Consultar con los novios previamente.</p>
-
+<p>Aeropuerto: Alicante / Murcia</p>
+<p>Transporte: Taxi, Uber, Cabify</p>
+<p>Parking: En la finca</p>
+<p>Ubicación: 20 min Murcia</p>
 </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-Hecho con amor · Patricia & Hyo Hwan<br>
-<small>(y un poco de ayuda de ChatGPT...)</small>
-</footer>
+<footer id="footer"></footer>
+
+<!-- MUSIC -->
+<audio id="music" autoplay loop>
+<source src="lavieenrose.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const texts = {
+es:{
+t_story:"Nuestra Historia",
+story:"Entre viajes, aviones, Charleroi (que no es poco), gofres y patatas fritas… hemos construido nuestra historia.",
+t_ceremony:"Ceremonia",
+t_party:"Celebración",
+party1:"Cena & Fiesta",
+party2:"Hasta el amanecer ✨",
+t_dress:"Dress Code",
+dress1:"Libre",
+dress2:"Lo importante es celebrar juntos ✨",
+t_stay:"Alojamiento",
+stay:"Hoteles con descuento y opciones cercanas disponibles.",
+t_music:"Música",
+music:"Añade canciones a nuestra playlist ✨",
+t_confirm:"Confirmación",
+confirm:"Nos haría ilusión verte. Fecha límite: 1 de septiembre.",
+footer:"Hecho con amor · Patricia & Hyo Hwan"
+},
+en:{
+t_story:"Our Story",
+story:"Between travels, Charleroi, waffles and fries… we built our story.",
+t_ceremony:"Ceremony",
+t_party:"Celebration",
+party1:"Dinner & Party",
+party2:"Until sunrise ✨",
+t_dress:"Dress Code",
+dress1:"Free",
+dress2:"The important thing is celebrating together ✨",
+t_stay:"Accommodation",
+stay:"Discount hotels and nearby options available.",
+t_music:"Music",
+music:"Add songs to our playlist ✨",
+t_confirm:"RSVP",
+confirm:"We would love to see you. Deadline: Sept 1st.",
+footer:"Made with love · Patricia & Hyo Hwan"
+},
+fr:{
+t_story:"Notre Histoire",
+story:"Entre voyages, gaufres et frites… notre histoire est née.",
+t_ceremony:"Cérémonie",
+t_party:"Célébration",
+party1:"Dîner & Fête",
+party2:"Jusqu’au lever du soleil ✨",
+t_dress:"Dress Code",
+dress1:"Libre",
+dress2:"L’important est de célébrer ensemble ✨",
+t_stay:"Hébergement",
+stay:"Hôtels avec réductions disponibles.",
+t_music:"Musique",
+music:"Ajoutez des chansons ✨",
+t_confirm:"Confirmation",
+confirm:"Date limite : 1 septembre.",
+footer:"Fait avec amour · Patricia & Hyo Hwan"
+},
+it:{
+t_story:"La Nostra Storia",
+story:"Tra viaggi, waffle e patatine… la nostra storia.",
+t_ceremony:"Cerimonia",
+t_party:"Celebrazione",
+party1:"Cena & Festa",
+party2:"Fino all’alba ✨",
+t_dress:"Dress Code",
+dress1:"Libero",
+dress2:"L’importante è festeggiare insieme ✨",
+t_stay:"Alloggio",
+stay:"Hotel con sconti disponibili.",
+t_music:"Musica",
+music:"Aggiungi canzoni ✨",
+t_confirm:"Conferma",
+confirm:"Scadenza: 1 settembre.",
+footer:"Creato con amore"
+},
+kr:{
+t_story:"우리 이야기",
+story:"여행과 와플, 감자튀김 속 우리의 이야기",
+t_ceremony:"예식",
+t_party:"축하",
+party1:"디너 & 파티",
+party2:"새벽까지 ✨",
+t_dress:"드레스 코드",
+dress1:"자유",
+dress2:"함께 축하하는 것이 중요해요 ✨",
+t_stay:"숙소",
+stay:"할인 호텔 제공",
+t_music:"음악",
+music:"플레이리스트 추가 ✨",
+t_confirm:"참석",
+confirm:"마감: 9월 1일",
+footer:"사랑으로 제작"
+}
+};
+
+function setLang(l){
+Object.keys(texts[l]).forEach(id=>{
+let el=document.getElementById(id);
+if(el) el.innerText=texts[l][id];
+});
+document.getElementById("footer").innerText=texts[l].footer;
+}
+
+/* TIMER */
+const target=new Date("2026-09-26T17:30:00");
+
+setInterval(()=>{
+const now=new Date();
+const diff=target-now;
+
+const months=Math.floor(diff/(1000*60*60*24*30));
+const days=Math.floor((diff/(1000*60*60*24))%30);
+const hours=Math.floor((diff/(1000*60*60))%24);
+
+document.getElementById("timer").innerText=
+`${months} meses · ${days} días · ${hours}h`;
+},1000);
+
+/* MUSIC AUTOPLAY FIX */
+window.addEventListener("click",()=>{
+document.getElementById("music").play();
+},{once:true});
+
+</script>
 
 </body>
 </html>
