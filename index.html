@@ -3,41 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Patricia & Hyo Hwan</title>
+<title>Hyo Hwan & Patricia</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
-/* =======================
-   PALETA PREMIUM
-======================= */
-
 :root{
   --cream:#f6f1e7;
-  --eucalipto:#8ba391;
-  --eucalipto-dark:#6f8776;
+  --green:#8ba391;
+  --green-dark:#6f8776;
   --text:#5e665f;
 }
 
-/* RESET */
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-  font-family:'Montserrat',sans-serif;
+  font-family:Montserrat,sans-serif;
   color:var(--text);
   overflow-x:hidden;
 
-  /* 🖼️ FOTO PRINCIPAL */
+  /* ✅ FOTO 1 (PRINCIPAL) */
   background:
-    linear-gradient(rgba(246,241,231,0.55),rgba(246,241,231,0.65)),
-    url("foto_boda.jpg") center/cover fixed no-repeat;
+    linear-gradient(rgba(246,241,231,0.35),rgba(246,241,231,0.35)),
+    url("foto1.jpg") center/cover fixed no-repeat;
 }
 
-/* =======================
-   LANGUAGE
-======================= */
-
+/* LANGUAGE */
 #lang{
   position:fixed;inset:0;
   background:var(--cream);
@@ -50,20 +42,22 @@ body{
 
 #lang.hidden{display:none;}
 
-.lang-btn{
-  padding:14px 26px;
-  margin:10px;
+.lang-row{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.lang-row button{
+  padding:12px 20px;
   border-radius:999px;
   border:none;
-  background:rgba(139,163,145,0.25);
-  color:var(--eucalipto-dark);
+  background:rgba(139,163,145,0.2);
   cursor:pointer;
 }
 
-/* =======================
-   HERO (FORMATO PREMIUM)
-======================= */
-
+/* HERO */
 .hero{
   height:100vh;
   display:flex;
@@ -71,32 +65,26 @@ body{
   justify-content:flex-start;
   align-items:center;
   text-align:center;
-  padding-top:220px; /* 👈 evita caras tapadas */
+  padding-top:210px;
 }
 
 .hero h1{
-  font-family:'Cormorant Garamond';
+  font-family:"Cormorant Garamond";
   font-size:4.5rem;
   color:white;
-  text-shadow:0 6px 25px rgba(0,0,0,0.25);
+  text-shadow:0 5px 25px rgba(0,0,0,0.35);
 }
 
-.hero p{
-  color:white;
-  letter-spacing:3px;
-}
+.hero p{color:white;letter-spacing:3px;}
 
 #timer{
-  margin-bottom:110px;
-  padding:12px 22px;
+  margin-bottom:90px;
+  padding:10px 18px;
+  background:rgba(255,255,255,0.75);
   border-radius:999px;
-  background:rgba(255,255,255,0.7);
 }
 
-/* =======================
-   SECCIONES
-======================= */
-
+/* SECTIONS */
 section{
   max-width:1100px;
   margin:auto;
@@ -105,9 +93,9 @@ section{
 
 .title{
   text-align:center;
-  font-family:'Cormorant Garamond';
-  font-size:2.8rem;
-  color:var(--eucalipto-dark);
+  font-size:2.6rem;
+  font-family:"Cormorant Garamond";
+  color:var(--green-dark);
   margin-bottom:25px;
 }
 
@@ -121,15 +109,15 @@ section{
 /* CARDS */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
   margin-top:40px;
 }
 
 .card{
   background:rgba(255,255,255,0.6);
-  padding:30px;
-  border-radius:25px;
+  padding:25px;
+  border-radius:22px;
   backdrop-filter:blur(10px);
   text-align:center;
 }
@@ -137,25 +125,31 @@ section{
 /* BUTTON */
 .btn{
   margin-top:15px;
-  padding:12px 24px;
+  padding:12px 22px;
   border-radius:999px;
-  background:var(--eucalipto);
+  background:var(--green);
   color:white;
   border:none;
   cursor:pointer;
-  text-decoration:none;
   display:inline-block;
+  text-decoration:none;
 }
 
-/* MAP */
+/* MAP PEQUEÑO */
+.map-box{
+  max-width:650px;
+  margin:auto;
+  border-radius:18px;
+  overflow:hidden;
+}
+
 iframe{
   width:100%;
-  height:320px;
+  height:260px;
   border:none;
-  border-radius:20px;
 }
 
-/* MUSIC HIDDEN */
+/* AUDIO */
 audio{display:none;}
 
 </style>
@@ -166,11 +160,14 @@ audio{display:none;}
 <!-- LANGUAGE -->
 <div id="lang">
 <h2>Choose Language</h2>
-<button class="lang-btn" onclick="setLang('es')">ES</button>
-<button class="lang-btn" onclick="setLang('en')">EN</button>
-<button class="lang-btn" onclick="setLang('fr')">FR</button>
-<button class="lang-btn" onclick="setLang('it')">IT</button>
-<button class="lang-btn" onclick="setLang('kr')">KR</button>
+
+<div class="lang-row">
+<button onclick="setLang()">Español</button>
+<button onclick="setLang()">English</button>
+<button onclick="setLang()">Français</button>
+<button onclick="setLang()">Italiano</button>
+<button onclick="setLang()">한국어</button>
+</div>
 </div>
 
 <!-- HERO -->
@@ -186,8 +183,10 @@ audio{display:none;}
 
 <!-- STORY -->
 <section>
-<h2 class="title" id="storyTitle"></h2>
-<p class="intro" id="storyText"></p>
+<h2 class="title">Nuestra Historia</h2>
+<p class="intro">
+Dos caminos distintos se cruzaron en el momento perfecto.
+</p>
 </section>
 
 <!-- DETAILS -->
@@ -195,21 +194,19 @@ audio{display:none;}
 <div class="grid">
 
 <div class="card">
-<h3 id="ceremonyTitle"></h3>
+<h3>Ceremonia</h3>
 <p>17:30h</p>
 <p>Finca Siempre Verde</p>
 </div>
 
 <div class="card">
-<h3 id="partyTitle"></h3>
-<p id="partyText1"></p>
-<p id="partyText2"></p>
+<h3>Celebración</h3>
+<p>Cena & fiesta</p>
 </div>
 
 <div class="card">
-<h3 id="dressTitle"></h3>
-<p id="dressText1"></p>
-<p id="dressText2"></p>
+<h3>Dress Code</h3>
+<p>Elegante / libre</p>
 </div>
 
 </div>
@@ -220,36 +217,27 @@ audio{display:none;}
 <div class="grid">
 
 <div class="card">
-<p>Hotel Amistad Murcia</p>
-<a class="btn" target="_blank" href="Descuentos en hotel para vosotros.pdf">PDF</a>
+<p>Cetina Murcia</p>
+<a class="btn" target="_blank" href="CETINA 2026 - SIEMPREVERDE-EL BOSCO.pdf">Ver PDF</a>
 </div>
 
 <div class="card">
-<p>Cetina Murcia</p>
-<a class="btn" target="_blank" href="CETINA 2026 - SIEMPREVERDE-EL BOSCO.pdf">PDF</a>
+<p>Hotel Amistad</p>
+<a class="btn" target="_blank" href="Descuentos en hotel para vosotros.pdf">Ver PDF</a>
 </div>
 
 </div>
-</section>
-
-<!-- MUSIC + RSVP -->
-<section style="text-align:center;">
-<a class="btn" target="_blank"
-href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe">Spotify</a>
-
-<br><br>
-
-<a class="btn" target="_blank"
-href="https://forms.gle/VbBLwKAwJP2qk6uT9">RSVP</a>
 </section>
 
 <!-- MAP -->
 <section>
 <h2 class="title">Cómo llegar</h2>
 
+<div class="map-box">
 <iframe
 src="https://www.google.com/maps?q=Finca%20Siempre%20Verde%20Murcia&output=embed">
 </iframe>
+</div>
 
 </section>
 
@@ -258,15 +246,15 @@ src="https://www.google.com/maps?q=Finca%20Siempre%20Verde%20Murcia&output=embed
 <div class="card">
 
 <p>IBAN: ESXX XXXX XXXX XXXX</p>
-<button class="btn" onclick="copyIBAN()">Copiar IBAN</button>
+<button class="btn" onclick="navigator.clipboard.writeText('ESXX XXXX XXXX XXXX')">Copiar IBAN</button>
 
-<p style="margin-top:20px;">SWIFT: XXXXESXX</p>
-<button class="btn" onclick="copySWIFT()">Copiar SWIFT</button>
+<p style="margin-top:15px;">SWIFT: XXXXESXX</p>
+<button class="btn" onclick="navigator.clipboard.writeText('XXXXESXX')">Copiar SWIFT</button>
 
 </div>
 </section>
 
-<!-- AUDIO -->
+<!-- MUSIC -->
 <audio id="music" loop>
 <source src="Lavieenrose.mp3">
 </audio>
@@ -278,39 +266,27 @@ const music=document.getElementById("music");
 /* autoplay real */
 document.addEventListener("click",()=>music.play(),{once:true});
 
-/* language */
+/* idioma */
 function setLang(){
 document.getElementById("lang").classList.add("hidden");
 music.play();
 }
 
 /* countdown */
-const date=new Date("2026-09-26T17:30:00").getTime();
+const d=new Date("2026-09-26T17:30:00").getTime();
 
 setInterval(()=>{
-
 let now=new Date().getTime();
-let diff=date-now;
+let diff=d-now;
 
 let m=Math.floor(diff/1000/60/60/24/30);
-let d=Math.floor(diff/1000/60/60/24)%30;
+let days=Math.floor(diff/1000/60/60/24)%30;
 let h=Math.floor(diff/1000/60/60)%24;
 
-document.getElementById("timer").innerHTML=
-`${m} meses · ${d} días · ${h}h`;
+document.getElementById("timer").innerHTML =
+`${m} meses · ${days} días · ${h}h`;
 
 },1000);
-
-/* copy */
-function copyIBAN(){
-navigator.clipboard.writeText("ESXX XXXX XXXX XXXX");
-alert("IBAN copiado");
-}
-
-function copySWIFT(){
-navigator.clipboard.writeText("XXXXESXX");
-alert("SWIFT copiado");
-}
 
 </script>
 
