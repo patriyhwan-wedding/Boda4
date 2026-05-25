@@ -3,149 +3,164 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Patricia & Hyo Hwan</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
-/* ===== BASE ORIGINAL (SIN CAMBIOS ESTRUCTURALES) ===== */
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
 :root{
   --cream:#f6f1e7;
-  --soft-cream:#fffaf3;
   --eucalyptus:#8ba391;
-  --eucalyptus-dark:#6f8776;
-  --text:#5e665f;
-  --white:#ffffff;
+  --dark:#5e665f;
+  --white:#fff;
 }
+
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-  font-family:'Montserrat',sans-serif;
-  color:var(--text);
-  overflow-x:hidden;
+  font-family:Montserrat,sans-serif;
   background:
-  linear-gradient(rgba(246,241,231,0.72),rgba(246,241,231,0.82)),
-  url('foto_bailando.jpg') center center/cover fixed no-repeat;
+    linear-gradient(rgba(246,241,231,0.72),rgba(246,241,231,0.75)),
+    url("foto.jpg") center/cover fixed no-repeat;
+  color:var(--dark);
 }
 
-body.no-scroll{
-  overflow:hidden;
-}
-
-/* ===== LANGUAGE ===== */
-
-#language-selector{
-  position:fixed;
-  inset:0;
-  background:linear-gradient(rgba(246,241,231,0.97),rgba(246,241,231,0.97)),url('foto1.jpg') center center/cover;
+/* LANGUAGE */
+#lang{
+  position:fixed;inset:0;
+  background:var(--cream);
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
   z-index:9999;
+}
+
+#lang.hidden{display:none;}
+
+.lang-btn{
+  padding:12px 24px;
+  margin:10px;
+  border-radius:999px;
+  border:none;
+  background:rgba(139,163,145,0.2);
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-}
-
-#language-selector.hidden{
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-}
-
-/* ===== HERO FIX (BAJA TEXTO PARA NO TAPAR CARAS) ===== */
-
-.hero{
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:flex-start;
   text-align:center;
-  padding-top:260px; /* 🔥 MÁS BAJO */
-  position:relative;
+  padding-top:120px;
 }
 
-.hero-content{
-  width:100%;
-  position:relative;
-  z-index:2;
-  transform:translateY(40px);
+.hero h1{
+  font-family:"Cormorant Garamond";
+  font-size:4rem;
+  color:#fff;
+  text-shadow:0 5px 20px rgba(0,0,0,0.25);
 }
 
-/* ===== TIMER ===== */
+.hero p{color:#fff;letter-spacing:3px;}
 
 #timer{
-  margin-bottom:90px; /* 🔥 BAJADO */
+  background:rgba(255,255,255,0.7);
+  padding:10px 20px;
+  border-radius:999px;
+  margin-bottom:40px;
 }
 
-/* ===== BOTONES ===== */
+/* SECTIONS */
+section{
+  padding:80px 20px;
+  max-width:1100px;
+  margin:auto;
+}
 
+.title{
+  text-align:center;
+  font-size:2.5rem;
+  margin-bottom:20px;
+  font-family:"Cormorant Garamond";
+  color:var(--eucalyptus);
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:rgba(255,255,255,0.6);
+  padding:25px;
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+  text-align:center;
+}
+
+/* BUTTON */
 .btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:12px 22px;
+  background:var(--eucalyptus);
+  color:#fff;
+  border-radius:999px;
+  text-decoration:none;
+  border:none;
   cursor:pointer;
 }
 
-/* ===== COPY FEEDBACK ===== */
-
-#copyMessage{
-  opacity:0;
-  transition:.3s;
+/* MAP */
+iframe{
+  width:100%;
+  height:300px;
+  border:none;
+  border-radius:20px;
 }
+
+audio{display:none;}
 
 </style>
 </head>
 
-<body class="no-scroll">
+<body>
 
 <!-- LANGUAGE -->
-<div id="language-selector">
+<div id="lang">
 <h2>Choose Language</h2>
-
-<div class="lang-buttons">
-<button onclick="setLanguage('es')" class="lang-btn">Español</button>
-<button onclick="setLanguage('en')" class="lang-btn">English</button>
-<button onclick="setLanguage('fr')" class="lang-btn">Français</button>
-<button onclick="setLanguage('it')" class="lang-btn">Italiano</button>
-<button onclick="setLanguage('kr')" class="lang-btn">한국어</button>
-</div>
+<button class="lang-btn" onclick="setLang('es')">ES</button>
+<button class="lang-btn" onclick="setLang('en')">EN</button>
+<button class="lang-btn" onclick="setLang('fr')">FR</button>
+<button class="lang-btn" onclick="setLang('it')">IT</button>
+<button class="lang-btn" onclick="setLang('kr')">KR</button>
 </div>
 
 <!-- HERO -->
-<section class="hero">
-<div class="hero-content">
-
+<div class="hero">
 <div id="timer"></div>
-
-<p id="heroSubtitle">WE ARE GETTING MARRIED</p>
-
-<h1>Patricia & Hyo Hwan</h1>
-
-<p id="dateText">26 · September · 2026</p>
-
+<h1>Hyo Hwan & Patricia</h1>
+<p>26 · Septiembre · 2026</p>
 </div>
-</section>
 
 <!-- STORY -->
 <section>
-<h2 class="section-title" id="storyTitle"></h2>
-<p class="intro" id="storyText"></p>
+<h2 class="title" id="storyTitle"></h2>
+<p id="storyText" style="text-align:center;max-width:700px;margin:auto;"></p>
 </section>
 
 <!-- DETAILS -->
 <section>
-<h2 class="section-title" id="detailsTitle"></h2>
-
-<div class="details-grid">
+<div class="cards">
 
 <div class="card">
 <h3 id="ceremonyTitle"></h3>
 <p>17:30h</p>
-<p id="ceremonyPlace"></p>
+<p>Finca Siempre Verde</p>
 </div>
 
 <div class="card">
@@ -161,126 +176,99 @@ body.no-scroll{
 </div>
 
 </div>
+</section>
 
-<!-- HOTELS + PDF FIX -->
-<div class="details-grid">
+<!-- HOTELS -->
+<section>
+<div class="cards">
 
 <div class="card">
-
-<h3 id="stayTitle"></h3>
-
-<p id="stayText"></p>
-
 <p>Hotel Amistad Murcia</p>
-<a class="btn" target="_blank"
-href="Descuentos en hotel para vosotros.pdf">
-Hotel PDF
-</a>
+<a class="btn" target="_blank" href="Descuentos en hotel para vosotros.pdf">PDF</a>
+</div>
 
-<p style="margin-top:20px;">Cetina Murcia</p>
-<a class="btn" target="_blank"
-href="CETINA 2026 - SIEMPREVERDE-EL BOSCO.pdf">
-Hotel PDF
-</a>
-
+<div class="card">
+<p>Cetina Murcia</p>
+<a class="btn" target="_blank" href="CETINA 2026 - SIEMPREVERDE-EL BOSCO.pdf">PDF</a>
 </div>
 
 </div>
 </section>
 
-<!-- MUSIC -->
-<section>
-<h2 class="section-title" id="musicTitle"></h2>
-
-<a class="btn" target="_blank"
-href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe">
-Spotify Playlist
-</a>
+<!-- MUSIC + RSVP -->
+<section style="text-align:center;">
+<a class="btn" target="_blank" href="https://open.spotify.com/playlist/6rd8snJhjojWvrsnHi6Zfe">Spotify</a>
+<br><br>
+<a class="btn" target="_blank" href="https://forms.gle/VbBLwKAwJP2qk6uT9">RSVP</a>
 </section>
 
-<!-- RSVP -->
+<!-- MAP -->
 <section>
-<h2 class="section-title" id="confirmTitle"></h2>
+<h2 class="title">Cómo llegar</h2>
 
-<a class="btn" target="_blank"
-href="https://forms.gle/VbBLwKAwJP2qk6uT9">
-RSVP
-</a>
+<iframe
+src="https://www.google.com/maps?q=Finca%20Siempre%20Verde%20Murcia&output=embed">
+</iframe>
+
+<p style="text-align:center;margin-top:20px;">
+Taxi · Uber · Cabify · Bolt
+</p>
 </section>
 
 <!-- GIFTS -->
 <section>
-
-<h2 class="section-title">Regalos</h2>
-
 <div class="card">
 
 <p>IBAN: ESXX XXXX XXXX XXXX</p>
-<button class="btn" onclick="copyIBAN()">Copiar IBAN</button>
+<button class="btn" onclick="copy('iban')">Copiar IBAN</button>
 
 <p style="margin-top:20px;">SWIFT: XXXXESXX</p>
-<button class="btn" onclick="copySWIFT()">Copiar SWIFT</button>
-
-<p id="copyMessage">✓ Copiado</p>
+<button class="btn" onclick="copy('swift')">Copiar SWIFT</button>
 
 </div>
-
 </section>
 
 <!-- AUDIO -->
-<audio id="bg-music" loop>
-<source src="Lavieenrose.mp3" type="audio/mpeg">
+<audio id="music" loop>
+<source src="Lavieenrose.mp3">
 </audio>
 
 <script>
 
-/* MUSIC FIX */
-const audio=document.getElementById("bg-music");
-audio.volume=0.3;
+const music=document.getElementById("music");
 
-/* AUTO PLAY FIX */
-window.addEventListener("click",()=>{
-audio.play().catch(()=>{});
-},{once:true});
+document.addEventListener("click",()=>music.play(),{once:true});
 
-/* LANGUAGE FIX */
-function setLanguage(lang){
-
-document.getElementById("language-selector").classList.add("hidden");
-document.body.classList.remove("no-scroll");
-
-audio.play().catch(()=>{});
-
+/* LANG */
+function setLang(l){
+document.getElementById("lang").classList.add("hidden");
+music.play();
 }
 
-/* COUNTDOWN FIX */
-const weddingDate=new Date("2026-09-26T17:30:00").getTime();
+/* COUNTDOWN */
+const d=new Date("2026-09-26T17:30:00").getTime();
 
 setInterval(()=>{
+let now=new Date().getTime();
+let diff=d-now;
 
-const now=new Date().getTime();
-const diff=weddingDate-now;
-
-const months=Math.floor(diff/(1000*60*60*24*30));
-const days=Math.floor((diff/(1000*60*60*24))%30);
-const hours=Math.floor((diff/(1000*60*60))%24);
+let m=Math.floor(diff/1000/60/60/24/30);
+let days=Math.floor(diff/1000/60/60/24)%30;
+let h=Math.floor(diff/1000/60/60)%24;
 
 document.getElementById("timer").innerHTML=
-`${months} meses · ${days} días · ${hours}h`;
+`${m} meses · ${days} días · ${h}h`;
 
 },1000);
 
 /* COPY */
-function copyIBAN(){
-navigator.clipboard.writeText("ESXX XXXX XXXX XXXX");
-document.getElementById("copyMessage").style.opacity=1;
-setTimeout(()=>document.getElementById("copyMessage").style.opacity=0,2000);
+function copy(type){
+if(type==="iban"){
+navigator.clipboard.writeText("ESXX XXXX XXXX");
 }
-
-function copySWIFT(){
+if(type==="swift"){
 navigator.clipboard.writeText("XXXXESXX");
-document.getElementById("copyMessage").style.opacity=1;
-setTimeout(()=>document.getElementById("copyMessage").style.opacity=0,2000);
+}
 }
 
 </script>
