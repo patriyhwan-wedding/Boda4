@@ -6,7 +6,7 @@
 
 <title>Hyo Hwan & Patricia</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 
@@ -94,10 +94,12 @@ color:white;
 }
 
 .hero h1{
-font-family:'Cormorant Garamond',serif;
-font-size:5rem;
-font-weight:500;
-line-height:1;
+font-family:'Great Vibes',cursive;
+font-size:6rem;
+font-weight:400;
+line-height:1.1;
+letter-spacing:2px;
+text-shadow:0 4px 18px rgba(0,0,0,0.25);
 }
 
 .hero .names{
@@ -110,6 +112,18 @@ margin-top:14px;
 font-size:3rem;
 font-weight:700;
 margin-top:18px;
+}
+
+/* ICONS */
+
+.icon-image{
+width:90px;
+height:90px;
+object-fit:cover;
+border-radius:50%;
+margin:0 auto 18px;
+display:block;
+box-shadow:0 8px 20px rgba(0,0,0,0.12);
 }
 
 /* MUSIC BUTTON */
@@ -263,8 +277,18 @@ color:var(--green-dark);
 /* GIFTS */
 
 .gift-card{
-max-width:820px;
+max-width:620px;
 margin:auto;
+}
+
+.bank-box{
+background:rgba(255,255,255,0.75);
+padding:16px;
+border-radius:16px;
+margin-bottom:16px;
+max-width:420px;
+margin-left:auto;
+margin-right:auto;
 }
 
 /* FOOTER */
@@ -286,7 +310,7 @@ margin-top:8px;
 @media(max-width:768px){
 
 .hero h1{
-font-size:3.4rem;
+font-size:4rem;
 }
 
 .hero .date{
@@ -304,11 +328,9 @@ font-size:2.3rem;
 
 <body>
 
-<!-- LANGUAGE -->
-
 <div id="languageModal">
 
-<h2 id="selectLangTitle">Select language</h2>
+<h2>Select language</h2>
 
 <div class="language-buttons">
 <button onclick="setLang('es')">Español</button>
@@ -320,11 +342,7 @@ font-size:2.3rem;
 
 </div>
 
-<!-- MUSIC BUTTON -->
-
 <button id="musicToggle" onclick="toggleMusic()">♫</button>
-
-<!-- HERO -->
 
 <section class="hero">
 
@@ -340,8 +358,6 @@ Hyo Hwan & Patricia
 
 </section>
 
-<!-- COUNTDOWN -->
-
 <section>
 
 <div class="timer-card">
@@ -355,8 +371,6 @@ Cuenta atrás
 </div>
 
 </section>
-
-<!-- STORY -->
 
 <section>
 
@@ -372,13 +386,9 @@ Dos caminos completamente distintos terminaron cruzándose en el momento perfect
 
 </section>
 
-<!-- GRID 1 -->
-
 <section>
 
 <div class="grid">
-
-<!-- CEREMONIA -->
 
 <div class="card">
 
@@ -393,8 +403,6 @@ Finca Siempre Verde · Murcia
 <iframe src="https://www.google.com/maps?q=Finca+Siempre+Verde+Murcia&output=embed"></iframe>
 
 </div>
-
-<!-- CELEBRACION -->
 
 <div class="card">
 
@@ -411,8 +419,6 @@ Hasta el amanecer ✨
 <img src="Hora-Loca-en-bodas-la-nueva-tendencia-scaled.jpg">
 
 </div>
-
-<!-- CONFIRMACION -->
 
 <div class="card">
 
@@ -436,15 +442,13 @@ CONFIRMACIÓN Y SELECCIÓN DE MENÚ
 
 </section>
 
-<!-- GRID 2 -->
-
 <section>
 
 <div class="grid">
 
-<!-- COMO LLEGAR -->
-
 <div class="card">
+
+<img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=800&auto=format&fit=crop" class="icon-image">
 
 <h3 id="travelTitle">
 Cómo llegar
@@ -453,8 +457,6 @@ Cómo llegar
 <p id="travelText"></p>
 
 </div>
-
-<!-- ALOJAMIENTO -->
 
 <div class="card">
 
@@ -500,9 +502,9 @@ VER CETINA
 
 </div>
 
-<!-- MUSICA -->
-
 <div class="card">
+
+<img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=800&auto=format&fit=crop" class="icon-image">
 
 <h3 id="musicTitle">
 Música
@@ -523,8 +525,6 @@ ABRIR PLAYLIST
 </div>
 
 </section>
-
-<!-- TIMELINE -->
 
 <section>
 
@@ -552,8 +552,6 @@ Horario del día
 </div>
 
 </section>
-
-<!-- FAQ -->
 
 <section>
 
@@ -587,8 +585,6 @@ Preguntas frecuentes
 
 </section>
 
-<!-- REGALOS -->
-
 <section>
 
 <h2 class="section-title" id="giftTitle">
@@ -600,13 +596,13 @@ Regalos
 <p id="giftQuote"
 style="font-style:italic;line-height:1.9;margin-bottom:25px;"></p>
 
-<div style="background:rgba(255,255,255,0.7);padding:20px;border-radius:18px;margin-bottom:20px;">
+<div class="bank-box">
 
 <p style="font-weight:700;margin-bottom:10px;color:var(--green-dark);">
 IBAN
 </p>
 
-<div id="ibanText" style="margin-bottom:16px;">
+<div id="ibanText" style="margin-bottom:12px;">
 ESXX XXXX XXXX XXXX XXXX XXXX
 </div>
 
@@ -616,13 +612,13 @@ COPIAR IBAN
 
 </div>
 
-<div style="background:rgba(255,255,255,0.7);padding:20px;border-radius:18px;">
+<div class="bank-box">
 
 <p style="font-weight:700;margin-bottom:10px;color:var(--green-dark);">
 SWIFT / BIC
 </p>
 
-<div id="swiftText" style="margin-bottom:16px;">
+<div id="swiftText" style="margin-bottom:12px;">
 XXXXESXX
 </div>
 
@@ -641,8 +637,6 @@ style="margin-top:18px;opacity:0;transition:.3s;color:var(--green-dark);">
 
 </section>
 
-<!-- FOOTER -->
-
 <footer id="footerText">
 
 Hecho con amor · Patricia & Hyo Hwan
@@ -653,8 +647,6 @@ Hecho con amor · Patricia & Hyo Hwan
 
 </footer>
 
-<!-- MUSIC -->
-
 <audio id="bgMusic" loop>
 <source src="Lavieenrose.mp3" type="audio/mpeg">
 </audio>
@@ -663,7 +655,7 @@ Hecho con amor · Patricia & Hyo Hwan
 
 let currentLang = "es";
 
-const translations={
+const translations = {
 
 es:{
 heroTitle:"¡¡¡NOS CASAMOS!!!",
@@ -711,198 +703,6 @@ copyIbanBtn:"COPIAR IBAN",
 copySwiftBtn:"COPIAR SWIFT",
 footerText:"Hecho con amor · Patricia & Hyo Hwan",
 footerSmall:"(y un poco de ayuda de ChatGPT...)"
-},
-
-en:{
-heroTitle:"WE ARE GETTING MARRIED!!!",
-heroDate:"26 · SEPTEMBER · 2026",
-countdownTitle:"Countdown",
-months:"months",
-days:"days",
-hours:"hours",
-copied:"✓ Copied",
-storyTitle:"Our Story",
-storyText:"Two completely different paths crossed at the perfect moment. Between trips, planes, endless conversations and surviving in Charleroi (which is no small thing!), Patricia and Hyo Hwan have built their story together between waffles and fries, and now they want to celebrate the beginning of this new chapter surrounded by the people they love most.",
-ceremonyTitle:"Ceremony",
-ceremonyText:"Finca Siempre Verde · Murcia",
-celebrationTitle:"Celebration",
-celebrationText1:"Dinner & Party",
-celebrationText2:"Until sunrise ✨",
-confirmTitle:"RSVP",
-confirmText:"We would absolutely love to share this day with you. If you do not confirm before <b>September 1st</b>, we will sadly assume you cannot join us and you will have to settle for looking at the photos while crying dramatically in the rain.",
-confirmBtn:"RSVP & MENU SELECTION",
-travelTitle:"How to get there",
-travelText:"Nearby airports: Alicante & Murcia<br><br>Taxi · Uber · Cabify · Bolt<br><br>Parking available at the venue",
-stayTitle:"Accommodation",
-stayText1:"We have arranged special discounts for guests at nearby hotels.",
-hotelBtn:"VIEW HOTEL",
-cetinaBtn:"VIEW CETINA",
-musicTitle:"Music",
-musicText:"Add songs to our collaborative party playlist ✨",
-playlistBtn:"OPEN PLAYLIST",
-timelineTitle:"Day Schedule",
-timeline1:"Ceremony",
-timeline2:"Cocktail",
-timeline3:"Dinner",
-faqTitle:"Frequently Asked Questions",
-faq1q:"Can I bring a plus one?",
-faq1a:"Only if it is indicated in your invitation.",
-faq2q:"Is there parking?",
-faq2a:"Yes, inside the venue.",
-faq3q:"Is there a dress code?",
-faq3a:"Wear whatever you want, but look fabulous just in case 😉",
-faq4q:"Are the ceremony and celebration at the same venue?",
-faq4a:"Yes, everything will take place at the same venue.",
-giftTitle:"Gifts",
-giftQuote:"The best gift is sharing this day with you, but if you would like to help us begin this new adventure, you can do so here ✨",
-copyIbanBtn:"COPY IBAN",
-copySwiftBtn:"COPY SWIFT",
-footerText:"Made with love · Patricia & Hyo Hwan",
-footerSmall:"(and a little help from ChatGPT...)"
-},
-
-fr:{
-heroTitle:"ON SE MARIE !!!",
-heroDate:"26 · SEPTEMBRE · 2026",
-countdownTitle:"Compte à rebours",
-months:"mois",
-days:"jours",
-hours:"heures",
-copied:"✓ Copié",
-storyTitle:"Notre Histoire",
-storyText:"Deux chemins complètement différents se sont croisés au moment parfait. Entre voyages, avions, conversations infinies et survie à Charleroi (ce n’est pas rien !), Patricia et Hyo Hwan ont construit leur histoire entre gaufres et frites, et souhaitent maintenant célébrer le début de cette nouvelle aventure entourés des personnes qu’ils aiment le plus.",
-ceremonyTitle:"Cérémonie",
-ceremonyText:"Finca Siempre Verde · Murcia",
-celebrationTitle:"Célébration",
-celebrationText1:"Dîner & Fête",
-celebrationText2:"Jusqu’au lever du soleil ✨",
-confirmTitle:"Confirmation",
-confirmText:"Nous serions ravis de partager cette journée avec vous. Si vous ne confirmez pas avant le <b>1er septembre</b>, nous comprendrons malheureusement que vous ne pourrez pas être présents et vous devrez vous contenter de regarder les photos sous la pluie en pleurant.",
-confirmBtn:"CONFIRMATION & CHOIX DU MENU",
-travelTitle:"Comment arriver",
-travelText:"Aéroports proches : Alicante & Murcia<br><br>Taxi · Uber · Cabify · Bolt<br><br>Parking disponible sur place",
-stayTitle:"Hébergement",
-stayText1:"Nous avons obtenu des réductions spéciales pour les invités dans des hôtels proches.",
-hotelBtn:"VOIR L’HÔTEL",
-cetinaBtn:"VOIR CETINA",
-musicTitle:"Musique",
-musicText:"Ajoutez des chansons à notre playlist collaborative ✨",
-playlistBtn:"OUVRIR LA PLAYLIST",
-timelineTitle:"Programme de la journée",
-timeline1:"Cérémonie",
-timeline2:"Cocktail",
-timeline3:"Dîner",
-faqTitle:"Questions fréquentes",
-faq1q:"Puis-je venir avec un accompagnant ?",
-faq1a:"Seulement si cela est indiqué sur l’invitation.",
-faq2q:"Y a-t-il un parking ?",
-faq2a:"Oui, dans la propriété.",
-faq3q:"Y a-t-il un dress code ?",
-faq3a:"Comme vous voulez, mais soyez élégants 😉",
-faq4q:"La cérémonie et la fête ont-elles lieu au même endroit ?",
-faq4a:"Oui, tout aura lieu dans la même propriété.",
-giftTitle:"Cadeaux",
-giftQuote:"Le plus beau cadeau est de partager cette journée avec vous, mais si vous souhaitez nous aider à commencer cette nouvelle aventure, vous pouvez le faire ici ✨",
-copyIbanBtn:"COPIER IBAN",
-copySwiftBtn:"COPIER SWIFT",
-footerText:"Fait avec amour · Patricia & Hyo Hwan",
-footerSmall:"(et un peu d’aide de ChatGPT...)"
-},
-
-it:{
-heroTitle:"CI SPOSIAMO!!!",
-heroDate:"26 · SETTEMBRE · 2026",
-countdownTitle:"Conto alla rovescia",
-months:"mesi",
-days:"giorni",
-hours:"ore",
-copied:"✓ Copiato",
-storyTitle:"La Nostra Storia",
-storyText:"Due percorsi completamente diversi si sono incrociati nel momento perfetto. Tra viaggi, aerei, conversazioni infinite e sopravvivere a Charleroi (che non è poco!), Patricia e Hyo Hwan hanno costruito la loro storia tra waffle e patatine fritte e ora vogliono celebrare l’inizio di questa nuova avventura circondati dalle persone che amano di più.",
-ceremonyTitle:"Cerimonia",
-ceremonyText:"Finca Siempre Verde · Murcia",
-celebrationTitle:"Celebrazione",
-celebrationText1:"Cena & Festa",
-celebrationText2:"Fino all’alba ✨",
-confirmTitle:"Conferma",
-confirmText:"Ci farebbe davvero tantissimo piacere condividere questo giorno con te. Se non confermerai entro il <b>1 settembre</b>, capiremo purtroppo che non potrai essere con noi e dovrai accontentarti di guardare le foto piangendo sotto la pioggia.",
-confirmBtn:"CONFERMA & SCELTA MENU",
-travelTitle:"Come arrivare",
-travelText:"Aeroporti vicini: Alicante & Murcia<br><br>Taxi · Uber · Cabify · Bolt<br><br>Parcheggio disponibile nella tenuta",
-stayTitle:"Alloggio",
-stayText1:"Abbiamo ottenuto sconti speciali per gli ospiti negli hotel vicini.",
-hotelBtn:"VEDI HOTEL",
-cetinaBtn:"VEDI CETINA",
-musicTitle:"Musica",
-musicText:"Aggiungi canzoni alla nostra playlist collaborativa ✨",
-playlistBtn:"APRI PLAYLIST",
-timelineTitle:"Programma della giornata",
-timeline1:"Cerimonia",
-timeline2:"Cocktail",
-timeline3:"Cena",
-faqTitle:"Domande frequenti",
-faq1q:"Posso venire con un accompagnatore?",
-faq1a:"Solo se indicato nell’invito.",
-faq2q:"C’è parcheggio?",
-faq2a:"Sì, all’interno della tenuta.",
-faq3q:"C’è un dress code obbligatorio?",
-faq3a:"Come vuoi, ma vestiti bene che non si sa mai 😉",
-faq4q:"Cerimonia e festa si svolgono nello stesso luogo?",
-faq4a:"Sì, tutto si svolgerà nella stessa location.",
-giftTitle:"Regali",
-giftQuote:"Il regalo più bello è condividere questo giorno con voi, ma se volete aiutarci a iniziare questa nuova avventura, potete farlo qui ✨",
-copyIbanBtn:"COPIA IBAN",
-copySwiftBtn:"COPIA SWIFT",
-footerText:"Fatto con amore · Patricia & Hyo Hwan",
-footerSmall:"(e un piccolo aiuto di ChatGPT...)"
-},
-
-kr:{
-heroTitle:"저희 결혼합니다!!!",
-heroDate:"2026년 · 9월 26일",
-countdownTitle:"카운트다운",
-months:"개월",
-days:"일",
-hours:"시간",
-copied:"✓ 복사 완료",
-storyTitle:"우리의 이야기",
-storyText:"전혀 다른 두 사람이 완벽한 순간에 서로를 만나게 되었습니다. 여행과 비행기, 끝없는 대화, 그리고 샤를루아에서의 생존기까지! Patricia와 Hyo Hwan은 와플과 감자튀김 사이에서 사랑을 키워왔고, 이제 가장 사랑하는 사람들과 함께 새로운 시작을 축하하고 싶습니다.",
-ceremonyTitle:"예식",
-ceremonyText:"Finca Siempre Verde · Murcia",
-celebrationTitle:"축하연",
-celebrationText1:"디너 & 파티",
-celebrationText2:"새벽까지 ✨",
-confirmTitle:"참석 확인",
-confirmText:"이 특별한 날을 함께해주시면 정말 기쁠 거예요. <b>9월 1일</b> 이전까지 참석 여부를 알려주시지 않으면 함께하지 못하는 것으로 생각하고, 비 오는 날 사진을 보며 슬퍼하셔야 할지도 몰라요.",
-confirmBtn:"참석 확인 및 메뉴 선택",
-travelTitle:"오시는 길",
-travelText:"가까운 공항: Alicante & Murcia<br><br>택시 · Uber · Cabify · Bolt<br><br>주차 가능",
-stayTitle:"숙박",
-stayText1:"근처 호텔에서 하객 특별 할인을 준비했습니다.",
-hotelBtn:"호텔 보기",
-cetinaBtn:"CETINA 보기",
-musicTitle:"음악",
-musicText:"파티를 위한 공동 플레이리스트에 노래를 추가해주세요 ✨",
-playlistBtn:"플레이리스트 열기",
-timelineTitle:"일정",
-timeline1:"예식",
-timeline2:"칵테일",
-timeline3:"저녁식사",
-faqTitle:"자주 묻는 질문",
-faq1q:"동반인과 함께 갈 수 있나요?",
-faq1a:"초대장에 표시된 경우에만 가능합니다.",
-faq2q:"주차장이 있나요?",
-faq2a:"네, 장소 내부에 있습니다.",
-faq3q:"드레스 코드가 있나요?",
-faq3a:"원하는 스타일로 오세요. 하지만 멋지게 입고 오면 더 좋아요 😉",
-faq4q:"예식과 축하연이 같은 장소에서 진행되나요?",
-faq4a:"네, 모든 행사는 같은 장소에서 진행됩니다.",
-giftTitle:"선물",
-giftQuote:"가장 큰 선물은 여러분이 함께해주시는 것이지만, 새로운 시작을 응원해주고 싶으시다면 여기에서 마음을 전해주실 수 있습니다 ✨",
-copyIbanBtn:"IBAN 복사",
-copySwiftBtn:"SWIFT 복사",
-footerText:"사랑으로 만든 · Patricia & Hyo Hwan",
-footerSmall:"(그리고 ChatGPT의 작은 도움...)"
 }
 
 };
