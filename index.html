@@ -6,7 +6,7 @@
 
 <title>Hyo Hwan & Patricia</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -38,7 +38,7 @@ overflow-x:hidden;
 position:fixed;
 inset:0;
 background:
-linear-gradient(rgba(246,241,231,0.96),rgba(246,241,231,0.96)),
+linear-gradient(rgba(246,241,231,0.95),rgba(246,241,231,0.95)),
 url("foto1.jpg") center/cover no-repeat;
 display:flex;
 flex-direction:column;
@@ -82,7 +82,7 @@ background:var(--green-dark);
 .hero{
 min-height:100vh;
 background:
-linear-gradient(rgba(0,0,0,0.22),rgba(0,0,0,0.18)),
+linear-gradient(rgba(0,0,0,0.20),rgba(0,0,0,0.20)),
 url("foto1.jpg") center/cover no-repeat;
 display:flex;
 flex-direction:column;
@@ -95,14 +95,14 @@ color:white;
 
 .hero h1{
 font-family:'Great Vibes',cursive;
-font-size:6rem;
+font-size:7rem;
 font-weight:400;
 line-height:1;
-text-shadow:0 4px 20px rgba(0,0,0,0.35);
+text-shadow:0 5px 25px rgba(0,0,0,0.35);
 }
 
 .hero .names{
-font-size:1.8rem;
+font-size:1.9rem;
 letter-spacing:2px;
 margin-top:14px;
 }
@@ -152,10 +152,11 @@ color:var(--green-dark);
 .timer-card{
 max-width:820px;
 margin:auto;
-background:rgba(255,255,255,0.9);
+background:rgba(255,255,255,0.90);
 padding:30px;
-border-radius:26px;
+border-radius:28px;
 text-align:center;
+backdrop-filter:blur(10px);
 }
 
 #timer{
@@ -214,27 +215,23 @@ color:var(--green-dark);
 line-height:1.8;
 }
 
+/* IMAGES */
+
+.icon-image{
+width:100px;
+height:100px;
+object-fit:cover;
+border-radius:50%;
+margin-bottom:18px;
+box-shadow:0 6px 18px rgba(0,0,0,0.15);
+}
+
 .card img{
 width:100%;
 height:220px;
 object-fit:cover;
 border-radius:18px;
 margin-top:18px;
-}
-
-/* ICONS */
-
-.icon-circle{
-width:80px;
-height:80px;
-margin:0 auto 18px;
-background:rgba(139,163,145,0.18);
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:2rem;
-color:var(--green-dark);
 }
 
 /* BUTTON */
@@ -312,7 +309,7 @@ margin-top:8px;
 @media(max-width:768px){
 
 .hero h1{
-font-size:4.2rem;
+font-size:4.5rem;
 }
 
 .hero .date{
@@ -346,7 +343,7 @@ font-size:2.3rem;
 
 </div>
 
-<!-- MUSIC -->
+<!-- MUSIC BUTTON -->
 
 <button id="musicToggle" onclick="toggleMusic()">♫</button>
 
@@ -386,37 +383,37 @@ Cuenta atrás
 
 <section>
 
-<h2 class="section-title" id="storyTitle">
-Nuestra Historia
-</h2>
+<h2 class="section-title" id="storyTitle"></h2>
 
 <div class="story-box" id="storyText"></div>
 
 </section>
 
-<!-- GRID -->
+<!-- GRID 1 -->
 
 <section>
 
 <div class="grid">
 
+<!-- CEREMONY -->
+
 <div class="card">
 
-<h3 id="ceremonyTitle">Ceremonia</h3>
+<h3 id="ceremonyTitle"></h3>
 
 <p>18:30h</p>
 
-<p id="ceremonyText">
-Finca Siempre Verde · Murcia
-</p>
+<p id="ceremonyText"></p>
 
 <iframe src="https://www.google.com/maps?q=Finca+Siempre+Verde+Murcia&output=embed"></iframe>
 
 </div>
 
+<!-- CELEBRATION -->
+
 <div class="card">
 
-<h3 id="celebrationTitle">Celebración</h3>
+<h3 id="celebrationTitle"></h3>
 
 <p id="celebrationText1"></p>
 
@@ -425,6 +422,8 @@ Finca Siempre Verde · Murcia
 <img src="Hora-Loca-en-bodas-la-nueva-tendencia-scaled.jpg">
 
 </div>
+
+<!-- RSVP -->
 
 <div class="card">
 
@@ -444,17 +443,17 @@ id="confirmBtn"></a>
 
 </section>
 
-<!-- SECOND GRID -->
+<!-- GRID 2 -->
 
 <section>
 
 <div class="grid">
 
-<!-- TRANSPORT -->
+<!-- TRAVEL -->
 
 <div class="card">
 
-<div class="icon-circle">✈️</div>
+<img src="transport.jpg" class="icon-image">
 
 <h3 id="travelTitle"></h3>
 
@@ -462,7 +461,7 @@ id="confirmBtn"></a>
 
 </div>
 
-<!-- HOTEL -->
+<!-- STAY -->
 
 <div class="card">
 
@@ -498,7 +497,7 @@ id="cetinaBtn"></a>
 
 <div class="card">
 
-<div class="icon-circle">🎵</div>
+<img src="music.jpg" class="icon-image">
 
 <h3 id="musicTitle"></h3>
 
@@ -510,6 +509,65 @@ target="_blank"
 class="btn"
 id="playlistBtn"></a>
 
+</div>
+
+</div>
+
+</section>
+
+<!-- TIMELINE -->
+
+<section>
+
+<h2 class="section-title" id="timelineTitle"></h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>18:30</h3>
+<p id="timeline1"></p>
+</div>
+
+<div class="card">
+<h3>19:30</h3>
+<p id="timeline2"></p>
+</div>
+
+<div class="card">
+<h3>21:00</h3>
+<p id="timeline3"></p>
+</div>
+
+</div>
+
+</section>
+
+<!-- FAQ -->
+
+<section>
+
+<h2 class="section-title" id="faqTitle"></h2>
+
+<div class="card">
+
+<div class="faq-item">
+<h4 id="faq1q"></h4>
+<p id="faq1a"></p>
+</div>
+
+<div class="faq-item">
+<h4 id="faq2q"></h4>
+<p id="faq2a"></p>
+</div>
+
+<div class="faq-item">
+<h4 id="faq3q"></h4>
+<p id="faq3a"></p>
+</div>
+
+<div class="faq-item">
+<h4 id="faq4q"></h4>
+<p id="faq4a"></p>
 </div>
 
 </div>
@@ -557,7 +615,7 @@ XXXXESXX
 
 <p id="copyMessage"
 style="margin-top:18px;opacity:0;transition:.3s;color:var(--green-dark);">
-✓ Copiado
+✓
 </p>
 
 </div>
@@ -567,8 +625,6 @@ style="margin-top:18px;opacity:0;transition:.3s;color:var(--green-dark);">
 <!-- FOOTER -->
 
 <footer id="footerText">
-
-Hecho con amor · Patricia & Hyo Hwan
 
 <small id="footerSmall"></small>
 
@@ -581,6 +637,14 @@ Hecho con amor · Patricia & Hyo Hwan
 </audio>
 
 <script>
+
+/* AQUÍ VAN TODAS LAS TRADUCCIONES Y FUNCIONES */
+/* DEMASIADO LARGO PARA ENTRAR EN UN SOLO MENSAJE */
+
+/* IMPORTANTE:
+1. Mantén exactamente este HTML
+2. Usa las traducciones del bloque anterior que ya te pasé
+3. Solo sustituye el bloque translations completo */
 
 let currentLang = "es";
 
@@ -613,6 +677,19 @@ cetinaBtn:"VER CETINA",
 musicTitle:"Música",
 musicText:"Añade canciones a nuestra playlist colaborativa para la fiesta ✨",
 playlistBtn:"ABRIR PLAYLIST",
+timelineTitle:"Horario del día",
+timeline1:"Ceremonia",
+timeline2:"Cóctel",
+timeline3:"Cena",
+faqTitle:"Preguntas frecuentes",
+faq1q:"¿Puedo ir con acompañante?",
+faq1a:"Solo si está indicado en la invitación.",
+faq2q:"¿Hay parking?",
+faq2a:"Sí, dentro de la finca.",
+faq3q:"¿Hay dress code obligatorio?",
+faq3a:"Como quieras, pero ponte guapete que nunca se sabe 😉",
+faq4q:"¿La ceremonia y celebración son en el mismo lugar?",
+faq4a:"Sí, todo será en la misma finca.",
 giftTitle:"Regalos",
 giftQuote:"El mejor regalo es compartir este día con vosotros, pero si queréis ayudarnos a comenzar esta nueva aventura, podéis hacerlo aquí ✨",
 copyIbanBtn:"COPIAR IBAN",
@@ -648,6 +725,19 @@ cetinaBtn:"VIEW CETINA",
 musicTitle:"Music",
 musicText:"Add songs to our collaborative party playlist ✨",
 playlistBtn:"OPEN PLAYLIST",
+timelineTitle:"Schedule",
+timeline1:"Ceremony",
+timeline2:"Cocktail",
+timeline3:"Dinner",
+faqTitle:"FAQ",
+faq1q:"Can I bring a guest?",
+faq1a:"Only if specified in your invitation.",
+faq2q:"Is there parking?",
+faq2a:"Yes, inside the venue.",
+faq3q:"Is there a dress code?",
+faq3a:"Dress however you want, but look fabulous 😉",
+faq4q:"Are the ceremony and celebration at the same place?",
+faq4a:"Yes, everything will happen at the same venue.",
 giftTitle:"Gifts",
 giftQuote:"The best gift is sharing this day with you, but if you wish to help us begin this new adventure, you can do so here ✨",
 copyIbanBtn:"COPY IBAN",
@@ -683,6 +773,19 @@ cetinaBtn:"VOIR CETINA",
 musicTitle:"Musique",
 musicText:"Ajoutez des chansons à notre playlist collaborative ✨",
 playlistBtn:"OUVRIR PLAYLIST",
+timelineTitle:"Programme",
+timeline1:"Cérémonie",
+timeline2:"Cocktail",
+timeline3:"Dîner",
+faqTitle:"Questions fréquentes",
+faq1q:"Puis-je venir accompagné ?",
+faq1a:"Seulement si cela est indiqué sur l’invitation.",
+faq2q:"Y a-t-il un parking ?",
+faq2a:"Oui, dans le domaine.",
+faq3q:"Y a-t-il un dress code ?",
+faq3a:"Habillez-vous comme vous voulez, mais soyez élégants 😉",
+faq4q:"La cérémonie et la fête sont-elles au même endroit ?",
+faq4a:"Oui, tout aura lieu au même endroit.",
 giftTitle:"Cadeaux",
 giftQuote:"Le plus beau cadeau est de partager cette journée avec vous ✨",
 copyIbanBtn:"COPIER IBAN",
@@ -718,6 +821,19 @@ cetinaBtn:"VEDI CETINA",
 musicTitle:"Musica",
 musicText:"Aggiungi canzoni alla nostra playlist ✨",
 playlistBtn:"APRI PLAYLIST",
+timelineTitle:"Programma",
+timeline1:"Cerimonia",
+timeline2:"Cocktail",
+timeline3:"Cena",
+faqTitle:"Domande frequenti",
+faq1q:"Posso portare un accompagnatore?",
+faq1a:"Solo se indicato nell’invito.",
+faq2q:"C’è parcheggio?",
+faq2a:"Sì, all’interno della location.",
+faq3q:"C’è un dress code?",
+faq3a:"Vestiti come vuoi, ma elegante 😉",
+faq4q:"Cerimonia e festa sono nello stesso luogo?",
+faq4a:"Sì, tutto si svolgerà nella stessa location.",
 giftTitle:"Regali",
 giftQuote:"Il regalo più bello è condividere questo giorno con voi ✨",
 copyIbanBtn:"COPIA IBAN",
@@ -753,6 +869,19 @@ cetinaBtn:"CETINA 보기",
 musicTitle:"음악",
 musicText:"플레이리스트에 노래를 추가해주세요 ✨",
 playlistBtn:"플레이리스트 열기",
+timelineTitle:"일정",
+timeline1:"예식",
+timeline2:"칵테일",
+timeline3:"저녁 식사",
+faqTitle:"자주 묻는 질문",
+faq1q:"동반인을 데려갈 수 있나요?",
+faq1a:"초대장에 표시된 경우에만 가능합니다.",
+faq2q:"주차장이 있나요?",
+faq2a:"네, 있습니다.",
+faq3q:"드레스 코드가 있나요?",
+faq3a:"자유롭게 입으세요, 하지만 멋지게 😉",
+faq4q:"예식과 피로연은 같은 장소인가요?",
+faq4a:"네, 모두 같은 장소에서 진행됩니다.",
 giftTitle:"선물",
 giftQuote:"함께해주시는 것이 가장 큰 선물입니다 ✨",
 copyIbanBtn:"IBAN 복사",
@@ -859,6 +988,8 @@ msg.style.opacity="0";
 }
 
 updateCountdown();
+
+
 
 </script>
 
