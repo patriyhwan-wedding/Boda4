@@ -92,15 +92,17 @@ text-align:center;
 padding:60px 20px 40px;
 color:white;
 }
-
 .hero h1{
-font-family:'Great Vibes',cursive;
-font-size:7rem;
-font-weight:400;
+font-family:'Cormorant Garamond',serif;
+font-size:5rem;
+font-style:italic;
+font-weight:300;
 line-height:1;
-text-shadow:0 5px 25px rgba(0,0,0,0.35);
+letter-spacing:3px;
+text-transform:uppercase;
+text-shadow:0 4px 18px rgba(0,0,0,0.28);
 }
-
+  
 .hero .names{
 font-size:1.9rem;
 letter-spacing:2px;
@@ -280,14 +282,22 @@ max-width:720px;
 margin:auto;
 }
 
+.bank-container{
+display:flex;
+justify-content:center;
+gap:18px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
 .bank-box{
-background:rgba(255,255,255,0.7);
-padding:16px;
+background:rgba(255,255,255,0.72);
+padding:14px;
 border-radius:18px;
-margin-bottom:18px;
-max-width:420px;
-margin-left:auto;
-margin-right:auto;
+width:260px;
+text-align:center;
+backdrop-filter:blur(8px);
+
 }
 
 /* FOOTER */
@@ -584,14 +594,15 @@ id="playlistBtn"></a>
 
 <p id="giftQuote"
 style="font-style:italic;line-height:1.9;margin-bottom:25px;"></p>
+  <div class="bank-container">
 
 <div class="bank-box">
 
-<p style="font-weight:700;margin-bottom:10px;color:var(--green-dark);">
+<p style="font-weight:700;margin-bottom:8px;color:var(--green-dark);">
 IBAN
 </p>
 
-<div id="ibanText" style="margin-bottom:12px;">
+<div id="ibanText" style="margin-bottom:10px;font-size:.95rem;">
 ES64 1583 0001 1291 8396 3972
 </div>
 
@@ -601,22 +612,17 @@ ES64 1583 0001 1291 8396 3972
 
 <div class="bank-box">
 
-<p style="font-weight:700;margin-bottom:10px;color:var(--green-dark);">
+<p style="font-weight:700;margin-bottom:8px;color:var(--green-dark);">
 SWIFT / BIC
 </p>
 
-<div id="swiftText" style="margin-bottom:12px;">
+<div id="swiftText" style="margin-bottom:10px;font-size:.95rem;">
 REVOESM2
 </div>
 
 <button onclick="copySWIFT()" class="btn" id="copySwiftBtn"></button>
 
 </div>
-
-<p id="copyMessage"
-style="margin-top:18px;opacity:0;transition:.3s;color:var(--green-dark);">
-✓
-</p>
 
 </div>
 
