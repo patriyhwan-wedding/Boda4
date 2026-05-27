@@ -440,8 +440,53 @@ padding:60px 20px 55px;
 color:white;
 }
 */
+.hero{
+position:relative;
+min-height:100vh;
 
- .hero{
+background:
+linear-gradient(rgba(0,0,0,0.24),rgba(0,0,0,0.22)),
+url("foto1.jpg") center center/cover no-repeat;
+
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+align-items:center;
+text-align:center;
+
+padding:60px 20px 55px;
+color:white;
+overflow:hidden;
+}
+
+/* EFECTO FULL WIDTH SOLO EN DESKTOP */
+
+@media(min-width:769px){
+
+.hero{
+width:100vw;
+margin-left:calc(50% - 50vw);
+}
+
+}
+
+/* MÓVIL */
+
+@media(max-width:768px){
+
+.hero{
+background-position:center center;
+padding:40px 18px 45px;
+border-radius:0 0 28px 28px;
+}
+
+.hero::before{
+inset:10px;
+border-radius:22px;
+}
+
+}
+ /*.hero{
 position:relative;
 min-height:100vh;
 width:100vw;
@@ -461,7 +506,7 @@ padding:60px 20px 55px;
 color:white;
 
 overflow:hidden;
-}
+}*/
 
 /* MARCO ELEGANTE */
 
