@@ -325,51 +325,46 @@ margin-top:8px;
 @media(max-width:768px){
 
 .hero{
-min-height:82vh;
+min-height:72vh;
 
-background-image:
-linear-gradient(rgba(0,0,0,0.18),rgba(0,0,0,0.20)),
+background:
+linear-gradient(rgba(0,0,0,0.22),rgba(0,0,0,0.22)),
 url("foto1.jpg");
 
-background-position:center top;
+background-size:cover;
+background-position:center center;
 background-repeat:no-repeat;
-background-size:contain;
-background-color:#dfe7df;
 
-padding:40px 18px 42px;
+padding:30px 16px 40px;
 
 justify-content:flex-end;
 
-border-radius:0 0 30px 30px;
+border-radius:0 0 26px 26px;
+}
+
+.hero::before{
+inset:10px;
+border-radius:22px;
+}
+
+.hero h1{
+font-size:3.8rem;
+line-height:1;
+}
+
+.hero .names{
+font-size:.82rem;
+letter-spacing:3px;
+}
+
+.hero .date{
+font-size:1.3rem;
+letter-spacing:2px;
 }
 
 }
   
 
-
-
-.hero h1{
-font-size:4.1rem;
-}
-
-  }
-@media(max-width:768px){
-
-.hero h1{
-font-size:4rem;
-line-height:1.1;
-}
-
-.hero .date{
-font-size:1.45rem;
-letter-spacing:3px;
-}
-
-.section-title{
-font-size:2.3rem;
-}
-
-}
 
 </style>
 
