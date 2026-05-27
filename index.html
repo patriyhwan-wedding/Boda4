@@ -322,16 +322,19 @@ margin-top:8px;
 
 /* MOBILE */
 
-
-  @media(max-width:768px){
+@media(max-width:768px){
 
 .hero{
 min-height:82vh;
 
-background:
+background-image:
 linear-gradient(rgba(0,0,0,0.18),rgba(0,0,0,0.20)),
-url("foto1.jpg") top center/contain no-repeat,
-#dfe7df;
+url("foto1.jpg");
+
+background-position:center top;
+background-repeat:no-repeat;
+background-size:contain;
+background-color:#dfe7df;
 
 padding:40px 18px 42px;
 
@@ -339,6 +342,9 @@ justify-content:flex-end;
 
 border-radius:0 0 30px 30px;
 }
+
+}
+  
 
 
 
