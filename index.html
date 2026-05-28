@@ -446,7 +446,7 @@ font-size:clamp(1.2rem, 3.5vw, 2.5rem);
 <button onclick="setLang('en')">English</button>
 <button onclick="setLang('fr')">Français</button>
 <button onclick="setLang('it')">Italiano</button>
-<button onclick="setLang('kr')">한국어</button>
+<button onclick="setLang('ko')">한국어</button>
 </div>
 
 </div>
@@ -809,8 +809,8 @@ faq2Q:"🚘 주차장이 있나요?",
 faq2A:"네, 장소 내부에 있습니다.",
 footerText:"사랑을 담아 · Patricia & Hyo Hwan",
 footerCredit:"(그리고 ChatGPT의 약간의 도움과 함께...)",
-},
 }
+
 };
 
 let currentLang = 'es';
@@ -821,6 +821,11 @@ localStorage.setItem('lang', lang);
 
 const trans = translations[lang];
 
+if(document.getElementById('heroTitle'))
+document.getElementById('heroTitle').textContent = trans.heroTitle;
+
+if(document.getElementById('heroDate'))
+document.getElementById('heroDate').textContent = trans.heroDate;
 // Actualizar solo elementos que existen
 if(document.getElementById('countdownTitle')) document.getElementById('countdownTitle').textContent = trans.countdownTitle;
 if(document.getElementById('storyTitle')) document.getElementById('storyTitle').textContent = trans.storyTitle;
