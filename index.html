@@ -166,17 +166,22 @@ margin-top:18px;
 /* DESKTOP FULL WIDTH + FULL HEIGHT */
 @media (min-width: 769px) {
   .hero {
-    width: 100vw;
+    position: relative;
+
+    width: 100vw !important;
+    max-width: 100vw !important;
+
     margin-left: calc(50% - 50vw);
 
-    height: 100vh; /* ocupa toda la pantalla */
-    min-height: 100vh;
+    height: 100vh;
 
     background:
       linear-gradient(rgba(0,0,0,0.24), rgba(0,0,0,0.22)),
       url("foto1.jpg") center center / cover no-repeat;
 
     padding: 60px 20px 55px;
+
+    overflow: hidden;
   }
 }
 
