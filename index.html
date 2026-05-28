@@ -140,31 +140,52 @@ text-shadow:0 4px 14px rgba(0,0,0,0.25);
 margin-top:18px;
 }
 
-/* EFECTO FULL WIDTH SOLO EN DESKTOP */
+/* HERO BASE (MOBILE FIRST) */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  height: 60vh;
 
-@media(min-width:769px){
+  background:
+    linear-gradient(rgba(0,0,0,0.24), rgba(0,0,0,0.22)),
+    url("foto1.jpg") center/cover no-repeat;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
 
+  padding: 40px 20px;
+  color: white;
 
+  overflow: hidden;
 }
 
-/* MÓVIL */
+/* DESKTOP FULL WIDTH + FULL HEIGHT */
+@media (min-width: 769px) {
+  .hero {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
 
+    height: 100vh; /* ocupa toda la pantalla */
+    min-height: 100vh;
 
+    background:
+      linear-gradient(rgba(0,0,0,0.24), rgba(0,0,0,0.22)),
+      url("foto1.jpg") center center / cover no-repeat;
 
-@media(max-width:768px){
-
-.hero{
-background:
-linear-gradient(rgba(0,0,0,0.24),rgba(0,0,0,0.22)),
-url("foto1.jpg") center top/cover no-repeat;
-
-padding:40px 18px 45px;
-border-radius:0 0 28px 28px;
+    padding: 60px 20px 55px;
+  }
 }
 
+/* AJUSTE FINO EN PANTALLAS MUY ALTAS (OPCIONAL) */
+@media (min-width: 1400px) {
+  .hero {
+    background-position: center 45%;
+  }
 }
-
   
 
 
