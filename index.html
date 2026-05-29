@@ -98,8 +98,60 @@ transform:translateY(-2px);
 
 /* HERO */
 
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.28), rgba(0,0,0,0.25)),
+    url("foto1.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+
+  padding: 60px 20px;
+  color: white;
+  overflow: hidden;
+}
+
+/* MÓVIL */
+@media (max-width:768px){
 
 .hero{
+background-position:70% center;
+height:100svh;
+min-height:100svh;
+}
+
+}
+
+/* DESKTOP */
+@media (min-width:769px){
+
+.hero{
+background-position:center 20%;
+}
+
+}
+
+/* PANTALLAS MUY GRANDES */
+@media (min-width:1400px){
+
+.hero{
+background-position:center 15%;
+}
+
+}
+/*.hero{
 position:relative;
 min-height:100vh;
 
@@ -128,7 +180,7 @@ min-height:100svh;
 }
 
 
-    }
+    }*/
 .hero h1{
 font-family:'Montserrat',sans-serif;
 font-size:clamp(1.2rem, 3.5vw, 2.5rem);
@@ -153,7 +205,7 @@ text-shadow:0 4px 14px rgba(0,0,0,0.25);
 margin-top:18px;
 }
 
-.hero {
+/*.hero {
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -177,14 +229,14 @@ margin-top:18px;
 }
 
 /* IMPORTANTE: mejor encuadre en desktop */
-@media (min-width: 769px) {
+/*@media (min-width: 769px) {
   .hero {
     background-position: center 20%;
   }
 }
 
 /* pantallas grandes */
-@media (min-width: 1400px) {
+/*@media (min-width: 1400px) {
   .hero {
     background-position: center 15%;
   }
@@ -192,12 +244,11 @@ margin-top:18px;
 }
 
 /* AJUSTE FINO EN PANTALLAS MUY ALTAS (OPCIONAL) */
-@media (min-width: 1400px) {
+/*@media (min-width: 1400px) {
   .hero {
     background-position: center 45%;
   }
-}
-  
+}*/
 
 
 
