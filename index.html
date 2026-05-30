@@ -464,7 +464,46 @@ box-shadow:0 8px 18px rgba(0,0,0,0.08);
 background:var(--sage-dark);
 transform:translateY(-2px);
 }
+.btn{
+display:inline-block;
+margin-top:18px;
+padding:12px 24px;
 
+background:var(--sage);
+color:white;
+
+text-decoration:none;
+font-size:.9rem;
+font-weight:500;
+letter-spacing:.8px;
+
+border:none;
+outline:none;
+
+border-radius:999px;
+
+cursor:pointer;
+
+appearance:none;
+-webkit-appearance:none;
+-moz-appearance:none;
+
+box-shadow:0 8px 18px rgba(0,0,0,0.08);
+
+transition:.3s;
+}
+
+.btn:hover{
+background:var(--sage-dark);
+transform:translateY(-2px);
+}
+
+.btn:focus,
+.btn:active{
+outline:none;
+border:none;
+box-shadow:0 8px 18px rgba(0,0,0,0.08);
+}
 /* MAP */
 
 iframe{
@@ -837,7 +876,9 @@ REVOESM2
 <button onclick="copySWIFT()" class="btn" id="copySwiftBtn"></button>
 
 </div>
+<a href="#" onclick="copyIBAN(); return false;" class="btn" id="copyIbanBtn"></a>
 
+<a href="#" onclick="copySWIFT(); return false;" class="btn" id="copySwiftBtn"></a>
 </div>
 
 </section>
